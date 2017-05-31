@@ -1,0 +1,151 @@
+body {
+  background-color: #000;
+  margin: 0 !important;
+}
+
+a {
+  font-family: "Helvetica Neue", sans-serif;;
+}
+.wrapper {
+  width: 100%;
+}
+
+.phone-wrapper {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.slick-list {
+  padding-left: 0 !important;
+}
+
+.phone-wrapper {
+  position: relative;
+  background-image: url(../images/iphone.png);
+  background-repeat: no-repeat;
+  background-size: 400px 800px;
+  width: 400px;
+  height: 800px;
+}
+
+/*@media only screen and (max-width: 500px) {
+  .phone-wrapper {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 400px 800px;
+    width: 400px;
+    height: 800px;
+  }
+}*/
+
+a {
+  color: #fff;
+  text-decoration: none;
+  line-height: 30px;
+  text-align: center;
+}
+
+.icon {
+  width: 50px;
+  height: 67px;
+}
+
+.crop {
+  position: absolute;
+  background-image: url(../images/iphone-bg4.jpg);
+  background-repeat: no-repeat;
+  background-size: 360px 792px;
+  width: 360px !important;
+  height: 615px;
+  top: 92px;
+  margin-left: 20px;
+}
+
+/*@media only screen and (max-width: 500px) {
+  .crop {
+    top: -110px;
+    left: -27px;
+    background-size: 416px 917px;
+    width: 415px !important;
+    height: 818px;
+  }
+}*/
+
+.messages {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  width: 360px;
+  height: 667px;
+  z-index: 1000;
+}
+
+/*@media only screen and (max-width: 500px) {
+  .messages {
+    width: 415px;
+  }
+}*/
+
+.messages ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.messages li {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #ccc;
+}
+
+.menu-bottom {
+  position: absolute;
+  background-image: url(../images/bottom-nav-bg.png);
+  background-repeat: no-repeat;
+  height: 73px;
+  width: 325px;
+  bottom: 93px;
+  margin-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-left: 35px;
+  text-align: center;
+}
+
+/*@media only screen and (max-width: 500px) {
+  .menu-bottom {
+    position: absolute;
+    bottom: 0;
+    margin-left: -8px;
+    width: 378px;
+  }
+}*/
+
+.menu-bottom .icon-wrapper {
+  width: 73px;
+}
+
+.screen {
+  padding-top: 20px;
+  padding-left: 35px;
+}
+
+/*@media only screen and (max-width: 500px) {
+  .screen {
+    padding-left: 15px;
+  }
+}*/
+
+.nav {
+  width: 100%;
+  background-color: #000;
+  margin: 20px auto;
+}
+.will-logo {
+  margin: 0 auto;
+  display: block;
+}
+
+.icon-wrapper a {
+  float: left;
+  margin-right: 30px;
+}
