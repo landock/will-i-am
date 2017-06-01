@@ -21,7 +21,7 @@ a {
 
 .phone-wrapper {
   position: relative;
-  background-image: url(../images/iphone.png);
+  background-image: url(./images/iphone.png);
   background-repeat: no-repeat;
   background-size: 400px 800px;
   width: 400px;
@@ -52,7 +52,7 @@ a {
 
 .crop {
   position: absolute;
-  background-image: url(../images/iphone-bg4.jpg);
+  background-image: url(./images/iphone-bg4.jpg);
   background-repeat: no-repeat;
   background-size: 360px 792px;
   width: 360px !important;
@@ -99,7 +99,7 @@ a {
 
 .menu-bottom {
   position: absolute;
-  background-image: url(../images/bottom-nav-bg.png);
+  background-image: url(./images/bottom-nav-bg.png);
   background-repeat: no-repeat;
   height: 73px;
   width: 325px;
@@ -148,4 +148,8 @@ a {
 .icon-wrapper a {
   float: left;
   margin-right: 30px;
+}
+
+.will {
+	border: 1px solid red;
 }
