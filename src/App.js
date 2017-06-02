@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Slider from 'react-slick'
 import Messages from './components/Messages'
 
-import logo from './images/will-logo.png';
+
 import messagesIcon from './images/messages-icon.png';
+import musicIcon from './images/music-icon.png';
 import twitterIcon from './images/twitter-icon.png';
 import facebookIcon from './images/facebook-icon.png';
 import instagramIcon from './images/instagram-icon.png';
@@ -28,24 +29,25 @@ class App extends Component {
           autoplay:false,
           draggable: true,
           infinite: false,
-          arrows:false,
+          arrows: false,
           centerMode: false,
           slidesToShow:1,
           slidesToScroll:1,
-          touchMove: true,
+          touchMove: false,
     };
     return (
       <div className="App">
 		<div className="nav">
-			<img className="will-logo" src={logo}/>
+
 		</div>
 		<div className="wrapper">
 			<div className="phone-wrapper">
 				<div className="crop">
 
 					{this.state.areMessagesDisplayed ? <Messages /> : ''}
+          {this.state.areMusicDisplayed ? <Messages /> : ''}
 
-					<Slider {...settings} >
+					<Slider {...settings} class="slider">
 						<div className="screen">
 							<div className="icon-wrapper">
 								<a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
@@ -65,7 +67,10 @@ class App extends Component {
 
 				</div>
 				<div className="menu-bottom">
-					<div className="icon-wrapper"><a href="https://twitter.com" target="_blank"><img className="icon" src="images/messages-icon.png"/></a></div>
+					<div className="icon-wrapper"><a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
+            <a onClick={this.handleMusicClick} id="music"><img className="icon" src={musicIcon} /></a>
+          </div>
+
 				</div>
 			</div>
 		</div>
@@ -74,6 +79,9 @@ class App extends Component {
   }
 handleMessagesClick = (e) => {
 	this.setState({areMessagesDisplayed: !this.state.areMessagesDisplayed});
+}
+handleMusicClick = (e) => {
+	this.setState({areMusicDisplayed: !this.state.areMusicDisplayed});
 }
 }
 

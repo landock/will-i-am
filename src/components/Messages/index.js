@@ -33,7 +33,10 @@ export default class Messages extends Component {
 
 	render() {
 	    return (
-			<div> {
+
+			<div className={'conv'}>
+        <header><span className={'left'}></span><h2>Adele</h2></header>
+      {
 				 this.state.conversations.map( (conversation, idx) => {
 					return (
 						<div key={idx}>
@@ -42,8 +45,10 @@ export default class Messages extends Component {
 								conversation.messages.map((message, idx) => {
 									return (
 										<div key={idx} className={message.sender}>
+                      <p className={'sender-name'}>{message.sender}</p>
+                      <div className={'message-wrap'}>
 											<p>{message.message}</p>
-											<p>{message.published_at}</p>
+                      </div>
 										</div>
 									)
 								})
