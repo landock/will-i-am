@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick'
 import Messages from './components/Messages'
-
+import Music from './components/Music'
 
 import messagesIcon from './images/messages-icon.png';
 import musicIcon from './images/music-icon.png';
@@ -16,22 +16,23 @@ class App extends Component {
   constructor(props) {
 	  super(props);
 	  this.state = {
-      isHomeDisplayed: true,
-      areMessagesDisplayed: false
+      isHomeDisplayed     : true,
+      areMessagesDisplayed: false,
+      isMusicDisplayed    : false
     }
   }
 
-  handleMessagesClick = (e) => {
+  handleMessagesClick = () => {
     this.setState({
-      isHomeDisplayed: !this.state.isHomeDisplayed,
+      isHomeDisplayed     : !this.state.isHomeDisplayed,
       areMessagesDisplayed: !this.state.areMessagesDisplayed
     });
   }
 
-  handleMusicClick = (e) => {
+  handleMusicClick = () => {
     this.setState({
-      isHomeDisplayed: !this.state.isHomeDisplayed,
-      areMusicDisplayed: !this.state.areMusicDisplayed
+      isHomeDisplayed : !this.state.isHomeDisplayed,
+      isMusicDisplayed: !this.state.isMusicDisplayed
     });
   }
 
@@ -57,15 +58,15 @@ class App extends Component {
         <div className="screen">
           <div className="icon-wrapper">
             <a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
-            <a href="https://twitter.com" target="_blank"><img className="icon" src={twitterIcon} /></a>
-            <a href="https://facebook.com" target="_blank"><img className="icon" src={facebookIcon} /></a>
-            <a href="https://instagram.com" target="_blank"><img className="icon" src={instagramIcon}/></a>
+            <a href="https://twitter.com" target="_blank"      ><img className="icon" src={twitterIcon}  /></a>
+            <a href="https://facebook.com" target="_blank"     ><img className="icon" src={facebookIcon} /></a>
+            <a href="https://instagram.com" target="_blank"    ><img className="icon" src={instagramIcon}/></a>
           </div>
         </div>
         <div className="screen">
           <div className="icon-wrapper">
-            <a href="https://twitter.com" target="_blank"><img className="icon" src={twitterIcon} /></a>
-            <a href="https://facebook.com" target="_blank"><img className="icon" src={facebookIcon} /></a>
+            <a href="https://twitter.com" target="_blank"  ><img className="icon" src={twitterIcon}  /></a>
+            <a href="https://facebook.com" target="_blank" ><img className="icon" src={facebookIcon} /></a>
             <a href="https://instagram.com" target="_blank"><img className="icon" src={instagramIcon}/></a>
           </div>
         </div>
@@ -74,8 +75,9 @@ class App extends Component {
 
     const homeFooter = (
       <div className="menu-bottom">
-        <div className="icon-wrapper"><a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
-          <a onClick={this.handleMusicClick} id="music"><img className="icon" src={musicIcon} /></a>
+        <div className="icon-wrapper">
+          <a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
+          <a onClick={this.handleMusicClick}    id="music"   ><img className="icon" src={musicIcon}    /></a>
         </div>
       </div>
     );
@@ -87,12 +89,12 @@ class App extends Component {
         <div className="wrapper">
           <div className="phone-wrapper">
             <div className="crop">
-              {this.state.isHomeDisplayed ? homeSlider : ''}
+              {this.state.isHomeDisplayed      ? homeSlider                                      : ''}
               {this.state.areMessagesDisplayed ? <Messages closeApp={this.handleMessagesClick}/> : ''}
-              {this.state.areMusicDisplayed ? <Messages /> : ''}
+              {this.state.isMusicDisplayed     ? <Music    closeApp={this.handleMusicClick}/>    : ''}
             </div>
             <div>
-              {this.state.isHomeDisplayed ? homeFooter : ''}
+              {this.state.isHomeDisplayed      ? homeFooter                                      : ''}
             </div>
           </div>
         </div>
