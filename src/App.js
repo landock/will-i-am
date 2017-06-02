@@ -15,8 +15,24 @@ class App extends Component {
 
   constructor(props) {
 	  super(props);
-	  this.state = {areMessagesDisplayed: false}
+	  this.state = {
+      isHomeDisplayed: true,
+      areMessagesDisplayed: false
+    }
+  }
 
+  handleMessagesClick = (e) => {
+    this.setState({
+      isHomeDisplayed: !this.state.isHomeDisplayed,
+      areMessagesDisplayed: !this.state.areMessagesDisplayed
+    });
+  }
+
+  handleMusicClick = (e) => {
+    this.setState({
+      isHomeDisplayed: !this.state.isHomeDisplayed,
+      areMusicDisplayed: !this.state.areMusicDisplayed
+    });
   }
 
   render() {
@@ -35,55 +51,54 @@ class App extends Component {
           slidesToScroll:1,
           touchMove: false,
     };
+
+    const homeSlider = (
+      <Slider {...settings} class="slider">
+        <div className="screen">
+          <div className="icon-wrapper">
+            <a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
+            <a href="https://twitter.com" target="_blank"><img className="icon" src={twitterIcon} /></a>
+            <a href="https://facebook.com" target="_blank"><img className="icon" src={facebookIcon} /></a>
+            <a href="https://instagram.com" target="_blank"><img className="icon" src={instagramIcon}/></a>
+          </div>
+        </div>
+        <div className="screen">
+          <div className="icon-wrapper">
+            <a href="https://twitter.com" target="_blank"><img className="icon" src={twitterIcon} /></a>
+            <a href="https://facebook.com" target="_blank"><img className="icon" src={facebookIcon} /></a>
+            <a href="https://instagram.com" target="_blank"><img className="icon" src={instagramIcon}/></a>
+          </div>
+        </div>
+      </Slider>
+    );
+
+    const homeFooter = (
+      <div className="menu-bottom">
+        <div className="icon-wrapper"><a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
+          <a onClick={this.handleMusicClick} id="music"><img className="icon" src={musicIcon} /></a>
+        </div>
+      </div>
+    );
+
     return (
       <div className="App">
-		<div className="nav">
+        <div className="nav"></div>
 
-		</div>
-		<div className="wrapper">
-			<div className="phone-wrapper">
-				<div className="crop">
-
-					{this.state.areMessagesDisplayed ? <Messages closeApp={this.handleMessagesClick}/> : ''}
-          {this.state.areMusicDisplayed ? <Messages /> : ''}
-
-					<Slider {...settings} class="slider">
-						<div className="screen">
-							<div className="icon-wrapper">
-								<a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
-								<a href="https://twitter.com" target="_blank"><img className="icon" src={twitterIcon} /></a>
-								<a href="https://facebook.com" target="_blank"><img className="icon" src={facebookIcon} /></a>
-								<a href="https://instagram.com" target="_blank"><img className="icon" src={instagramIcon}/></a>
-							</div>
-						</div>
-						<div className="screen">
-							<div className="icon-wrapper">
-								<a href="https://twitter.com" target="_blank"><img className="icon" src={twitterIcon} /></a>
-								<a href="https://facebook.com" target="_blank"><img className="icon" src={facebookIcon} /></a>
-								<a href="https://instagram.com" target="_blank"><img className="icon" src={instagramIcon}/></a>
-							</div>
-						</div>
-					</Slider>
-
-				</div>
-				<div className="menu-bottom">
-					<div className="icon-wrapper"><a onClick={this.handleMessagesClick} id="messages"><img className="icon" src={messagesIcon} /></a>
-            <a onClick={this.handleMusicClick} id="music"><img className="icon" src={musicIcon} /></a>
+        <div className="wrapper">
+          <div className="phone-wrapper">
+            <div className="crop">
+              {this.state.isHomeDisplayed ? homeSlider : ''}
+              {this.state.areMessagesDisplayed ? <Messages closeApp={this.handleMessagesClick}/> : ''}
+              {this.state.areMusicDisplayed ? <Messages /> : ''}
+            </div>
+            <div>
+              {this.state.isHomeDisplayed ? homeFooter : ''}
+            </div>
           </div>
-
-				</div>
-			</div>
-		</div>
+        </div>
       </div>
     );
   }
-handleMessagesClick = (e) => {
-	this.setState({areMessagesDisplayed: !this.state.areMessagesDisplayed});
 }
-handleMusicClick = (e) => {
-	this.setState({areMusicDisplayed: !this.state.areMusicDisplayed});
-}
-}
-
 
 export default App;
