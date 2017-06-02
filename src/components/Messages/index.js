@@ -62,11 +62,11 @@ export default class Messages extends Component {
     const renderSelectedConversations = (
       <div>
         {
-          this.state.areConversationsDisplayed ? 
+          this.state.areConversationsDisplayed ?
           <Conversations
             conversation={this.state.conversations[this.state.conversationSelected]}
             backToMessages={(e) => this.handleConversationClick(e)}
-          /> : 
+          /> :
           ''
         }
       </div>
@@ -83,7 +83,7 @@ export default class Messages extends Component {
     );
 
     return (
-      <div>
+      <div className='message-list'>
         { this.state.areConversationsDisplayed ? '' : renderListMessages }
 
         { renderSelectedConversations }
