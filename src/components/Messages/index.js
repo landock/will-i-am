@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { List, ListItem, ListSubHeader, ListDivider } from 'react-toolbox/lib/list';
+import Conversations from '../Conversations'
 
 export default class Messages extends Component {
 
   constructor(props) {
 	  super(props);
-	  this.state = {conversations:[]}
-
+	  this.state = {
+      conversations: [],
+      conversationSelected: '',
+      areConversationsDisplayed: false
+    }
   }
 
   /*
-  For now we'll just let each component manage it's data fetching but we'll
-  probably move this into a services layer at some point.
+  For now we'll just let each component manage it's data fetching but we'll  probably move this into a services layer at some point.
   */
   componentDidMount() {
 	  axios.get('https://private-830eb4-wiammessages.apiary-mock.com/conversations')
@@ -20,43 +24,70 @@ export default class Messages extends Component {
 		  this.setState({
 			  conversations: conversations
 		  });
-		  console.log(this.state);
 	  })
 	  .catch( error => console.log(error));
-
   }
 
-  handleContactClick = (e) => {
-	  e.preventDefault();
-	  console.log(e);
+  onMessagesHeaderClick = (e) => {
+    this.props.closeApp(e);
+  }
+
+  handleConversationClick = (e, index) => {
+    e.preventDefault();
+
+    this.setState({
+      areConversationsDisplayed: !this.state.areConversationsDisplayed,
+      conversationSelected: index
+    });
   }
 
 	render() {
-	    return (
+    const listMessages = (
+      this.state.conversations.map((conversation, index) => {
+        return(
+          <div key={index}>
+            <ListItem
+              id={index}
+              avatar=""
+              caption={conversation.contact}
+              legend={conversation.messages[conversation.messages.length-1].message}
+              onClick={(e) => this.handleConversationClick(e, index)}
+            />
+            <ListDivider />
+          </div>
+        );
+      })
+    );
 
-			<div className={'conv'}>
-        <header><span className={'left'}></span><h2>Adele</h2></header>
-      {
-				 this.state.conversations.map( (conversation, idx) => {
-					return (
-						<div key={idx}>
-							<h2><button onClick={this.handleContactClick}>{conversation.contact}</button></h2>
-							{
-								conversation.messages.map((message, idx) => {
-									return (
-										<div key={idx} className={message.sender}>
-                      <p className={'sender-name'}>{message.sender}</p>
-                      <div className={'message-wrap'}>
-											<p>{message.message}</p>
-                      </div>
-										</div>
-									)
-								})
-							}
-						</div>
-					)
-				})
-			} </div>
+    const renderSelectedConversations = (
+      <div>
+        {
+          this.state.areConversationsDisplayed ? 
+          <Conversations
+            conversation={this.state.conversations[this.state.conversationSelected]}
+            backToMessages={(e) => this.handleConversationClick(e)}
+          /> : 
+          ''
+        }
+      </div>
+    );
+
+    const renderListMessages = (
+      <List selectable ripple>
+        <div onClick={this.onMessagesHeaderClick}>
+          <div className="tmpHeader"> {'<'} Messages </div>
+        </div>
+
+        { listMessages }
+      </List>
+    );
+
+    return (
+      <div>
+        { this.state.areConversationsDisplayed ? '' : renderListMessages }
+
+        { renderSelectedConversations }
+      </div>
 		);
 	}
 }

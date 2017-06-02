@@ -44,7 +44,7 @@ class App extends Component {
 			<div className="phone-wrapper">
 				<div className="crop">
 
-					{this.state.areMessagesDisplayed ? <Messages /> : ''}
+					{this.state.areMessagesDisplayed ? <Messages closeApp={this.handleMessagesClick}/> : ''}
           {this.state.areMusicDisplayed ? <Messages /> : ''}
 
 					<Slider {...settings} class="slider">
