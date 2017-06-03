@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { List, ListItem, ListSubHeader, ListDivider } from 'react-toolbox/lib/list';
+import { List, ListItem, ListDivider } from 'react-toolbox/lib/list';
 import Conversations from '../Conversations'
 
 export default class Messages extends Component {
