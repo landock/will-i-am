@@ -3,7 +3,9 @@ body {
   background-color: #000;
   margin: 0 !important; }
 
-a, p, h2 {
+a,
+p,
+h2 {
   font-family: "Helvetica Neue", sans-serif; }
 
 .wrapper {
@@ -78,11 +80,10 @@ a {
 .messages ul {
   list-style: none;
   padding-left: 10px; }
-
-.messages li {
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #ccc; }
+  .messages ul li {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #ccc; }
 
 .menu-bottom {
   position: absolute;
@@ -141,7 +142,7 @@ a {
   color: #363636;
   margin-right: 80px;
   text-align: left; }
-  .message-wrap:before {
+  .message-wrap::before {
     border-color: #E5E4E9;
     border-radius: 50% 50% 50% 50%;
     border-style: solid;
@@ -153,7 +154,7 @@ a {
     position: absolute;
     right: 208px;
     width: 30px;
-    top: 57px; }
+    bottom: -15px; }
 
 .will .message-wrap {
   border-radius: 20px 20px 20px 20px;
@@ -163,7 +164,7 @@ a {
   background-color: #2095FE;
   color: #fff;
   margin-left: 80px; }
-  .will .message-wrap:before {
+  .will .message-wrap::before {
     border-color: #2095FE;
     clip: rect(20px, 35px, 42px, 0px);
     right: -15px;
