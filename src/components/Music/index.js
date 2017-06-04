@@ -10,11 +10,11 @@ export default class Music extends Component {
     return (
       <div>
         <div onClick={(e)=>this.onMusicHeaderClick(e)}>
-          <div className="tmpHeader"> {'<'} MUSIC </div>
+          <div className="tmpHeader"> <div className="arrow">{'<'}</div> <div className="music-header-cp">Music</div></div>
         </div>
         <iframe
           width="100%"
-          height="450"
+          height="620"
           scrolling="no"
           frameBorder="no"
           title="music"

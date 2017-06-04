@@ -9,7 +9,7 @@ export default class Conversations extends Component {
     return(
       <div>
         <div onClick={(e)=>this.onConversationHeaderClick(e)}>
-          <div className="tmpHeader"> {'<'} Messages </div>
+          <div className="tmpHeader"> <div className="arrow">{'<'}</div> <div className="messages-header-cp">Messages</div></div>
         </div>
 
         {this.props.conversation.messages.map((message, index)=>{

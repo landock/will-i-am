@@ -9,6 +9,7 @@ import musicIcon from './images/music-icon.png';
 import twitterIcon from './images/twitter-icon.png';
 import facebookIcon from './images/facebook-icon.png';
 import instagramIcon from './images/instagram-icon.png';
+import photosIcon from './images/photos-icon.png';
 
 import './App.css';
 
@@ -66,10 +67,11 @@ class App extends Component {
       <Slider {...settings} class="slider">
         <div className="screen">
           <div className="icon-wrapper">
-            <a onClick={this.handleMessagesClick} id="messages"                     ><img className="icon" alt="icon" src={messagesIcon} /></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" ><img className="icon" alt="icon" src={twitterIcon}  /></a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={facebookIcon} /></a>
-            <a onClick={this.handlePhotosClick}                                     ><img className="icon" alt="icon" src={instagramIcon}/></a>
+            <a href="http://www.twitter.com/iamwill" target="_blank" rel="noopener noreferrer" ><img className="icon" alt="icon" src={twitterIcon}  /></a>
+            <a href="https://www.facebook.com/william" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={facebookIcon} /></a>
+            <a href="https://instagram.com/iamwill" target="_blank"><img className="icon" alt="icon" src={instagramIcon}/></a>
+            <a onClick={this.handleMusicClick}  id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
+            <a onClick={this.handlePhotosClick} id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
           </div>
         </div>
         <div className="screen">
@@ -86,7 +88,6 @@ class App extends Component {
       <div className="menu-bottom">
         <div className="icon-wrapper">
           <a onClick={this.handleMessagesClick} id="messages"><img className="icon" alt="icon" src={messagesIcon}/></a>
-          <a onClick={this.handleMusicClick}    id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
         </div>
       </div>
     );

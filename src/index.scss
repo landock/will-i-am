@@ -1,4 +1,5 @@
 body {
+  font-family: "Helvetica Neue", sans-serif;
   background-color: #000;
   margin: 0 !important;
 }
@@ -146,9 +147,16 @@ a {
   display: block;
 }
 
-.icon-wrapper a {
-  float: left;
-  margin-right: 30px;
+.icon-wrapper {
+  a {
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.message-wrap {
+  text-align: left;
 }
 
 .will .message-wrap {
@@ -254,13 +262,12 @@ a {
 }
 
 .tmpHeader {
-  color: #2095FE;
-  background: #eee;
+  color: #333;
+  background: #f7f7f8;
   border: 1px solid #ccc;
-  border-bottom: 1px solid #bbb;
-  box-shadow: 0 1px 2px rgba(1,1,1,0.2);
+  border-bottom: 1px solid #ccc;
   height: 60px;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   line-height: 58px;
   white-space: nowrap;
@@ -268,6 +275,15 @@ a {
   top: 0;
   z-index: 100;
   width: 358px;
+
+
+  .arrow {
+    display: inline;
+    float: left;
+    font-size: 30px;
+    font-family: Tahoma;
+    margin-left: 10px;
+  }
 
   h2 {
     font-weight: bold;
@@ -284,6 +300,17 @@ a {
       height: 545px;
       overflow: scroll;
 
+   span {
+     display: block;
+     font-weight: bold;
+     margin-bottom: 3px;
+   }
+
+   span:nth-child(2n) {
+     font-weight: normal;
+     color: #999;
+   }
+
   ul {
     margin: 0;
     padding: 0;
@@ -298,4 +325,46 @@ a {
         margin-left: 10px;
       }
   }
+}
+
+hr {
+  border-top: 1px solid #f1f1f1;
+}
+
+.music-header-cp {
+  margin-right: 154px;
+  float: right;
+}
+
+.photos-header-cp {
+  margin-right: 147px;
+  float: right;
+}
+
+.messages-header-cp {
+  margin-right: 132px;
+  float: right;
+}
+
+.sender-name::first-letter {
+  text-transform: uppercase;
+}
+
+.image-crop {
+    width:120px;
+    height:120px;
+    overflow:hidden;
+    float: left;
+
+    img {
+      height: 120px;
+      width: auto;
+    }
+}
+
+.photos {
+  height: 553px;
+  background-color: #fff;
+  overflow: scroll;
+  margin-top: 62px;
 }

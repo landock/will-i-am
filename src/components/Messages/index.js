@@ -75,7 +75,7 @@ export default class Messages extends Component {
     const renderListMessages = (
       <List selectable ripple>
         <div onClick={this.onMessagesHeaderClick}>
-          <div className="tmpHeader"> {'<'} Messages </div>
+          <div className="tmpHeader"> <div className="arrow">{'<'}</div> <div className="messages-header-cp">Messages</div> </div>
         </div>
 
         { listMessages }

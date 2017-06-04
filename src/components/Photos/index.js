@@ -28,9 +28,9 @@ export default class Photos extends Component {
       return (
         <div>
           <div onClick={(e)=>this.onPhotoHeaderClick(e)}>
-            <div className="tmpHeader"> {'<'} PHOTOS </div>
+            <div className="tmpHeader"> <div className="arrow">{'<'}</div> <div className="photos-header-cp">Photos</div></div>
           </div>
-
+          <div className="photos">
           {this.state.imageArray.map((image, index) => {
             return(
               <div key={index} className="image-crop">
@@ -38,6 +38,7 @@ export default class Photos extends Component {
               </div>
               );
           })}
+          </div>
         </div>
       );
   }
