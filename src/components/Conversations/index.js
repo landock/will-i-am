@@ -14,10 +14,10 @@ export default class Conversations extends Component {
 
         {this.props.conversation.messages.map((message, index)=>{
           return (
-            <div key={index} className={message.sender}>
-              <p className={'sender-name'}>{message.sender}</p>
-              <div className={'message-wrap'}>
-                <p>{message.message}</p>
+            <div key={index} className={'speech-bubble ' + message.sender.toLowerCase()}>
+              <p className="sender-name">{message.sender}</p>
+              <div className="message-wrap">
+                <p>{message.body}</p>
               </div>
             </div>
           );
