@@ -45,7 +45,7 @@ export default class Photos extends Component {
           return images.map((image, index) => {
             return(
 				<div key={index}className="image-crop">
-					<a onClick={this.onPhotoClick(image)}>
+					<a href="javascript:void(0)" onClick={this.onPhotoClick(image)}>
 					  	<img src={image} alt={image} />
 					</a>
 	            </div>

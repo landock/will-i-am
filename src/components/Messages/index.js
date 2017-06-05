@@ -65,12 +65,12 @@ export default class Messages extends Component {
     const renderSelectedConversations = (
       <div>
         {
-          this.state.areConversationsDisplayed ?
-          <Conversations
+          this.state.areConversationsDisplayed
+          ? <Conversations
             conversation={this.state.conversations[this.state.conversationSelected]}
             backToMessages={(e) => this.handleConversationClick(e)}
-          /> :
-          ''
+          /> 
+          : ''
         }
       </div>
     );
