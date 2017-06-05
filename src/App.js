@@ -10,6 +10,9 @@ import twitterIcon from './images/twitter-icon.png';
 import facebookIcon from './images/facebook-icon.png';
 import instagramIcon from './images/instagram-icon.png';
 import photosIcon from './images/photos-icon.png';
+import illIcon from './images/ill-icon.png';
+import iamIcon from './images/iam-icon.png';
+import angelIcon from './images/angel-icon.png';
 
 import './App.css';
 
@@ -72,6 +75,9 @@ class App extends Component {
             <a href="https://instagram.com/iamwill" target="_blank"><img className="icon" alt="icon" src={instagramIcon}/></a>
             <a onClick={this.handleMusicClick}  id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
             <a onClick={this.handlePhotosClick} id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
+            <a href="https://iamplus.com" target="_blank"><img className="icon" alt="icon" src={iamIcon}/></a>
+            <a href="https://ill.i.am/" target="_blank"><img className="icon" alt="icon" src={illIcon}/></a>
+            <a href="http://iamangelfoundation.org/" target="_blank"><img className="icon" alt="icon" src={angelIcon}/></a>
           </div>
         </div>
         <div className="screen">
