@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { List, ListItem, ListDivider } from 'react-toolbox/lib/list';
 import Conversations from '../Conversations'
+import AppHeader from '../AppHeader';
 
 export default class Messages extends Component {
 
@@ -76,9 +77,8 @@ export default class Messages extends Component {
 
     const renderListMessages = (
       <List selectable ripple>
-        <div onClick={this.onMessagesHeaderClick}>
-          <div className="tmpHeader"> <div className="arrow">{'<'}</div> <div className="messages-header-cp">Messages</div> </div>
-        </div>
+
+	  <AppHeader name="messages" onHeaderClick={() => this.onMessagesHeaderClick() } />
 
         { listMessages }
       </List>

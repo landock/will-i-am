@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchImages } from '../../api/flickr';
+import AppHeader from '../AppHeader';
 
 export default class Photos extends Component {
   constructor(props) {
@@ -31,14 +32,9 @@ export default class Photos extends Component {
 
   render() {
       return (
-        <div>
-          <div onClick={(e)=>this.onPhotoHeaderClick(e)}>
-            <div className="tmpHeader">
-				<div className="arrow">{'<'}</div>
-				<div className="photos-header-cp">Photos</div>
-			</div>
-          </div>
-          <div className="photos">
+        <div className="Photos">
+		  <AppHeader name="photos" onHeaderClick={() => this.onPhotoHeaderClick()} />
+          <div className="photos-container">
 			  {this.state.selectedImageUrl ? this.renderSelectedImage(this.state.selectedImageUrl)  : this.renderThumbnails(this.state.imageArray) }
           </div>
         </div>
@@ -49,8 +45,8 @@ export default class Photos extends Component {
           return images.map((image, index) => {
             return(
 				<div key={index}className="image-crop">
-					<a onClick={this.onPhotoClick(image)} href={void(0)}>
-					  	<img src={image} alt={image} width="358"/>
+					<a onClick={this.onPhotoClick(image)}>
+					  	<img src={image} alt={image} />
 					</a>
 	            </div>
             );

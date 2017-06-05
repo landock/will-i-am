@@ -312,6 +312,11 @@ a {
 hr {
 	border-top: 1px solid #f1f1f1;
 }
+.AppHeader {
+	text-transform: capitalize;
+	cursor: pointer;
+}
+
 
 .music-header-cp {
 	margin-right: 154px;
@@ -349,7 +354,7 @@ hr {
 	}
 }
 
-.photos {
+.photos-container {
 	height: 553px;
 	background-color: #fff;
 	overflow: scroll;
