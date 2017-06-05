@@ -18,7 +18,9 @@ export default class Messages extends Component {
   For now we'll just let each component manage it's data fetching but we'll  probably move this into a services layer at some point.
   */
   componentDidMount() {
-	  axios.get('https://private-830eb4-wiammessages.apiary-mock.com/conversations')
+	  let apiUrl = 'https://still-brushlands-60581.herokuapp.com/api/v1/conversations';
+	  let mockApiUrl= 'https://private-830eb4-wiammessages.apiary-mock.com/conversations';
+	  axios.get(apiUrl)
 	  .then((data) => {
 		  let conversations = data.data;
 		  this.setState({
@@ -49,8 +51,8 @@ export default class Messages extends Component {
             <ListItem
               id={index}
               avatar=""
-              caption={conversation.contact}
-              legend={conversation.messages[conversation.messages.length-1].message}
+              caption={conversation.name}
+              legend={conversation.messages[conversation.messages.length-1].body}
               onClick={(e) => this.handleConversationClick(e, index)}
             />
             <ListDivider />

@@ -4,8 +4,8 @@ body {
   margin: 0 !important; }
 
 a,
-p,
-h2 {
+h2,
+p {
   font-family: "Helvetica Neue", sans-serif; }
 
 .wrapper {
@@ -20,7 +20,7 @@ h2 {
 
 .phone-wrapper {
   position: relative;
-  background-image: url(./images/iphone.png);
+  background-image: url("./images/iphone.png");
   background-repeat: no-repeat;
   background-size: 400px 800px;
   width: 400px;
@@ -47,7 +47,7 @@ a {
 
 .crop {
   position: absolute;
-  background-image: url(./images/bep-bg2.jpg);
+  background-image: url("./images/bep-bg2.jpg");
   background-repeat: no-repeat;
   background-size: 360px 522px;
   width: 360px !important;
@@ -87,7 +87,7 @@ a {
 
 .menu-bottom {
   position: absolute;
-  background-image: url(./images/bottom-nav-bg.png);
+  background-image: url("./images/bottom-nav-bg.png");
   background-repeat: no-repeat;
   height: 73px;
   width: 325px;
@@ -156,7 +156,7 @@ a {
     width: 30px;
     bottom: -15px; }
 
-.will .message-wrap {
+.will .message-wrap, .keolo .message-wrap {
   border-radius: 20px 20px 20px 20px;
   margin: 0 15px 10px;
   padding: 15px 20px;
@@ -164,13 +164,13 @@ a {
   background-color: #2095FE;
   color: #fff;
   margin-left: 80px; }
-  .will .message-wrap::before {
+  .will .message-wrap::before, .keolo .message-wrap::before {
     border-color: #2095FE;
     clip: rect(20px, 35px, 42px, 0px);
     right: -15px;
     width: 30px; }
 
-.will .sender-name {
+.will .sender-name, .keolo .sender-name {
   text-align: left;
   color: #333;
   font-size: 14px;
@@ -289,6 +289,9 @@ hr {
   .image-crop img {
     height: 120px;
     width: auto; }
+  .image-crop a {
+    width: 100%;
+    height: 100%; }
 
 .photos {
   height: 553px;

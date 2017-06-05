@@ -33,10 +33,13 @@ export default class Photos extends Component {
       return (
         <div>
           <div onClick={(e)=>this.onPhotoHeaderClick(e)}>
-            <div className="tmpHeader"> <div className="arrow">{'<'}</div> <div className="photos-header-cp">Photos</div></div>
+            <div className="tmpHeader">
+				<div className="arrow">{'<'}</div>
+				<div className="photos-header-cp">Photos</div>
+			</div>
           </div>
           <div className="photos">
-		  {this.state.selectedImageUrl ? this.renderSelectedImage(this.state.selectedImageUrl)  : this.renderThumbnails(this.state.imageArray) }
+			  {this.state.selectedImageUrl ? this.renderSelectedImage(this.state.selectedImageUrl)  : this.renderThumbnails(this.state.imageArray) }
           </div>
         </div>
       );
