@@ -75,9 +75,9 @@ class App extends Component {
             <a href="https://instagram.com/iamwill" target="_blank"><img className="icon" alt="icon" src={instagramIcon}/></a>
             <a onClick={this.handleMusicClick}  id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
             <a onClick={this.handlePhotosClick} id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
-            <a href="https://iamplus.com" target="_blank"><img className="icon" alt="icon" src={iamIcon}/></a>
-            <a href="https://ill.i.am/" target="_blank"><img className="icon" alt="icon" src={illIcon}/></a>
-            <a href="http://iamangelfoundation.org/" target="_blank"><img className="icon" alt="icon" src={angelIcon}/></a>
+            <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={iamIcon}/></a>
+            <a href="https://ill.i.am/" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={illIcon}/></a>
+            <a href="http://iamangelfoundation.org/" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={angelIcon}/></a>
           </div>
         </div>
         <div className="screen">
