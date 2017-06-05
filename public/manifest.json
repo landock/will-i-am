@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "will.i.am",
+  "name": "www.will.i.am is the home of everything will.i.am, the multi-faceted entertainer and creative innovator, and a seven-time Grammy Award winner.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,5 +11,5 @@
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000"
 }
