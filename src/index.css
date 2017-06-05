@@ -295,3 +295,18 @@ hr {
   background-color: #fff;
   overflow: scroll;
   margin-top: 62px; }
+
+.full-width {
+  position: relative;
+  cursor: pointer; }
+  .full-width img {
+    width: 100%;
+    height: auto; }
+  .full-width::after {
+    position: absolute;
+    right: 0;
+    content: "x";
+    color: white;
+    background: #000;
+    padding: 3px 6px;
+    opacity: 0.8; }

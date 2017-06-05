@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { fetchImages } from '../../api/flickr';
-import Modal from 'react-modal';
 
 export default class Photos extends Component {
   constructor(props) {
@@ -46,13 +45,11 @@ export default class Photos extends Component {
   renderThumbnails = (images) => {
           return images.map((image, index) => {
             return(
-				<div key={index}>
-					<div className="image-crop">
-						<a onClick={this.onPhotoClick(image)}>
-						  	<img src={image} alt={image} width="358"/>
-						</a>
-		              </div>
-				</div>
+				<div key={index}className="image-crop">
+					<a onClick={this.onPhotoClick(image)} href={void(0)}>
+					  	<img src={image} alt={image} width="358"/>
+					</a>
+	            </div>
             );
 		});
 
@@ -60,7 +57,7 @@ export default class Photos extends Component {
 
   renderSelectedImage = (imageUrl) => {
 	  return (
-		  <div onClick={() => {this.setState({selectedImageUrl: ''})}}>
+		  <div className="full-width" onClick={() => this.setState({selectedImageUrl: ''})}>
 			  <img src={imageUrl} alt={imageUrl} />
 		  </div>
 	  )
