@@ -72,7 +72,7 @@ class App extends Component {
           <div className="icon-wrapper">
             <a href="http://www.twitter.com/iamwill" target="_blank" rel="noopener noreferrer" ><img className="icon" alt="icon" src={twitterIcon}  /></a>
             <a href="https://www.facebook.com/william" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={facebookIcon} /></a>
-            <a href="https://instagram.com/iamwill" target="_blank"><img className="icon" alt="icon" src={instagramIcon}/></a>
+            <a href="https://instagram.com/iamwill" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={instagramIcon}/></a>
             <a onClick={this.handleMusicClick}  id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
             <a onClick={this.handlePhotosClick} id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
             <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={iamIcon}/></a>

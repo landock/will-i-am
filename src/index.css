@@ -27,13 +27,13 @@ p {
   height: 800px; }
 
 /*@media only screen and (max-width: 500px) {
-  .phone-wrapper {
-    background-image: none;
-    background-repeat: no-repeat;
-    background-size: 400px 800px;
-    width: 400px;
-    height: 800px;
-  }
+.phone-wrapper {
+background-image: none;
+background-repeat: no-repeat;
+background-size: 400px 800px;
+width: 400px;
+height: 800px;
+}
 }*/
 a {
   color: #fff;
@@ -56,13 +56,13 @@ a {
   margin-left: 20px; }
 
 /*@media only screen and (max-width: 500px) {
-  .crop {
-    top: -110px;
-    left: -27px;
-    background-size: 416px 917px;
-    width: 415px !important;
-    height: 818px;
-  }
+.crop {
+top: -110px;
+left: -27px;
+background-size: 416px 917px;
+width: 415px !important;
+height: 818px;
+}
 }*/
 .message {
   display: none;
@@ -73,9 +73,9 @@ a {
   z-index: 1000; }
 
 /*@media only screen and (max-width: 500px) {
-  .messages {
-    width: 415px;
-  }
+.messages {
+width: 415px;
+}
 }*/
 .messages ul {
   list-style: none;
@@ -99,15 +99,15 @@ a {
   text-align: center; }
 
 /*@media only screen and (max-width: 500px) {
-  .menu-bottom {
-    position: absolute;
-    bottom: 0;
-    margin-left: -8px;
-    width: 378px;
-  }
+.menu-bottom {
+position: absolute;
+bottom: 0;
+margin-left: -8px;
+width: 378px;
+}
 }*/
 /*.menu-bottom .icon-wrapper {
-  width: 73px;
+width: 73px;
 }*/
 .screen {
   padding-top: 20px;
@@ -115,9 +115,9 @@ a {
   min-height: 600px; }
 
 /*@media only screen and (max-width: 500px) {
-  .screen {
-    padding-left: 15px;
-  }
+.screen {
+padding-left: 15px;
+}
 }*/
 .nav {
   width: 100%;
@@ -251,6 +251,12 @@ a {
   .message-list span:nth-child(2n) {
     font-weight: normal;
     color: #999; }
+  .message-list p {
+    padding: 0;
+    margin: 0; }
+  .message-list aside {
+    color: #aaa;
+    font-weight: normal; }
   .message-list ul {
     margin: 0;
     padding: 0; }
@@ -261,10 +267,13 @@ a {
       color: #333;
       font-size: 14px;
       font-family: "Helvetica Neue", sans-serif;
-      margin-left: 10px; }
+      margin-left: 5px;
+      margin-right: 5px; }
 
 hr {
-  border-top: 1px solid #f1f1f1; }
+  background-color: #ccc;
+  height: 1px;
+  border: none; }
 
 .AppHeader {
   text-transform: capitalize;
@@ -304,6 +313,9 @@ hr {
   overflow: scroll;
   margin-top: 62px; }
 
+.conversation {
+  cursor: pointer; }
+
 .full-width {
   position: relative;
   cursor: pointer; }
@@ -317,4 +329,8 @@ hr {
     color: white;
     background: #000;
     padding: 3px 6px;
-    opacity: 0.8; }
+    opacity: 0.8;
+    margin: 10px;
+    border-radius: 50%;
+    height: 20px;
+    width: 15px; }
