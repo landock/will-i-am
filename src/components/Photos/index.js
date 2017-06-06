@@ -6,9 +6,9 @@ export default class Photos extends Component {
   constructor(props) {
     super(props);
 
-    this.state={
+    this.state = {
       imageArray: [],
-	  selectedImageUrl: ''
+		  selectedImageUrl: ''
     }
   }
 
@@ -33,25 +33,23 @@ export default class Photos extends Component {
   render() {
       return (
         <div className="Photos">
-		  <AppHeader name="photos" onHeaderClick={() => this.onPhotoHeaderClick()} />
+				  <AppHeader name="photos" onHeaderClick={() => this.onPhotoHeaderClick()} />
           <div className="photos-container">
-			  {this.state.selectedImageUrl ? this.renderSelectedImage(this.state.selectedImageUrl)  : this.renderThumbnails(this.state.imageArray) }
+				  {this.state.selectedImageUrl ? this.renderSelectedImage(this.state.selectedImageUrl) : this.renderThumbnails(this.state.imageArray)}
           </div>
         </div>
       );
   }
 
   renderThumbnails = (images) => {
-          return images.map((image, index) => {
-            return(
+		return images.map((image, index) => (
 				<div key={index}className="image-crop">
 					<a href="javascript:void(0)" onClick={this.onPhotoClick(image)}>
-					  	<img src={image} alt={image} />
-					</a>
-	            </div>
-            );
-		});
+					  	<img src={image} role="presentation" />
 
+					</a>
+        </div>
+      ));
   }
 
   renderSelectedImage = (imageUrl) => {
