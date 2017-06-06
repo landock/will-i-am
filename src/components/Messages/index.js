@@ -20,7 +20,7 @@ export default class Messages extends Component {
     const apiUrl = 'https://still-brushlands-60581.herokuapp.com/api/v1/conversations';
     const mockApiUrl = 'https://private-830eb4-wiammessages.apiary-mock.com/conversations';
 
-    axios.get(mockApiUrl)
+    axios.get(apiUrl)
     .then((data) => {
       const conversations = data.data;
       this.setState({
