@@ -45,38 +45,33 @@ export default class Messages extends Component {
   render() {
     const listMessages = (
       this.state.conversations.map((conversation, index) => (
-        <li
-          className="conversation"
-          key={index}
-        >
-          <div role="button" onClick={e => this.onConversationClick(e, index)}>
+        <li className="conversation" key={index}>
+          <div role="button" tabIndex={0} onClick={e => this.onConversationClick(e, index)}>
             <p><strong>{conversation.name}</strong></p>
             <aside>{conversation.messages[conversation.messages.length - 1].body}</aside>
             <hr />
           </div>
         </li>
-        ))
+      ))
     );
 
     const renderSelectedConversations = (
       <div className="selected-conversation">
         {
-        this.state.areConversationsDisplayed ?
-          <Conversations
-            conversation={this.state.conversations[this.state.conversationSelected]}
-            backToMessages={e => this.onConversationClick(e)}
-          /> :
-        ''
-      }
+          this.state.areConversationsDisplayed ?
+            <Conversations
+              conversation={this.state.conversations[this.state.conversationSelected]}
+              backToMessages={e => this.onConversationClick(e)}
+            /> :
+          ''
+        }
       </div>
     );
 
     const renderListMessages = (
       <div>
         <AppHeader name="messages" onHeaderClick={this.onMessagesHeaderClick} />
-        <ul>
-          { listMessages }
-        </ul>
+        <ul>{ listMessages }</ul>
       </div>
     );
 
