@@ -141,7 +141,9 @@ padding-left: 15px;
   background-color: #E5E4E9;
   color: #363636;
   margin-right: 80px;
-  text-align: left; }
+  text-align: left;
+  line-height: 20px;
+  margin-bottom: 20px; }
   .message-wrap::before {
     border-color: #E5E4E9;
     border-radius: 50% 50% 50% 50%;
@@ -155,6 +157,8 @@ padding-left: 15px;
     right: 208px;
     width: 30px;
     bottom: -15px; }
+  .message-wrap img {
+    width: 223px; }
 
 .will .message-wrap, .keolo .message-wrap {
   border-radius: 20px 20px 20px 20px;
@@ -163,27 +167,28 @@ padding-left: 15px;
   position: relative;
   background-color: #2095FE;
   color: #fff;
-  margin-left: 80px; }
+  margin-left: 80px;
+  margin-bottom: 20px; }
   .will .message-wrap::before, .keolo .message-wrap::before {
     border-color: #2095FE;
     clip: rect(20px, 35px, 42px, 0px);
     right: -15px;
     width: 30px; }
 
-.will .sender-name, .keolo .sender-name {
-  text-align: left;
-  color: #333;
-  font-size: 14px;
-  font-family: "Helvetica Neue", sans-serif;
-  margin-left: 95px;
-  margin-bottom: 5px; }
-
-.sender-name {
+.speech-bubble .sender-name {
   text-align: left;
   color: #333;
   font-size: 14px;
   font-family: "Helvetica Neue", sans-serif;
   margin-left: 35px;
+  margin-bottom: 5px; }
+
+.speech-bubble.will .sender-name {
+  text-align: left;
+  color: #333;
+  font-size: 14px;
+  font-family: "Helvetica Neue", sans-serif;
+  margin-left: 95px;
   margin-bottom: 5px; }
 
 .left {
@@ -227,8 +232,7 @@ padding-left: 15px;
   z-index: 100;
   width: 358px; }
   .tmpHeader .arrow {
-    display: inline;
-    float: left;
+    position: absolute;
     font-size: 30px;
     font-family: Tahoma;
     margin-left: 10px; }
@@ -279,20 +283,8 @@ hr {
   text-transform: capitalize;
   cursor: pointer; }
 
-.music-header-cp {
-  margin-right: 154px;
-  float: right; }
-
-.photos-header-cp {
-  margin-right: 147px;
-  float: right; }
-
-.messages-header-cp {
-  margin-right: 132px;
-  float: right; }
-
-.sender-name::first-letter {
-  text-transform: uppercase; }
+.header-cp {
+  text-align: center; }
 
 .image-crop {
   width: 120px;
@@ -334,3 +326,6 @@ hr {
     border-radius: 50%;
     height: 20px;
     width: 15px; }
+
+.Facebook-app {
+  margin-top: 60px; }
