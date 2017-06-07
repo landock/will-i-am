@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPlayer from 'react-player';
 import { fetchInstagram } from '../../api/instagram';
 import AppHeader from '../AppHeader';
 
@@ -8,17 +9,17 @@ export default class Instagram extends Component {
 
     this.state = {
       dataArray: [],
-      selectedImageUrl: '',
+      selectedItem: '',
     };
 
     this.onPhotoHeaderClick = this.onPhotoHeaderClick.bind(this);
-    this.onPhotoClick = this.onPhotoClick.bind(this);
+    this.onThumbnailClick = this.onThumbnailClick.bind(this);
   }
 
   componentDidMount() {
     fetchInstagram()
     .then((response) => {
-      console.log( response.items );
+      // limit array to 18 items so they all fit in the screen
       response.items.splice(-2, 2);
 
       this.setState({
@@ -32,24 +33,40 @@ export default class Instagram extends Component {
     this.props.closeApp();
   }
 
-  onPhotoClick(imageUrl) {
-    return () => this.setState({ selectedImageUrl: imageUrl });
+  onThumbnailClick(data) {
+    return () => this.setState({ selectedItem: data });
   }
 
   renderThumbnails(dataArray) {
     return dataArray.map((data, index) => (
       <div key={index}className="image-crop">
-        <a href="javascript:void(0)" onClick={this.onPhotoClick(data.images.standard_resolution.url)}>
+        <a href="javascript:void(0)" onClick={this.onThumbnailClick(data)}>
           <img src={data.images.standard_resolution.url} role="presentation" alt={data.images.standard_resolution.url} />
         </a>
       </div>
-      ));
+    ));
   }
 
-  renderSelectedImage(imageUrl) {
+  renderSelectedItem(data) {
+    if (data.type === "video") {
+      return(
+        <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedItem: '' })}>
+          <ReactPlayer url={data.videos.standard_resolution.url} playing width="auto" height="100%"/>
+          <div>
+            <p><strong>{data.video_views.toLocaleString()}</strong> views</p>
+            <p className="sub"><strong>{data.user.username}</strong> {data.caption.text}</p>
+          </div>
+        </div>
+      );
+    }
+
     return (
-      <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedImageUrl: '' })}>
-        <img src={imageUrl} alt={imageUrl} />
+      <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedItem: '' })}>
+        <img src={data.images.standard_resolution.url} alt={data.images.standard_resolution.url} />
+        <div>
+          <p><strong>{data.likes.count.toLocaleString()}</strong> likes</p>
+          <p className="sub"><strong>{data.user.username}</strong> {data.caption.text}</p>
+        </div>
       </div>
     );
   }
@@ -60,8 +77,8 @@ export default class Instagram extends Component {
         <AppHeader name="instagram" onHeaderClick={() => this.onPhotoHeaderClick()} />
         <div className="photos-container">
           {
-            this.state.selectedImageUrl
-              ? this.renderSelectedImage(this.state.selectedImageUrl)
+            this.state.selectedItem
+              ? this.renderSelectedItem(this.state.selectedItem)
               : this.renderThumbnails(this.state.dataArray)
           }
         </div>

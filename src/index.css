@@ -287,12 +287,12 @@ hr {
   text-align: center; }
 
 .image-crop {
-  width: 120px;
-  height: 120px;
+  width: 115px;
+  height: 115px;
   overflow: hidden;
   float: left; }
   .image-crop img {
-    height: 120px;
+    height: 115px;
     width: auto; }
   .image-crop a {
     float: left;
@@ -316,6 +316,7 @@ hr {
     height: auto; }
   .full-width::after {
     position: absolute;
+    top: 0;
     right: 0;
     content: "x";
     color: white;
@@ -329,3 +330,15 @@ hr {
 
 .Facebook-app {
   margin-top: 60px; }
+
+.phone-wrapper p {
+  text-align: left;
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 0; }
+
+.phone-wrapper .sub {
+  font-size: 14px;
+  margin-bottom: 25px;
+  margin-top: 5px; }

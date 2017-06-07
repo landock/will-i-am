@@ -346,13 +346,13 @@ hr {
 }
 
 .image-crop {
-  width: 120px;
-  height: 120px;
+  width: 115px;
+  height: 115px;
   overflow: hidden;
   float: left;
 
   img {
-    height: 120px;
+    height: 115px;
     width: auto;
   }
 
@@ -385,6 +385,7 @@ hr {
 
   &::after {
     position: absolute;
+    top: 0;
     right: 0;
     content: "x";
     color: white;
@@ -398,6 +399,24 @@ hr {
   }
 }
 
+
 .Facebook-app {
   margin-top: 60px;
+}
+
+.phone-wrapper {
+
+  p {
+     text-align: left;
+     margin: 0;
+     margin-top: 10px;
+     margin-left: 10px;
+     padding: 0;
+  }
+
+  .sub {
+    font-size: 14px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+  }
 }
