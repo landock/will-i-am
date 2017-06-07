@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick'
-import Messages from './components/Messages'
-import Music from './components/Music'
-import Photos from './components/Photos'
+import Slider from 'react-slick';
+import Messages from './components/Messages';
+import Music from './components/Music';
+import Photos from './components/Photos';
+import Instagram from './components/Instagram';
 
 import messagesIcon from './images/messages-icon.png';
 import musicIcon from './images/music-icon.png';
@@ -24,7 +25,8 @@ class App extends Component {
       isHomeDisplayed     : true,
       areMessagesDisplayed: false,
       isMusicDisplayed    : false,
-      arePhotosDisplayed  : false
+      arePhotosDisplayed  : false,
+      isInstagramDisplayed: false
     };
   }
 
@@ -47,6 +49,13 @@ class App extends Component {
       isHomeDisplayed   : !this.state.isHomeDisplayed,
       arePhotosDisplayed: !this.state.arePhotosDisplayed
     });
+  }
+
+  handleInstagramClick = () => {
+    this.setState({
+      isHomeDisplayed     : !this.state.isHomeDisplayed,
+      isInstagramDisplayed: !this.state.isInstagramDisplayed
+    })
   }
 
   render() {
@@ -72,9 +81,9 @@ class App extends Component {
           <div className="icon-wrapper">
             <a href="http://www.twitter.com/iamwill" target="_blank" rel="noopener noreferrer" ><img className="icon" alt="icon" src={twitterIcon}  /></a>
             <a href="https://www.facebook.com/william" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={facebookIcon} /></a>
-            <a href="https://instagram.com/iamwill" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={instagramIcon}/></a>
-            <a onClick={this.handleMusicClick}  id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
-            <a onClick={this.handlePhotosClick} id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
+            <a onClick={this.handleInstagramClick} id="instagram"><img className="icon" alt="icon" src={instagramIcon}/></a>
+            <a onClick={this.handleMusicClick}     id="music"    ><img className="icon" alt="icon" src={musicIcon}    /></a>
+            <a onClick={this.handlePhotosClick}    id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
             <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={iamIcon}/></a>
             <a href="https://ill.i.am/" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={illIcon}/></a>
             <a href="http://iamangelfoundation.org/" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={angelIcon}/></a>
@@ -106,10 +115,11 @@ class App extends Component {
           <div className="phone-wrapper">
             <div className="crop">
               {/* Home Screen */}
-              {this.state.isHomeDisplayed      ? homeSlider                                      : ''}
-              {this.state.areMessagesDisplayed ? <Messages closeApp={this.handleMessagesClick}/> : ''}
-              {this.state.isMusicDisplayed     ? <Music    closeApp={this.handleMusicClick}/>    : ''}
-              {this.state.arePhotosDisplayed   ? <Photos   closeApp={this.handlePhotosClick}/>   : ''}
+              {this.state.isHomeDisplayed      ? homeSlider                                        : ''}
+              {this.state.areMessagesDisplayed ? <Messages  closeApp={this.handleMessagesClick}/>  : ''}
+              {this.state.isMusicDisplayed     ? <Music     closeApp={this.handleMusicClick}/>     : ''}
+              {this.state.arePhotosDisplayed   ? <Photos    closeApp={this.handlePhotosClick}/>    : ''}
+              {this.state.isInstagramDisplayed ? <Instagram closeApp={this.handleInstagramClick}/> : ''}
             </div>
             <div>
               {/* Footer */}
