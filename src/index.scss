@@ -357,13 +357,13 @@ hr {
 }
 
 .image-crop {
-  width: 120px;
-  height: 120px;
+  width: 115px;
+  height: 115px;
   overflow: hidden;
   float: left;
 
   img {
-    height: 120px;
+    height: 115px;
     width: auto;
   }
 
@@ -396,6 +396,7 @@ hr {
 
   &::after {
     position: absolute;
+    top: 0;
     right: 0;
     content: "x";
     color: white;
