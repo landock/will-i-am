@@ -1,12 +1,14 @@
-const API_ENDPOINT = 'https://iamplus-service-cache-herokuapp-com.global.ssl.fastly.net/instagram/username/media/images'
+const API_ENDPOINT = 'https://iamplus-service-cache-herokuapp-com.global.ssl.fastly.net/instagram/users/iamwill/media'
 
 export const fetchInstagram = () => {
-  return new Promise((resolve, reject) => {
-    fetch(API_ENDPOINT)
-    .then((res) => {
-      res.json()
-        .then((json) => resolve(json))
-        .catch((error) => reject(error))
+  return(
+    fetch(API_ENDPOINT).then(function(response){
+      return response.json();
+    }).then(function(json){
+      return json;
+    }).catch(function(err){
+      console.log("error");
+      console.log( err );
     })
-  });
+  );
 };

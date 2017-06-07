@@ -7,7 +7,7 @@ export default class Instagram extends Component {
     super(props);
 
     this.state = {
-      imageArray: [],
+      dataArray: [],
       selectedImageUrl: '',
     };
 
@@ -17,13 +17,12 @@ export default class Instagram extends Component {
 
   componentDidMount() {
     fetchInstagram()
-    .then((images) => {
-      console.log( images );
-      // images is an array of objects. 
-      // each object is consist of { image: "https://scontent.cdninstagram.com/.../abc.jpg",
-      //                             link: "https://www.instagram.com/p/ABCD_wxyz/" }
+    .then((response) => {
+      console.log( response.items );
+      response.items.splice(-2, 2);
+
       this.setState({
-        imageArray: images,
+        dataArray: response.items,
       });
     })
     .catch(err => console.log(`Fetch Images Error: ${err}`));
@@ -37,11 +36,11 @@ export default class Instagram extends Component {
     return () => this.setState({ selectedImageUrl: imageUrl });
   }
 
-  renderThumbnails(images) {
-    return images.map((image, index) => (
+  renderThumbnails(dataArray) {
+    return dataArray.map((data, index) => (
       <div key={index}className="image-crop">
-        <a href="javascript:void(0)" onClick={this.onPhotoClick(image.image)}>
-          <img src={image.image} role="presentation" alt={image.image} />
+        <a href="javascript:void(0)" onClick={this.onPhotoClick(data.images.standard_resolution.url)}>
+          <img src={data.images.standard_resolution.url} role="presentation" alt={data.images.standard_resolution.url} />
         </a>
       </div>
       ));
@@ -63,7 +62,7 @@ export default class Instagram extends Component {
           {
             this.state.selectedImageUrl
               ? this.renderSelectedImage(this.state.selectedImageUrl)
-              : this.renderThumbnails(this.state.imageArray)
+              : this.renderThumbnails(this.state.dataArray)
           }
         </div>
       </div>
