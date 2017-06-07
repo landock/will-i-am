@@ -328,6 +328,7 @@ hr {
     height: auto; }
   .full-width::after {
     position: absolute;
+    top: 0;
     right: 0;
     content: "x";
     color: white;
