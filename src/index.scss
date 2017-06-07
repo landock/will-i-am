@@ -392,6 +392,7 @@ hr {
   &::after {
     position: absolute;
     right: 0;
+    top:0;
     content: "x";
     color: white;
     background: #000;
