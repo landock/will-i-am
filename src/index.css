@@ -283,16 +283,37 @@ hr {
   text-transform: capitalize;
   cursor: pointer; }
 
+<<<<<<< HEAD
 .header-cp {
   text-align: center; }
+=======
+.music-header-cp {
+  margin-right: 154px;
+  float: right; }
+
+.photos-header-cp {
+  margin-right: 147px;
+  float: right; }
+
+.instagram-header-cp {
+  margin-right: 132px;
+  float: right; }
+
+.messages-header-cp {
+  margin-right: 132px;
+  float: right; }
+
+.sender-name::first-letter {
+  text-transform: uppercase; }
+>>>>>>> instarev
 
 .image-crop {
-  width: 120px;
-  height: 120px;
+  width: 115px;
+  height: 115px;
   overflow: hidden;
   float: left; }
   .image-crop img {
-    height: 120px;
+    height: 115px;
     width: auto; }
   .image-crop a {
     float: left;
