@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 import Messages from './components/Messages'
 import Music from './components/Music'
 import Photos from './components/Photos'
-import Photos from './components/Facebook'
+import Facebook from './components/Facebook'
 
 import messagesIcon from './images/messages-icon.png';
 import musicIcon from './images/music-icon.png';
@@ -117,7 +117,7 @@ class App extends Component {
               {this.state.areMessagesDisplayed ? <Messages closeApp={this.handleMessagesClick}/> : ''}
               {this.state.isMusicDisplayed     ? <Music    closeApp={this.handleMusicClick}/>    : ''}
               {this.state.arePhotosDisplayed   ? <Photos   closeApp={this.handlePhotosClick}/>   : ''}
-              {this.state.isFacebookDisplayed     ? <Music    closeApp={this.handleFacebookClick}/>    : ''}
+              {this.state.isFacebookDisplayed     ? <Facebook    closeApp={this.handleFacebookClick}/>    : ''}
             </div>
             <div>
               {/* Footer */}
