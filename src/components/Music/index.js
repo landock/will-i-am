@@ -5,23 +5,23 @@ const iframeSrcUrl = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcl
 
 export default class Music extends Component {
 
-	onMusicHeaderClick = () => {
-	    this.props.closeApp();
-	}
+  onMusicHeaderClick() {
+    this.props.closeApp();
+  }
 
-	render() {
-	    return (
-			<div className="Music">
-				<AppHeader name="music" onHeaderClick={() => this.onMusicHeaderClick()} />
-			        <iframe
-						width="100%"
-						height="620"
-						scrolling="no"
-						frameBorder="no"
-						title="music"
-				        src={iframeSrcUrl}
-			        />
-			</div>
+  render() {
+    return (
+      <div className="Music">
+        <AppHeader name="music" onHeaderClick={() => this.onMusicHeaderClick()} />
+        <iframe
+          width="100%"
+          height="620"
+          scrolling="no"
+          frameBorder="no"
+          title="music"
+          src={iframeSrcUrl}
+        />
+      </div>
     );
   }
 }
