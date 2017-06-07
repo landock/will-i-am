@@ -299,12 +299,12 @@ hr {
   text-transform: uppercase; }
 
 .image-crop {
-  width: 120px;
-  height: 120px;
+  width: 115px;
+  height: 115px;
   overflow: hidden;
   float: left; }
   .image-crop img {
-    height: 120px;
+    height: 115px;
     width: auto; }
   .image-crop a {
     float: left;
