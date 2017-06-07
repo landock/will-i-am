@@ -4,7 +4,7 @@ import Messages from './components/Messages'
 import Music from './components/Music'
 import Photos from './components/Photos'
 import Facebook from './components/Facebook'
-import Instagram from './components/Instagram';
+import Instagram from './components/Instagram'
 
 import messagesIcon from './images/messages-icon.png';
 import musicIcon from './images/music-icon.png';
@@ -60,11 +60,13 @@ class App extends Component {
       isFacebookDisplayed: !this.state.isFacebookDisplayed
     });
 
+  }
+
   handleInstagramClick = () => {
     this.setState({
       isHomeDisplayed     : !this.state.isHomeDisplayed,
       isInstagramDisplayed: !this.state.isInstagramDisplayed
-    })
+    });
 
   }
 
@@ -89,9 +91,9 @@ class App extends Component {
       <Slider {...settings} class="slider">
         <div className="screen">
           <div className="icon-wrapper">
-            <a href="http://www.twitter.com/iamwill" target="_blank" rel="noopener noreferrer" ><img className="icon" alt="icon" src={twitterIcon}  /></a>
-            <a onClick={this.handleFacebookClick}  id="facebook"><img className="icon" alt="icon" src={facebookIcon} /></a>
             <a onClick={this.handleInstagramClick} id="instagram"><img className="icon" alt="icon" src={instagramIcon}/></a>
+            <a onClick={this.handleFacebookClick}  id="facebook"><img className="icon" alt="icon" src={facebookIcon} /></a>
+            <a href="http://www.twitter.com/iamwill" target="_blank" rel="noopener noreferrer" ><img className="icon" alt="icon" src={twitterIcon}  /></a>
             <a onClick={this.handleMusicClick}  id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
             <a onClick={this.handlePhotosClick} id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
             <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={iamIcon}/></a>
