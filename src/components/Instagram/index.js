@@ -53,9 +53,8 @@ export default class Instagram extends Component {
         <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedItem: '' })}>
           <ReactPlayer url={data.videos.standard_resolution.url} playing width="auto" height="100%"/>
           <div>
-            {data.video_views} views
-            <br />
-            {data.user.username} {data.caption.text}
+            <p><strong>{data.video_views.toLocaleString()}</strong> views</p>
+            <p className="sub"><strong>{data.user.username}</strong> {data.caption.text}</p>
           </div>
         </div>
       );
@@ -65,9 +64,8 @@ export default class Instagram extends Component {
       <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedItem: '' })}>
         <img src={data.images.standard_resolution.url} alt={data.images.standard_resolution.url} />
         <div>
-          {data.likes.count} likes
-          <br />
-          {data.user.username} {data.caption.text}
+          <p><strong>{data.likes.count.toLocaleString()}</strong> likes</p>
+          <p className="sub"><strong>{data.user.username}</strong> {data.caption.text}</p>
         </div>
       </div>
     );

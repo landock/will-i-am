@@ -339,3 +339,15 @@ hr {
     border-radius: 50%;
     height: 20px;
     width: 15px; }
+
+.phone-wrapper p {
+  text-align: left;
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 0; }
+
+.phone-wrapper .sub {
+  font-size: 14px;
+  margin-bottom: 25px;
+  margin-top: 5px; }
