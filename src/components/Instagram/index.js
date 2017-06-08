@@ -10,6 +10,7 @@ export default class Instagram extends Component {
     this.state = {
       dataArray: [],
       selectedItem: '',
+      userProfile: {}
     };
 
     this.onPhotoHeaderClick = this.onPhotoHeaderClick.bind(this);
@@ -24,6 +25,7 @@ export default class Instagram extends Component {
 
       this.setState({
         dataArray: response.items,
+        userProfile: response.items[0].user
       });
     })
     .catch(err => console.log(`Fetch Images Error: ${err}`));
@@ -77,6 +79,12 @@ export default class Instagram extends Component {
     return (
       <div className="Photos">
         <AppHeader name="instagram" onHeaderClick={() => this.onPhotoHeaderClick()} />
+        <div className="instagramHeader">
+          <img src={this.state.userProfile.profile_picture} alt={this.state.userProfile.profile_picture} />
+          {this.state.userProfile.username}
+          <br />
+          {this.state.userProfile.full_name}
+        </div>
         <div className="photos-container">
           {
             this.state.selectedItem
