@@ -21,7 +21,6 @@ export const fetchImages = () => fetch(API_ENDPOINT)
         });
       }
     });
-    console.log(mediaUrls);
     return mediaUrls;
   },
 ));

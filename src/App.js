@@ -5,6 +5,7 @@ import Music from './components/Music'
 import Photos from './components/Photos'
 import Facebook from './components/Facebook'
 import Instagram from './components/Instagram'
+import Twitter from './components/Twitter'
 
 import messagesIcon from './images/messages-icon.png';
 import musicIcon from './images/music-icon.png';
@@ -28,7 +29,8 @@ class App extends Component {
       isMusicDisplayed    : false,
       arePhotosDisplayed  : false,
       isFacebookDisplayed  : false,
-      isInstagramDisplayed: false
+      isInstagramDisplayed: false,
+      isTwitterDisplayed  : false,
     };
   }
 
@@ -67,7 +69,13 @@ class App extends Component {
       isHomeDisplayed     : !this.state.isHomeDisplayed,
       isInstagramDisplayed: !this.state.isInstagramDisplayed
     });
+  }
 
+  handleTwitterClick = () => {
+    this.setState({
+      isHomeDisplayed     : !this.state.isHomeDisplayed,
+      isTwitterDisplayed: !this.state.isTwitterDisplayed
+    });
   }
 
   render() {
@@ -93,7 +101,7 @@ class App extends Component {
           <div className="icon-wrapper">
             <a onClick={this.handleInstagramClick} id="instagram"><img className="icon" alt="icon" src={instagramIcon}/></a>
             <a onClick={this.handleFacebookClick}  id="facebook"><img className="icon" alt="icon" src={facebookIcon} /></a>
-            <a href="http://www.twitter.com/iamwill" target="_blank" rel="noopener noreferrer" ><img className="icon" alt="icon" src={twitterIcon}  /></a>
+            <a onClick={this.handleTwitterClick}  id="twitter"><img className="icon" alt="icon" src={twitterIcon}  /></a>
             <a onClick={this.handleMusicClick}  id="music"   ><img className="icon" alt="icon" src={musicIcon}   /></a>
             <a onClick={this.handlePhotosClick} id="photos"   ><img className="icon" alt="icon" src={photosIcon}   /></a>
             <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer"><img className="icon" alt="icon" src={iamIcon}/></a>
@@ -132,6 +140,7 @@ class App extends Component {
               {this.state.arePhotosDisplayed   ? <Photos   closeApp={this.handlePhotosClick}/>   : ''}
               {this.state.isFacebookDisplayed     ? <Facebook    closeApp={this.handleFacebookClick}/>    : ''}
               {this.state.isInstagramDisplayed ? <Instagram closeApp={this.handleInstagramClick}/> : ''}
+              {this.state.isTwitterDisplayed ? <Twitter closeApp={this.handleTwitterClick}/> : ''}
 
             </div>
             <div>

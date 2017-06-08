@@ -51,9 +51,10 @@ export default class Photos extends Component {
   }
 
   renderSelectedImage(mediaData) {
-    if (!mediaData) return;
     const player = <ReactPlayer url={mediaData.videoUrl} height="auto" width="100%" playing />;
     const imageContainer = (<img src={mediaData.url} alt={mediaData.url} />);
+
+    if (!mediaData) return;
 
     return (
       <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedMedia: null })}>
@@ -73,7 +74,6 @@ export default class Photos extends Component {
               : this.renderThumbnails(this.state.media)
           }
         </div>
-
       </div>
     );
   }
