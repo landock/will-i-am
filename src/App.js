@@ -41,6 +41,8 @@ class App extends Component {
 
     this.state = {
       media: [],
+      instagramMedia: [],
+      userProfile: null,
       conversations: [],
       isHomeDisplayed: true,
       areMessagesDisplayed: false,
@@ -61,8 +63,8 @@ class App extends Component {
 
   componentDidMount() {
     fetchImages()
-    .then(mediaUrls => this.setState({ media: mediaUrls }))
-    .catch(err => console.log(`Fetch Images Error: ${err}`));
+      .then(mediaUrls => this.setState({ media: mediaUrls }))
+      .catch(err => console.log(`Fetch Images Error: ${err}`));
 
     fetchMessages()
       .then(conversations => this.setState({ conversations }))
@@ -70,11 +72,14 @@ class App extends Component {
 
     fetchInstagram()
       .then((response) => {
-        response.items.splice(-2, 2);
+        response.items.splice(-2, 2); //limit array to 18 items so they all fit in the screen
 
-        this.setState({ instagramMedia: response.items });
+        this.setState({
+          instagramMedia: response.items,
+          userProfile: response.items[0].user,
+        });
       })
-    .catch(err => console.log(`Fetch Instagram Error: ${err}`));
+      .catch(err => console.log(`Fetch Images Error: ${err}`));
   }
 
   handleMessagesClick() {
@@ -178,7 +183,7 @@ class App extends Component {
               {this.state.isMusicDisplayed ? <Music closeApp={this.handleMusicClick} /> : ''}
               {this.state.arePhotosDisplayed ? <Photos media={this.state.media} closeApp={this.handlePhotosClick} /> : ''}
               {this.state.isFacebookDisplayed ? <Facebook closeApp={this.handleFacebookClick} /> : ''}
-              {this.state.isInstagramDisplayed ? <Instagram media={this.state.instagramMedia} closeApp={this.handleInstagramClick} /> : ''}
+              {this.state.isInstagramDisplayed ? <Instagram media={this.state.instagramMedia} userProfile={this.state.userProfile} closeApp={this.handleInstagramClick} /> : ''}
               {this.state.isTwitterDisplayed ? <Twitter closeApp={this.handleTwitterClick} /> : ''}
             </div>
             <div>

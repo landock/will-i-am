@@ -9,7 +9,6 @@ export default class Instagram extends Component {
 
     this.state = {
       selectedItem: '',
-      userProfile: {}
     };
 
     this.onPhotoHeaderClick = this.onPhotoHeaderClick.bind(this);
@@ -17,17 +16,6 @@ export default class Instagram extends Component {
   }
 
   componentDidMount() {
-    fetchInstagram()
-    .then((response) => {
-      // limit array to 18 items so they all fit in the screen
-      response.items.splice(-2, 2);
-
-      this.setState({
-        dataArray: response.items,
-        userProfile: response.items[0].user
-      });
-    })
-    .catch(err => console.log(`Fetch Images Error: ${err}`));
   }
 
   onPhotoHeaderClick() {
@@ -40,8 +28,8 @@ export default class Instagram extends Component {
 
   renderThumbnails(dataArray) {
     return dataArray.map((data, index) => (
-      <div key={index}className="image-crop">
-        <a href="javascript:void(0)" onClick={this.onThumbnailClick(data)}>
+      <div key={index} className="image-crop">
+        <a role="button" tabIndex={0} onClick={this.onThumbnailClick(data)}>
           <img src={data.images.standard_resolution.url} role="presentation" alt={data.images.standard_resolution.url} />
         </a>
       </div>
@@ -49,10 +37,10 @@ export default class Instagram extends Component {
   }
 
   renderSelectedItem(data) {
-    if (data.type === "video") {
-      return(
+    if (data.type === 'video') {
+      return (
         <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedItem: '' })}>
-          <ReactPlayer url={data.videos.standard_resolution.url} playing width="auto" height="100%"/>
+          <ReactPlayer url={data.videos.standard_resolution.url} playing width="auto" height="100%" />
           <div>
             <p className="user-count"><strong>{data.video_views.toLocaleString()}</strong> views</p>
             <p className="sub"><strong>{data.user.username}</strong> {data.caption.text}</p>
@@ -77,10 +65,10 @@ export default class Instagram extends Component {
       <div className="Photos">
         <AppHeader name="instagram" onHeaderClick={() => this.onPhotoHeaderClick()} />
         <div className="instagramHeader">
-          <img src={this.state.userProfile.profile_picture} alt={this.state.userProfile.profile_picture} />
-          {this.state.userProfile.username}
+          <img src={this.props.userProfile.profile_picture} alt={this.props.userProfile.profile_picture} />
+          {this.props.userProfile.username}
           <br />
-          {this.state.userProfile.full_name}
+          {this.props.userProfile.full_name}
         </div>
         <div className="photos-container">
           {
