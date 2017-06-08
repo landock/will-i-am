@@ -295,10 +295,6 @@ hr {
   margin-right: 132px;
   float: right; }
 
-.instagramHeader {
-  color: white;
-}
-
 .sender-name::first-letter {
   text-transform: uppercase; }
 
@@ -355,3 +351,19 @@ hr {
   font-size: 14px;
   margin-bottom: 25px;
   margin-top: 5px; }
+
+.instagramHeader {
+  position: absolute;
+  width: 340px;
+  background-color: white;
+  margin-top: 0;
+  padding: 10px;
+  height: 70px; }
+  .instagramHeader img {
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    float: left;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f1f1f1; }
