@@ -14,6 +14,7 @@ export default class Photos extends Component {
 
     this.onPhotoHeaderClick = this.onPhotoHeaderClick.bind(this);
     this.onPhotoClick = this.onPhotoClick.bind(this);
+    this.onClosePhotoClick = this.onClosePhotoClick.bind(this);
   }
 
   onPhotoHeaderClick() {
@@ -26,6 +27,10 @@ export default class Photos extends Component {
     });
   }
 
+  onClosePhotoClick() {
+     this.setState({ selectedMedia: null });
+  }
+
   renderThumbnails(images) {
     if (!images) {
       return false;
@@ -33,7 +38,7 @@ export default class Photos extends Component {
     return images.map((image, index) => (
       <div key={index} className="image-crop">
         <a role="button" tabIndex={0} onClick={this.onPhotoClick(image)}>
-          <img src={image.url} role="presentation" alt={image.url} />
+          <img src={image.smallUrl} role="presentation" alt={image.smallUrl} />
         </a>
       </div>
       ));
@@ -41,12 +46,17 @@ export default class Photos extends Component {
 
   renderSelectedImage(mediaData) {
     const player = <ReactPlayer url={mediaData.videoUrl} height="auto" width="100%" playing />;
-    const imageContainer = (<img src={mediaData.url} alt={mediaData.url} />);
+    const imageContainer = <img src={mediaData.largeUrl} alt={mediaData.largeUrl} />;
 
     if (!mediaData) return;
 
     return (
-      <div role="button" tabIndex={0} className="full-width" onClick={() => this.setState({ selectedMedia: null })}>
+      <div
+        role="button"
+        tabIndex={0}
+        className="full-width"
+        onClick={this.onClosePhotoClick}
+      >
         {mediaData.type === 'video' ? player : imageContainer}
       </div>
     );
@@ -54,14 +64,15 @@ export default class Photos extends Component {
 
   render() {
     const { media } = this.props;
+    const { selectedMedia} = this.state;
 
     return (
       <div className="Photos">
-        <AppHeader name="photos" onHeaderClick={() => this.onPhotoHeaderClick()} />
+        <AppHeader name="photos" onHeaderClick={this.onPhotoHeaderClick} />
         <div className="photos-container">
           {
-            this.state.selectedMedia
-              ? this.renderSelectedImage(this.state.selectedMedia)
+            selectedMedia
+              ? this.renderSelectedImage(selectedMedia)
               : this.renderThumbnails(media)
           }
         </div>

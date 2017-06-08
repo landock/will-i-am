@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://still-brushlands-60581.herokuapp.com/api/v1/conversations';
+const API_ENDPOINT = 'http://still-brushlands-60581-herokuapp-com.global.ssl.fastly.net/api/v1/conversations';
 
 export function fetchMessages() {
   return fetch(API_ENDPOINT)

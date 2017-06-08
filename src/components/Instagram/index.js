@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
-import { fetchInstagram } from '../../api/instagram';
+
 import AppHeader from '../AppHeader';
 
 export default class Instagram extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selectedItem: '',
-    };
+    this.state = { selectedItem: '' };
 
     this.onPhotoHeaderClick = this.onPhotoHeaderClick.bind(this);
     this.onThumbnailClick = this.onThumbnailClick.bind(this);
   }
-
-
-  componentDidMount() {
-  }
-
 
   onPhotoHeaderClick() {
     this.props.closeApp();
@@ -32,7 +25,11 @@ export default class Instagram extends Component {
     return dataArray.map((data, index) => (
       <div key={index} className="image-crop">
         <a role="button" tabIndex={0} onClick={this.onThumbnailClick(data)}>
-          <img src={data.images.standard_resolution.url} role="presentation" alt={data.images.standard_resolution.url} />
+          <img
+            src={data.images.standard_resolution.url}
+            role="presentation"
+            alt={data.images.standard_resolution.url}
+          />
         </a>
       </div>
     ));
@@ -63,14 +60,16 @@ export default class Instagram extends Component {
   }
 
   render() {
+    const { userProfile } = this.props;
+
     return (
       <div className="Photos">
         <AppHeader name="instagram" onHeaderClick={() => this.onPhotoHeaderClick()} />
         <div className="instagramHeader">
-          <img src={this.props.userProfile.profile_picture} alt={this.props.userProfile.profile_picture} />
-          {this.props.userProfile.username}
+          <img src={userProfile.profile_picture} alt={userProfile.profile_picture} />
+          {userProfile.username}
           <br />
-          {this.props.userProfile.full_name}
+          {userProfile.full_name}
         </div>
         <div className="photos-container">
           {
