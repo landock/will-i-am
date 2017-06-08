@@ -79,18 +79,19 @@ export default class Instagram extends Component {
       <div className="Photos">
         <AppHeader name="instagram" onHeaderClick={() => this.onPhotoHeaderClick()} />
         <div className="instagramHeader">
-          <img src={this.state.userProfile.profile_picture} alt={this.state.userProfile.profile_picture} />
           <div className="profile-info">
-          {this.state.userProfile.username}
-          {this.state.userProfile.full_name}
+          <img src={this.state.userProfile.profile_picture} alt={this.state.userProfile.profile_picture} />
+            <p><strong>{this.state.userProfile.full_name}</strong></p>
           </div>
         </div>
-        <div className="photos-container">
-          {
-            this.state.selectedItem
-              ? this.renderSelectedItem(this.state.selectedItem)
-              : this.renderThumbnails(this.props.media)
-          }
+        <div className="instagram-wrapper">
+          <div className="photos-container">
+            {
+              this.state.selectedItem
+                ? this.renderSelectedItem(this.state.selectedItem)
+                : this.renderThumbnails(this.props.media)
+            }
+          </div>
         </div>
       </div>
     );

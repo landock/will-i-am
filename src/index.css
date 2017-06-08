@@ -350,14 +350,26 @@ hr {
   position: absolute;
   width: 340px;
   background-color: white;
-  margin-top: 0;
+  margin-top: -90px;
   padding: 10px;
-  height: 70px; }
+  height: 85px; }
   .instagramHeader img {
     border-radius: 50%;
     height: 65px;
     width: 65px;
-    float: left;
     border-style: solid;
     border-width: 1px;
-    border-color: #f1f1f1; }
+    border-color: #f1f1f1;
+    text-align: left;
+    display: block; }
+  .instagramHeader p {
+    text-align: left;
+    margin: 0;
+    margin-top: 3px;
+    padding: 0;
+    font-size: 13px; }
+
+.instagram-wrapper {
+  margin-top: 151px; }
+  .instagram-wrapper .photos-container {
+    height: 465px; }
