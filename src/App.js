@@ -159,7 +159,7 @@ class App extends Component {
     const homeFooter = (
       <div className="menu-bottom">
         <div className="icon-wrapper">
-          <a role="button" tabIndex={0} onClick={this.handleMessagesClick} id="messages">.
+          <a role="button" tabIndex={0} onClick={this.handleMessagesClick} id="messages">
             <img className="icon" alt="icon" src={messagesIcon} />
           </a>
         </div>
