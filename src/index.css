@@ -286,6 +286,17 @@ hr {
 .header-cp {
   text-align: center; }
 
+.messages-header-cp {
+  margin-right: 132px;
+  float: right; }
+
+.instagramHeader {
+  color: white;
+}
+
+.sender-name::first-letter {
+  text-transform: uppercase; }
+
 .image-crop {
   height: 115px;
   width: 115px;
