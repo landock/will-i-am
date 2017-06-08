@@ -15,8 +15,10 @@ export default class Instagram extends Component {
     this.onThumbnailClick = this.onThumbnailClick.bind(this);
   }
 
+
   componentDidMount() {
   }
+
 
   onPhotoHeaderClick() {
     this.props.closeApp();

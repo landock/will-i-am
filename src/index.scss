@@ -423,3 +423,22 @@ hr {
     width: 322px;
   }
 }
+
+.instagramHeader {
+    position: absolute;
+    width: 340px;
+    background-color: white;
+    margin-top: 0;
+    padding: 10px;
+    height: 70px;
+
+    img {
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    float: left;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f1f1f1;
+    }
+}
