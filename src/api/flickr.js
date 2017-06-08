@@ -11,12 +11,13 @@ export const fetchImages = () => fetch(API_ENDPOINT)
       if (media === 'photo') {
         mediaUrls.push({
           type: 'photo',
-          url: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`,
+          smallUrl: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_q.jpg`,
+          largeUrl: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`,
         });
       } else {
         mediaUrls.push({
           type: 'video',
-          url: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`,
+          smallUrl: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_q.jpg`,
           videoUrl: `https://www.flickr.com/photos/${FLICKR_USER_ID}/${id}/play/site/${secret}/`,
         });
       }

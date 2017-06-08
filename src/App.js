@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 
+//components
 import Messages from './components/Messages';
 import Music from './components/Music';
 import Photos from './components/Photos';
 import Facebook from './components/Facebook';
 import Instagram from './components/Instagram';
 import Twitter from './components/Twitter';
+
+// services
 import { fetchImages } from './api/flickr';
 import { fetchMessages } from './api/messages';
 import { fetchInstagram } from './api/instagram';
 
+//image imports
 import messagesIcon from './images/messages-icon.png';
 import musicIcon from './images/music-icon.png';
 import twitterIcon from './images/twitter-icon.png';
@@ -41,6 +45,8 @@ class App extends Component {
 
     this.state = {
       media: [],
+      instagramMedia: [],
+      userProfile: null,
       conversations: [],
       isHomeDisplayed: true,
       areMessagesDisplayed: false,
@@ -61,8 +67,8 @@ class App extends Component {
 
   componentDidMount() {
     fetchImages()
-    .then(mediaUrls => this.setState({ media: mediaUrls }))
-    .catch(err => console.log(`Fetch Images Error: ${err}`));
+      .then(mediaUrls => this.setState({ media: mediaUrls }))
+      .catch(err => console.log(`Fetch Images Error: ${err}`));
 
     fetchMessages()
       .then(conversations => this.setState({ conversations }))
@@ -70,11 +76,14 @@ class App extends Component {
 
     fetchInstagram()
       .then((response) => {
-        response.items.splice(-2, 2);
+        response.items.splice(-2, 2); //limit array to 18 items so they all fit in the screen
 
-        this.setState({ instagramMedia: response.items });
+        this.setState({
+          instagramMedia: response.items,
+          userProfile: response.items[0].user,
+        });
       })
-    .catch(err => console.log(`Fetch Instagram Error: ${err}`));
+      .catch(err => console.log(`Fetch Images Error: ${err}`));
   }
 
   handleMessagesClick() {
@@ -166,6 +175,20 @@ class App extends Component {
       </div>
     );
 
+    const {
+      isHomeDisplayed,
+      areMessagesDisplayed,
+      isMusicDisplayed,
+      arePhotosDisplayed,
+      isFacebookDisplayed,
+      isInstagramDisplayed,
+      isTwitterDisplayed,
+      instagramMedia,
+      media,
+      conversations,
+      userProfile
+    } = this.state;
+
     return (
       <div className="App">
         <div className="nav" />
@@ -173,13 +196,37 @@ class App extends Component {
           <div className="phone-wrapper">
             <div className="crop">
               {/* Home Screen */}
-              {this.state.isHomeDisplayed ? homeSlider : ''}
-              {this.state.areMessagesDisplayed ? <Messages conversations={this.state.conversations} closeApp={this.handleMessagesClick} /> : ''}
-              {this.state.isMusicDisplayed ? <Music closeApp={this.handleMusicClick} /> : ''}
-              {this.state.arePhotosDisplayed ? <Photos media={this.state.media} closeApp={this.handlePhotosClick} /> : ''}
-              {this.state.isFacebookDisplayed ? <Facebook closeApp={this.handleFacebookClick} /> : ''}
-              {this.state.isInstagramDisplayed ? <Instagram media={this.state.instagramMedia} closeApp={this.handleInstagramClick} /> : ''}
-              {this.state.isTwitterDisplayed ? <Twitter closeApp={this.handleTwitterClick} /> : ''}
+              {isHomeDisplayed ? homeSlider : ''}
+              {
+                areMessagesDisplayed
+                  ? <Messages conversations={conversations} closeApp={this.handleMessagesClick} />
+                  : ''
+              }
+              {
+                isMusicDisplayed
+                  ? <Music closeApp={this.handleMusicClick} />
+                  : ''
+              }
+              {
+                arePhotosDisplayed
+                  ? <Photos media={media} closeApp={this.handlePhotosClick} />
+                  : ''
+              }
+              {
+                isFacebookDisplayed
+                  ? <Facebook closeApp={this.handleFacebookClick} />
+                  : ''
+              }
+              {
+                isInstagramDisplayed
+                  ? <Instagram media={instagramMedia} userProfile={userProfile} closeApp={this.handleInstagramClick} />
+                  : ''
+                }
+              {
+                isTwitterDisplayed
+                  ? <Twitter closeApp={this.handleTwitterClick} />
+                  : ''
+              }
             </div>
             <div>
               {/* Footer */}
