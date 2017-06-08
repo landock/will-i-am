@@ -8,25 +8,11 @@ export default class Instagram extends Component {
     super(props);
 
     this.state = {
-      dataArray: [],
       selectedItem: '',
     };
 
     this.onPhotoHeaderClick = this.onPhotoHeaderClick.bind(this);
     this.onThumbnailClick = this.onThumbnailClick.bind(this);
-  }
-
-  componentDidMount() {
-    fetchInstagram()
-    .then((response) => {
-      // limit array to 18 items so they all fit in the screen
-      response.items.splice(-2, 2);
-
-      this.setState({
-        dataArray: response.items,
-      });
-    })
-    .catch(err => console.log(`Fetch Images Error: ${err}`));
   }
 
   onPhotoHeaderClick() {
@@ -79,7 +65,7 @@ export default class Instagram extends Component {
           {
             this.state.selectedItem
               ? this.renderSelectedItem(this.state.selectedItem)
-              : this.renderThumbnails(this.state.dataArray)
+              : this.renderThumbnails(this.props.media)
           }
         </div>
       </div>

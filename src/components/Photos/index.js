@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 
-import { fetchImages } from '../../api/flickr';
 import AppHeader from '../AppHeader';
 
 export default class Photos extends Component {
@@ -15,16 +14,6 @@ export default class Photos extends Component {
 
     this.onPhotoHeaderClick = this.onPhotoHeaderClick.bind(this);
     this.onPhotoClick = this.onPhotoClick.bind(this);
-  }
-
-  componentDidMount() {
-    fetchImages()
-    .then((mediaUrls) => {
-      this.setState({
-        media: mediaUrls,
-      });
-    })
-    .catch(err => console.log(`Fetch Images Error: ${err}`));
   }
 
   onPhotoHeaderClick() {
@@ -64,6 +53,8 @@ export default class Photos extends Component {
   }
 
   render() {
+    const { media } = this.props;
+
     return (
       <div className="Photos">
         <AppHeader name="photos" onHeaderClick={() => this.onPhotoHeaderClick()} />
@@ -71,7 +62,7 @@ export default class Photos extends Component {
           {
             this.state.selectedMedia
               ? this.renderSelectedImage(this.state.selectedMedia)
-              : this.renderThumbnails(this.state.media)
+              : this.renderThumbnails(media)
           }
         </div>
       </div>

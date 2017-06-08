@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Conversations from '../Conversations/';
 import AppHeader from '../AppHeader';
 
@@ -7,7 +6,6 @@ export default class Messages extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      conversations: [],
       conversationSelected: '',
       areConversationsDisplayed: false,
     };
@@ -16,19 +14,7 @@ export default class Messages extends Component {
     this.onConversationClick = this.onConversationClick.bind(this);
   }
 
-  componentDidMount() {
-    const apiUrl = 'https://still-brushlands-60581.herokuapp.com/api/v1/conversations';
-    const mockApiUrl = 'https://private-830eb4-wiammessages.apiary-mock.com/conversations';
-
-    axios.get(apiUrl)
-    .then((data) => {
-      const conversations = data.data;
-      this.setState({
-        conversations,
-      });
-    })
-    .catch(error => console.log(error));
-  }
+  componentDidMount() {}
 
   onMessagesHeaderClick(e) {
     this.props.closeApp(e);
@@ -43,8 +29,9 @@ export default class Messages extends Component {
   }
 
   render() {
+    const { conversations } = this.props;
     const listMessages = (
-      this.state.conversations.map((conversation, index) => (
+      conversations.map((conversation, index) => (
         <li className="conversation" key={index}>
           <div role="button" tabIndex={0} onClick={e => this.onConversationClick(e, index)}>
             <p><strong>{conversation.name}</strong></p>
@@ -60,7 +47,7 @@ export default class Messages extends Component {
         {
           this.state.areConversationsDisplayed ?
             <Conversations
-              conversation={this.state.conversations[this.state.conversationSelected]}
+              conversation={conversations[this.state.conversationSelected]}
               backToMessages={e => this.onConversationClick(e)}
             /> :
           ''
