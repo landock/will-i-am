@@ -199,13 +199,13 @@ class App extends Component {
         <div className="wrapper">
           <div className="phone-wrapper">
             <div className={`crop ${openClass}`}>
+              {isHomeDisplayed ? homeSlider : ''}
               <CSSTransitionGroup
                 transitionName="flash"
                 transitionEnterTimeout={200}
-                transitionLeaveTimeout={100}
+                transitionLeaveTimeout={200}
               >
                 {/* Home Screen */}
-                {isHomeDisplayed ? homeSlider : ''}
                 { areMessagesDisplayed
                   ? <Messages key={1} conversations={conversations} closeApp={this.handleMessagesClick} />
                   : ''
