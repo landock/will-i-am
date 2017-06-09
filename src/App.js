@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { CSSTransitionGroup } from 'react-transition-group';
 
-//components
+// components
 import Messages from './components/Messages';
 import Music from './components/Music';
 import Photos from './components/Photos';
@@ -14,7 +15,7 @@ import { fetchImages } from './api/flickr';
 import { fetchMessages } from './api/messages';
 import { fetchInstagram } from './api/instagram';
 
-//image imports
+// image imports
 import messagesIcon from './images/messages-icon.png';
 import musicIcon from './images/music-icon.png';
 import twitterIcon from './images/twitter-icon.png';
@@ -76,7 +77,7 @@ class App extends Component {
 
     fetchInstagram()
       .then((response) => {
-        response.items.splice(-2, 2); //limit array to 18 items so they all fit in the screen
+        response.items.splice(-2, 2); // limit array to 18 items so they all fit in the screen
 
         this.setState({
           instagramMedia: response.items,
@@ -129,8 +130,24 @@ class App extends Component {
   }
 
   render() {
+    const {
+      isHomeDisplayed,
+      areMessagesDisplayed,
+      isMusicDisplayed,
+      arePhotosDisplayed,
+      isFacebookDisplayed,
+      isInstagramDisplayed,
+      isTwitterDisplayed,
+      instagramMedia,
+      media,
+      conversations,
+      userProfile,
+    } = this.state;
+
+    const openClass = isHomeDisplayed ? '' : ' open';
+
     const homeSlider = (
-      <Slider {...settings} class="slider">
+      <Slider key={0} {...settings} class="slider">
         <div className="screen">
           <div className="icon-wrapper">
             <a role="button" tabIndex={0} onClick={this.handleInstagramClick} id="instagram">
@@ -175,58 +192,50 @@ class App extends Component {
       </div>
     );
 
-    const {
-      isHomeDisplayed,
-      areMessagesDisplayed,
-      isMusicDisplayed,
-      arePhotosDisplayed,
-      isFacebookDisplayed,
-      isInstagramDisplayed,
-      isTwitterDisplayed,
-      instagramMedia,
-      media,
-      conversations,
-      userProfile
-    } = this.state;
 
     return (
       <div className="App">
         <div className="nav" />
         <div className="wrapper">
           <div className="phone-wrapper">
-            <div className="crop">
-              {/* Home Screen */}
-              {isHomeDisplayed ? homeSlider : ''}
-              {
-                areMessagesDisplayed
-                  ? <Messages conversations={conversations} closeApp={this.handleMessagesClick} />
-                  : ''
-              }
-              {
-                isMusicDisplayed
-                  ? <Music closeApp={this.handleMusicClick} />
-                  : ''
-              }
-              {
-                arePhotosDisplayed
-                  ? <Photos media={media} closeApp={this.handlePhotosClick} />
-                  : ''
-              }
-              {
-                isFacebookDisplayed
-                  ? <Facebook closeApp={this.handleFacebookClick} />
-                  : ''
-              }
-              {
-                isInstagramDisplayed
-                  ? <Instagram media={instagramMedia} userProfile={userProfile} closeApp={this.handleInstagramClick} />
+            <div className={`crop ${openClass}`}>
+              <CSSTransitionGroup
+                transitionName="flash"
+                transitionEnterTimeout={200}
+                transitionLeaveTimeout={100}
+              >
+                {/* Home Screen */}
+                {isHomeDisplayed ? homeSlider : ''}
+                { areMessagesDisplayed
+                  ? <Messages key={1} conversations={conversations} closeApp={this.handleMessagesClick} />
                   : ''
                 }
-              {
-                isTwitterDisplayed
-                  ? <Twitter closeApp={this.handleTwitterClick} />
+                { isMusicDisplayed
+                  ? <Music key={2} closeApp={this.handleMusicClick} />
                   : ''
-              }
+                }
+                { arePhotosDisplayed
+                  ? <Photos key={3} media={media} closeApp={this.handlePhotosClick} />
+                  : ''
+                }
+                { isFacebookDisplayed
+                  ? <Facebook key={4} closeApp={this.handleFacebookClick} />
+                  : ''
+                }
+                { isInstagramDisplayed
+                  ? <Instagram
+                    media={instagramMedia}
+                    userProfile={userProfile}
+                    closeApp={this.handleInstagramClick}
+                    key={5}
+                  />
+                  : ''
+                }
+                { isTwitterDisplayed
+                  ? <Twitter key={6} closeApp={this.handleTwitterClick} />
+                  : ''
+                }
+              </CSSTransitionGroup>
             </div>
             <div>
               {/* Footer */}

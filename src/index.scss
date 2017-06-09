@@ -61,7 +61,31 @@ a {
   height: 522px;
   top: 92px;
   margin-left: 20px;
+  overflow: hidden;
+
+  &.open {
+    height:615px;
+  }
 }
+
+.flash-enter {
+  opacity: 0.01;
+}
+
+.flash-enter.flash-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+
+.flash-leave {
+  opacity: 1;
+}
+
+.flash-leave.flash-leave-active {
+  opacity: 0.01;
+  transition: all 300ms ease-in;
+}
+
 /*@media only screen and (max-width: 500px) {
 .crop {
 top: -110px;
@@ -384,10 +408,10 @@ hr {
   }
 
   &::after {
+    content: "x";
     background: #000;
     border-radius: 50%;
     color: white;
-    content: "x";
     height: 20px;
     margin: 10px;
     opacity: 0.8;
