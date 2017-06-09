@@ -70,6 +70,20 @@ export default class Instagram extends Component {
             <img src={userProfile.profile_picture} alt={userProfile.profile_picture} />
             <p><strong>{userProfile.full_name}</strong></p>
           </div>
+          <div className="profile-stats">
+            <div className="count">
+            <p><strong>63</strong></p><p className="follow-count">posts</p>
+            </div>
+            <div className="count">
+            <p><strong>893K</strong></p><p className="follow-count">followers</p>
+            </div>
+            <div className="count">
+            <p><strong>681</strong></p><p className="follow-count">following</p>
+            </div>
+            <div className="follow-btn">
+            <a href="https://www.instagram.com/iamwill/" target="_blank">Follow</a>
+            </div>
+          </div>
         </div>
         <div className="instagram-wrapper">
           <div className="photos-container">
