@@ -193,6 +193,7 @@ class App extends Component {
       <div className="App">
         <div className="nav" />
         <div className="wrapper">
+          <div className="essential-bg">
           <div className="phone-wrapper">
             <div className="crop">
               {/* Home Screen */}
@@ -229,6 +230,7 @@ class App extends Component {
               }
             </div>
             <div>
+            </div>
               {/* Footer */}
               {this.state.isHomeDisplayed ? homeFooter : ''}
             </div>
