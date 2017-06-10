@@ -72,16 +72,16 @@ export default class Instagram extends Component {
           </div>
           <div className="profile-stats">
             <div className="count">
-            <p><strong>63</strong></p><p className="follow-count">posts</p>
+              <p><strong>63</strong></p><p className="follow-count">posts</p>
             </div>
             <div className="count">
-            <p><strong>893K</strong></p><p className="follow-count">followers</p>
+              <p><strong>893K</strong></p><p className="follow-count">followers</p>
             </div>
             <div className="count">
-            <p><strong>681</strong></p><p className="follow-count">following</p>
+              <p><strong>681</strong></p><p className="follow-count">following</p>
             </div>
             <div className="follow-btn">
-            <a href="https://www.instagram.com/iamwill/" target="_blank">Follow</a>
+              <a href="https://www.instagram.com/iamwill/" target="_blank" rel="noopener noreferrer">Follow</a>
             </div>
           </div>
         </div>

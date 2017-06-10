@@ -61,7 +61,28 @@ a {
   width: 360px !important;
   height: 522px;
   top: 92px;
-  margin-left: 20px; }
+  margin-left: 20px;
+  overflow: hidden; }
+  .crop.open {
+    height: 615px; }
+
+.flash-enter {
+  opacity: 0.1;
+  transform: scale(0.01); }
+
+.flash-enter.flash-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 200ms linear; }
+
+.flash-leave {
+  opacity: 1;
+  transform: scale3d(1, 1, 1); }
+
+.flash-leave.flash-leave-active {
+  opacity: 0.01;
+  transform: scale3d(0.1, 0.1, 0.1);
+  transition: all 200ms ease-in; }
 
 /*@media only screen and (max-width: 500px) {
 .crop {
@@ -323,10 +344,10 @@ hr {
     height: auto;
     width: 100%; }
   .full-width::after {
+    content: "x";
     background: #000;
     border-radius: 50%;
     color: white;
-    content: "x";
     height: 20px;
     margin: 10px;
     opacity: 0.8;
@@ -337,7 +358,13 @@ hr {
     width: 15px; }
 
 .Facebook-app, .Twitter {
-  margin-top: 60px; }
+  margin-top: 60px;
+  background: #fff;
+  min-height: 550px; }
+
+.Music {
+  background-color: #fff;
+  min-height: 550px; }
 
 .phone-wrapper .user-count {
   margin: 0;
