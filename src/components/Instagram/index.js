@@ -3,6 +3,8 @@ import ReactPlayer from 'react-player';
 
 import AppHeader from '../AppHeader';
 
+import instagramLogo from '../../images/instagram-logo.png';
+
 export default class Instagram extends Component {
   constructor(props) {
     super(props);
@@ -64,7 +66,7 @@ export default class Instagram extends Component {
 
     return (
       <div className="Photos">
-        <AppHeader name="instagram" onHeaderClick={() => this.onPhotoHeaderClick()} />
+        <AppHeader imgHeaderSrc={instagramLogo} onHeaderClick={() => this.onPhotoHeaderClick()} />
         <div className="instagramHeader">
           <div className="profile-info">
             <img src={userProfile.profile_picture} alt={userProfile.profile_picture} />

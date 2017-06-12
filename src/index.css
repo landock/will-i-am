@@ -417,6 +417,10 @@ hr {
     padding: 0;
     font-size: 13px; }
 
+.app-header-img {
+  max-height: 30px;
+  margin-top: 15px; }
+
 .instagram-wrapper {
   margin-top: 151px; }
   .instagram-wrapper .photos-container {
