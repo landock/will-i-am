@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 
 import AppHeader from '../AppHeader';
 
-import instagramLogo from '../../images/instagram-logo.png';
+import instagramLogo from '../../images/instagram-logo.svg';
 
 export default class Instagram extends Component {
   constructor(props) {
