@@ -285,7 +285,7 @@ padding-left: 15px;
     font-size: 23px; }
 
 .message-list {
-  margin-top: 60px;
+  margin-top: 39px;
   padding-top: 10px;
   background-color: #fff;
   height: 545px;
@@ -344,7 +344,7 @@ hr {
 .photos-container {
   background-color: #fff;
   height: 553px;
-  margin-top: 62px;
+  margin-top: 39px;
   overflow: scroll; }
 
 .conversation {
@@ -371,13 +371,14 @@ hr {
     width: 15px; }
 
 .Facebook-app, .Twitter {
-  margin-top: 60px;
+  margin-top: 39px;
   background: #fff;
   min-height: 550px; }
 
 .Music {
   background-color: #fff;
-  min-height: 550px; }
+  min-height: 550px;
+  margin-top: 39px; }
 
 .phone-wrapper .user-count {
   margin: 0;
@@ -398,7 +399,7 @@ hr {
   position: absolute;
   width: 340px;
   background-color: white;
-  margin-top: -90px;
+  margin-top: -105px;
   padding: 10px;
   height: 85px; }
   .instagramHeader img {
@@ -409,6 +410,7 @@ hr {
     border-width: 1px;
     border-color: #f1f1f1;
     text-align: left;
+    margin: 0 auto;
     display: block; }
   .instagramHeader p {
     text-align: left;
@@ -422,7 +424,7 @@ hr {
   margin-top: 15px; }
 
 .instagram-wrapper {
-  margin-top: 151px; }
+  margin-top: 144px; }
   .instagram-wrapper .photos-container {
     height: 465px; }
 
@@ -455,3 +457,7 @@ hr {
 
 .full-width {
   margin-top: 10px; }
+
+.time {
+  width: 356px;
+  padding-top: 5px; }

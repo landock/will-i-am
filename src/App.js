@@ -25,6 +25,7 @@ import photosIcon from './images/photos-icon.png';
 import illIcon from './images/ill-icon.png';
 import iamIcon from './images/iam-icon.png';
 import angelIcon from './images/angel-icon.png';
+import timeView from './images/time.png';
 
 import './App.css';
 
@@ -159,12 +160,6 @@ class App extends Component {
             <a role="button" tabIndex={0} onClick={this.handleTwitterClick} id="twitter">
               <img className="icon" alt="icon" src={twitterIcon} />
             </a>
-            <a role="button" tabIndex={0} onClick={this.handleMusicClick} id="music" >
-              <img className="icon" alt="icon" src={musicIcon} />
-            </a>
-            <a role="button" tabIndex={0} onClick={this.handlePhotosClick} id="photos" >
-              <img className="icon" alt="icon" src={photosIcon} />
-            </a>
             <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer">
               <img className="icon" alt="icon" src={iamIcon} />
             </a>
@@ -188,6 +183,12 @@ class App extends Component {
           <a role="button" tabIndex={0} onClick={this.handleMessagesClick} id="messages">
             <img className="icon" alt="icon" src={messagesIcon} />
           </a>
+          <a role="button" tabIndex={0} onClick={this.handlePhotosClick} id="photos" >
+            <img className="icon" alt="icon" src={photosIcon} />
+          </a>
+          <a role="button" tabIndex={0} onClick={this.handleMusicClick} id="music" >
+            <img className="icon" alt="icon" src={musicIcon} />
+          </a>
         </div>
       </div>
     );
@@ -200,6 +201,7 @@ class App extends Component {
           <div className="essential-bg">
           <div className="phone-wrapper">
             <div className={`crop ${openClass}`}>
+            <img className="time" alt="icon" src={timeView} />
               {isHomeDisplayed ? homeSlider : ''}
               <CSSTransitionGroup
                 transitionName="flash"
