@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Timeline } from 'react-twitter-widgets';
 import AppHeader from '../AppHeader';
+
 
 export default function Twitter({ closeApp }) {
   const dataSource = {
@@ -17,4 +17,5 @@ export default function Twitter({ closeApp }) {
       <Timeline dataSource={dataSource} options={options} />
     </div>
   );
+
 }
