@@ -461,3 +461,24 @@ hr {
 .time {
   width: 356px;
   padding-top: 5px; }
+
+.avatar-icon {
+  display: inline-block;
+  padding: 5px;
+  width: 40px; }
+
+.message-info {
+  display: inline-block; }
+  .message-info aside {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+
+.name-arrow-wrap .message-time {
+  float: right;
+  color: #999; }
+
+.name-arrow-wrap p {
+  float: left;
+  margin-bottom: 3px; }
