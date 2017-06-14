@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 
 import imgPhotoFooter from '../../images/photos-footer.png';
-import infoIcon from '../../images/info-icon.svg';
 
 import AppHeader from '../AppHeader';
 
@@ -71,7 +70,7 @@ export default class Photos extends Component {
 
     return (
       <div className="Photos">
-	      <AppHeader name="photos" rightImageSrc={infoIcon} onHeaderClick={this.onPhotoHeaderClick}/>
+	      <AppHeader name="albums" onHeaderClick={this.onPhotoHeaderClick}/>
         <div className="photos-container">
           {
             selectedMedia
