@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { CSSTransitionGroup } from 'react-transition-group';
+import moment from 'moment';
 
 // components
 import Messages from './components/Messages';
@@ -207,7 +208,7 @@ class App extends Component {
               <img className="t-light" alt="icon" src={timeView} />
               <img className="t-dark" alt="icon" src={timeViewDk} />
             </div>
-            <span className="time-digit">3:01PM</span>
+            <span className="time-digit">{moment ((new Date().getTime())).format('h:m A')}</span>
               {isHomeDisplayed ? homeSlider : ''}
               <CSSTransitionGroup
                 transitionName="flash"
