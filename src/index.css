@@ -384,6 +384,10 @@ hr {
 .app-header-img {
   max-height: 27px; }
 
+.app-header-right-img {
+    max-height: 40px;
+}
+
 .instagram-wrapper {
   margin-top: 156px; }
   .instagram-wrapper .photos-container {
