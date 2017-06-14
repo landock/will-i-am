@@ -5,6 +5,7 @@ import Conversations from '../Conversations/';
 import AppHeader from '../AppHeader';
 
 import imgAvatarSrc from '../../images/avatar-default.svg';
+import imgMessageFooter from '../../images/message-footer.png';
 
 export default class Messages extends Component {
   constructor(props) {
@@ -84,6 +85,9 @@ export default class Messages extends Component {
       <div className={'message-list'}>
         { this.state.areConversationsDisplayed ? '' : renderListMessages }
         { renderSelectedConversations }
+        <div className="message-footer">
+          <img alt={imgMessageFooter} src={imgMessageFooter} />
+        </div>
       </div>
     );
   }

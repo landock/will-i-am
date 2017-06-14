@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 
+import imgPhotoFooter from '../../images/photos-footer.png';
+
 import AppHeader from '../AppHeader';
 
 export default class Photos extends Component {
@@ -75,6 +77,9 @@ export default class Photos extends Component {
               ? this.renderSelectedImage(selectedMedia)
               : this.renderThumbnails(media)
           }
+          <div className="photo-footer">
+            <img alt={imgPhotoFooter} src={imgPhotoFooter} />
+          </div>
         </div>
       </div>
     );
