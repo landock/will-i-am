@@ -203,6 +203,7 @@ class App extends Component {
           <div className="phone-wrapper">
             <div className={`crop ${openClass}`}>
             <img className="time" alt="icon" src={timeView} />
+            <span className="time-digit">3:01PM</span>
               {isHomeDisplayed ? homeSlider : ''}
               <CSSTransitionGroup
                 transitionName="flash"

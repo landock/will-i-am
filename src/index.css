@@ -423,6 +423,14 @@ hr {
   z-index: 1000;
   padding-left: 5px; }
 
+.time-digit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #ffffff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: .7em; }
+
 .avatar-icon {
   display: inline-block;
   padding: 5px;
