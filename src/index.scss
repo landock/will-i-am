@@ -27,7 +27,7 @@ p {
    background-image: url("./images/bg-4-md.jpg");
    padding-top: 154px;
    width: 1454px;
-   height: 730px;
+   height: 761px;
   }
 
   @media only screen and (max-width: 500px) {
@@ -314,7 +314,7 @@ padding-left: 15px;
   border-bottom: 1px solid #ccc;
   height: 50px;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
   position: absolute;
@@ -381,8 +381,7 @@ padding-left: 15px;
       color: #333;
       font-size: 14px;
       font-family: "Helvetica Neue", sans-serif;
-      margin-left: 5px;
-      margin-right: 5px;
+      margin-left: 25px;
     }
   }
 }
@@ -582,14 +581,17 @@ hr {
 .avatar-icon {
   display: inline-block;
   padding: 5px;
+  padding-left: 0;
   width: 40px;
 }
 
 .message-info {
   display: inline-block;
+  margin-left: 10px;
 
   aside {
-    width: 300px;
+  width: 265px;
+  margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -600,6 +602,12 @@ hr {
   .message-time {
     float: right;
     color: #999;
+
+    .fa-angle-right {
+      font-size: 20px;
+      color: #acacac;
+      margin-left: 5px;
+    }
   }
 
   p {
