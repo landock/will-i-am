@@ -147,6 +147,7 @@ class App extends Component {
     } = this.state;
 
     const openClass = isHomeDisplayed ? '' : ' open';
+    const themeClass = isHomeDisplayed ? 'light' : ' dark';
 
     const homeSlider = (
       <Slider key={0} {...settings} class="slider">
@@ -201,8 +202,11 @@ class App extends Component {
         <div className="wrapper">
           <div className="essential-bg">
           <div className="phone-wrapper">
-            <div className={`crop ${openClass}`}>
-            <img className="time" alt="icon" src={timeView} />
+            <div className={`crop ${openClass} ${themeClass}`}>
+            <div className="time">
+              <img className="t-light" alt="icon" src={timeView} />
+              <img className="t-dark" alt="icon" src={timeViewDk} />
+            </div>
             <span className="time-digit">3:01PM</span>
               {isHomeDisplayed ? homeSlider : ''}
               <CSSTransitionGroup

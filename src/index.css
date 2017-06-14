@@ -236,7 +236,7 @@ a {
   .tmpHeader .arrow {
     position: absolute;
     font-size: 30px;
-    top: 10px;
+    top: 12px;
     left: 10px; }
     .tmpHeader .arrow i {
       color: #007aff; }
@@ -250,7 +250,7 @@ a {
   margin-top: 50px;
   padding-top: 10px;
   background-color: #ffffff;
-  height: 553px;
+  height: 509px;
   overflow: scroll; }
   .message-list span {
     display: block;
@@ -416,12 +416,31 @@ hr {
   color: #000000;
   border-radius: 4px; }
 
-.time {
+.time .t-light,
+.time .t-dark {
   position: absolute;
-  left: 0;
-  width: 356px;
-  z-index: 1000;
-  padding-left: 5px; }
+  top: 2px;
+  left: 5px;
+  width: 350px;
+  z-index: 1000; }
+
+.light .t-light {
+  display: block; }
+
+.light .t-dark {
+  display: none; }
+
+.light .time-digit {
+  color: #ffffff; }
+
+.dark .t-light {
+  display: none; }
+
+.dark .t-dark {
+  display: block; }
+
+.dark .time-digit {
+  color: black; }
 
 .time-digit {
   position: absolute;
@@ -429,7 +448,9 @@ hr {
   right: 0;
   color: #ffffff;
   font-family: "Helvetica Neue", sans-serif;
-  font-size: .7em; }
+  font-size: .7em;
+  z-index: 100;
+  font-weight: bold; }
 
 .avatar-icon {
   display: inline-block;
