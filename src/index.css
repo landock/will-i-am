@@ -444,12 +444,13 @@ hr {
 
 .time-digit {
   position: absolute;
+  top: 2px;
   left: 0;
   right: 0;
   color: #ffffff;
   font-family: "Helvetica Neue", sans-serif;
   font-size: .7em;
-  z-index: 100;
+  z-index: 1000;
   font-weight: bold; }
 
 .avatar-icon {
