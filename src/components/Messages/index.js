@@ -36,11 +36,9 @@ export default class Messages extends Component {
   render() {
 		const momentConfig = {
 			sameDay: 'h:mm A',
-			nextDay: '[Tomorrow]',
-			nextWeek: 'dddd',
 			lastDay: '[Yesterday]',
 			lastWeek: 'dddd',
-			sameElse: 'MM/DD/YYYY'
+			sameElse: 'MM/DD/YY'
 		};
     const { conversations } = this.props;
     const listMessages = (
