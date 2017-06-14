@@ -180,14 +180,14 @@ padding-left: 15px;
   margin: 0 15px 10px;
   padding: 15px 20px;
   position: relative;
-  background-color: #E5E4E9;
+  background-color: #e5e6ea;
   color: #363636;
   margin-right: 80px;
   text-align: left;
   line-height: 20px;
   margin-bottom: 20px; }
   .message-wrap::before {
-    border-color: #E5E4E9;
+    border-color: #e5e6ea;
     border-radius: 50% 50% 50% 50%;
     border-style: solid;
     border-width: 0 20px;
@@ -207,12 +207,12 @@ padding-left: 15px;
   margin: 0 15px 10px;
   padding: 15px 20px;
   position: relative;
-  background-color: #2095FE;
+  background-color: #007aff;
   color: #fff;
   margin-left: 80px;
   margin-bottom: 20px; }
   .will .message-wrap::before, .keolo .message-wrap::before {
-    border-color: #2095FE;
+    border-color: #007aff;
     clip: rect(20px, 35px, 42px, 0px);
     right: -15px;
     width: 30px; }
@@ -264,10 +264,10 @@ padding-left: 15px;
   background: #f7f7f8;
   border: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  height: 60px;
+  height: 50px;
   text-align: left;
-  font-size: 20px;
-  line-height: 58px;
+  font-size: 14px;
+  font-weight: bold;
   white-space: nowrap;
   position: absolute;
   top: 0;
@@ -277,7 +277,10 @@ padding-left: 15px;
     position: absolute;
     font-size: 30px;
     font-family: Tahoma;
-    margin-left: 10px; }
+    top: 10px;
+    left: 10px; }
+    .tmpHeader .arrow i {
+      color: #007aff; }
   .tmpHeader h2 {
     font-weight: bold;
     color: #111111;
@@ -285,10 +288,10 @@ padding-left: 15px;
     font-size: 23px; }
 
 .message-list {
-  margin-top: 37px;
+  margin-top: 28px;
   padding-top: 10px;
   background-color: #fff;
-  height: 545px;
+  height: 555px;
   overflow: scroll; }
   .message-list span {
     display: block;
@@ -326,7 +329,8 @@ hr {
   text-transform: capitalize; }
 
 .header-cp {
-  text-align: center; }
+  text-align: center;
+  margin-top: 20px; }
 
 .image-crop {
   height: 115px;
@@ -343,8 +347,8 @@ hr {
 
 .photos-container {
   background-color: #fff;
-  height: 553px;
-  margin-top: 37px;
+  height: 562px;
+  margin-top: 29px;
   overflow: scroll; }
 
 .conversation {
@@ -371,7 +375,7 @@ hr {
     width: 15px; }
 
 .Facebook-app, .Twitter {
-  margin-top: 37px;
+  margin-top: 28px;
   background: #fff;
   min-height: 550px; }
 
@@ -420,11 +424,10 @@ hr {
     font-size: 13px; }
 
 .app-header-img {
-  max-height: 30px;
-  margin-top: 15px; }
+  max-height: 27px; }
 
 .instagram-wrapper {
-  margin-top: 142px; }
+  margin-top: 133px; }
   .instagram-wrapper .photos-container {
     height: 465px; }
 

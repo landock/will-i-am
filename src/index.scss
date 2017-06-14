@@ -208,7 +208,7 @@ padding-left: 15px;
   margin: 0 15px 10px;
   padding: 15px 20px;
   position: relative;
-  background-color: #E5E4E9;
+  background-color: #e5e6ea;
   color: #363636;
   margin-right: 80px;
   text-align: left;
@@ -216,7 +216,7 @@ padding-left: 15px;
   margin-bottom: 20px;
 
   &::before {
-    border-color: #E5E4E9;
+    border-color: #e5e6ea;
     border-radius: 50% 50% 50% 50%;
     border-style: solid;
     border-width: 0 20px;
@@ -241,13 +241,13 @@ padding-left: 15px;
     margin: 0 15px 10px;
     padding: 15px 20px;
     position: relative;
-    background-color: #2095FE;
+    background-color: #007aff;
     color: #fff;
     margin-left: 80px;
     margin-bottom: 20px;
 
     &::before {
-      border-color: #2095FE;
+      border-color: #007aff;
       clip: rect(20px, 35px, 42px, 0px);
       right: -15px;
       width: 30px;
@@ -312,10 +312,10 @@ padding-left: 15px;
   background: #f7f7f8;
   border: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  height: 60px;
+  height: 50px;
   text-align: left;
-  font-size: 20px;
-  line-height: 58px;
+  font-size: 14px;
+  font-weight: bold;
   white-space: nowrap;
   position: absolute;
   top: 0;
@@ -326,7 +326,12 @@ padding-left: 15px;
     position: absolute;
     font-size: 30px;
     font-family: Tahoma;
-    margin-left: 10px;
+    top: 10px;
+    left: 10px;
+
+    i {
+      color: #007aff;
+    }
   }
 
   h2 {
@@ -338,10 +343,10 @@ padding-left: 15px;
 }
 
 .message-list {
-  margin-top: 37px;
+  margin-top: 28px;
   padding-top: 10px;
   background-color: #fff;
-  height: 545px;
+  height: 555px;
   overflow: scroll;
 
   span {
@@ -396,6 +401,7 @@ hr {
 
 .header-cp {
   text-align: center;
+  margin-top: 20px;
 }
 
 .image-crop {
@@ -418,8 +424,8 @@ hr {
 
 .photos-container {
   background-color: #fff;
-  height: 553px;
-  margin-top: 37px;
+  height: 562px;
+  margin-top: 29px;
   overflow: scroll;
 }
 
@@ -454,7 +460,7 @@ hr {
 }
 
 .Facebook-app, .Twitter{
-  margin-top: 37px;
+  margin-top: 28px;
   background: #fff;
   min-height: 550px;
 }
@@ -515,12 +521,11 @@ hr {
 }
 
 .app-header-img {
-  max-height: 30px;
-  margin-top: 15px;
+  max-height: 27px;
 }
 
 .instagram-wrapper {
-  margin-top: 142px;
+  margin-top: 133px;
 
   .photos-container {
     height: 465px;
