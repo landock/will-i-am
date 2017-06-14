@@ -35,11 +35,11 @@ export default class Messages extends Component {
 
   render() {
 		const momentConfig = {
-			sameDay: '[Today]',
-			nextDay: '[Yesterday]',
+			sameDay: 'h:mm A',
+			nextDay: '[Tomorrow]',
 			nextWeek: 'dddd',
 			lastDay: '[Yesterday]',
-			lastWeek: '[Last] dddd',
+			lastWeek: 'dddd',
 			sameElse: 'MM/DD/YYYY'
 		};
     const { conversations } = this.props;
@@ -50,7 +50,7 @@ export default class Messages extends Component {
           <div className="message-info" role="button" tabIndex={0} onClick={e => this.onConversationClick(e, index)}>
             <div className="name-arrow-wrap">
             <p><strong>{conversation.name}</strong></p>
-							<p className="message-time">{moment().calendar(conversation.created_at, momentConfig)} <i
+	            <p className="message-time">{moment(conversation.created_at).calendar(moment(), momentConfig)} <i
 								className="fa fa-angle-right" aria-hidden="true"></i></p>
             </div>
 
