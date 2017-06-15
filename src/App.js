@@ -67,6 +67,7 @@ class App extends Component {
     this.handleFacebookClick = this.handleFacebookClick.bind(this);
     this.handleInstagramClick = this.handleInstagramClick.bind(this);
     this.handleTwitterClick = this.handleTwitterClick.bind(this);
+	  this.handleHomeClick = this.handleHomeClick.bind(this);
   }
 
   componentDidMount() {
@@ -89,6 +90,18 @@ class App extends Component {
       })
       .catch(err => console.log(`Fetch Images Error: ${err}`));
   }
+
+	handleHomeClick() {
+		this.setState({
+			isHomeDisplayed: true,
+			areMessagesDisplayed: false,
+			isMusicDisplayed: false,
+			arePhotosDisplayed: false,
+			isFacebookDisplayed: false,
+			isInstagramDisplayed: false,
+			isTwitterDisplayed: false,
+		});
+	}
 
   handleMessagesClick() {
     this.setState({
@@ -250,8 +263,9 @@ class App extends Component {
             <div>
             </div>
               {/* Footer */}
-              {this.state.isHomeDisplayed ? homeFooter : ''}
-            </div>
+	          {this.state.isHomeDisplayed ? homeFooter : ''}
+	          <button className="home-btn" onClick={this.handleHomeClick}>Close</button>
+          </div>
           </div>
         </div>
       </div>

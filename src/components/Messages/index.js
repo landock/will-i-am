@@ -6,6 +6,7 @@ import AppHeader from '../AppHeader';
 
 import imgAvatarSrc from '../../images/avatar-default.svg';
 import imgMessageFooter from '../../images/message-footer.png';
+import pencilIcon from '../../images/pencil-icon.svg';
 
 export default class Messages extends Component {
   constructor(props) {
@@ -79,6 +80,7 @@ export default class Messages extends Component {
 	      <AppHeader
 		      title="messages"
 		      onHeaderClick={this.onMessagesHeaderClick}
+		      rightImageSrc={pencilIcon}
 	      />
         <ul>{ listMessages }</ul>
       </div>
