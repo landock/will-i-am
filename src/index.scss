@@ -281,12 +281,28 @@ a {
   font-size: 18px;
 }
 
-.large .tmpHeader {
-  height: 75px;
-}
 
-.large .header-cp {
-  margin-top: 15px;
+.large {
+
+  .message-list {
+    margin-top: 90px;
+  }
+
+  .app-header-img {
+    max-height: 35px;
+  }
+
+  .tmpHeader {
+    height: 90px;
+
+    .arrow {
+      top: 19px;
+    }
+  }
+
+  .header-cp {
+    margin-top: 25px;
+  }
 }
 
 .tmpHeader {
@@ -655,4 +671,8 @@ hr {
 .message-footer {
   position: absolute;
   bottom: 0;
+}
+
+.Conversations {
+  margin-top: 40px;
 }

@@ -220,13 +220,19 @@ a {
   right: 15px;
   font-size: 18px; }
 
+.large .message-list {
+  margin-top: 90px; }
+
+.large .app-header-img {
+  max-height: 35px; }
+
 .large .tmpHeader {
-    height: 75px;
-}
+  height: 90px; }
+  .large .tmpHeader .arrow {
+    top: 19px; }
 
 .large .header-cp {
-    margin-top: 15px;
-}
+  margin-top: 25px; }
 
 .tmpHeader {
   color: #333;
@@ -393,16 +399,13 @@ hr {
   max-height: 27px; }
 
 .app-header-right-img {
-    position: absolute;
-    right: 20px;
-    top: 33.333%;
-    max-height: 19px;
-    max-width: 19px;
-}
-
-.app-header-right-img img {
-    width: 100%;
-}
+  position: absolute;
+  right: 20px;
+  top: 33.333%;
+  max-height: 19px;
+  max-width: 19px; }
+  .app-header-right-img img {
+    width: 100%; }
 
 .instagram-wrapper {
   margin-top: 156px; }
@@ -505,3 +508,6 @@ hr {
 .message-footer {
   position: absolute;
   bottom: 0; }
+
+.Conversations {
+  margin-top: 40px; }
