@@ -13,7 +13,7 @@ export default function Twitter({ closeApp }) {
   };
   return (
     <div className="Twitter">
-      <AppHeader name="twitter" onHeaderClick={() => closeApp()} />
+	    <AppHeader title="twitter" onHeaderClick={() => closeApp()}/>
       <Timeline dataSource={dataSource} options={options} />
     </div>
   );

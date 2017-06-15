@@ -77,7 +77,7 @@ export default class Messages extends Component {
     const renderListMessages = (
       <div>
 	      <AppHeader
-		      name="messages"
+		      title="messages"
 		      onHeaderClick={this.onMessagesHeaderClick}
 	      />
         <ul>{ listMessages }</ul>

@@ -19,8 +19,8 @@ export default class Conversations extends Component {
     return (
       <div className="Conversations">
         <AppHeader
-	        name={conversation.name}
-	        imgHeaderSrc={imgAvatarSrc}
+	        title={conversation.name}
+	        centerImageSrc={imgAvatarSrc}
 	        rightImageSrc={infoIcon}
 	        onHeaderClick={this.onConversationHeaderClick}
         />
