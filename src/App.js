@@ -208,7 +208,7 @@ class App extends Component {
               <img className="t-light" alt="icon" src={timeView} />
               <img className="t-dark" alt="icon" src={timeViewDk} />
             </div>
-            <span className="time-digit">{moment ((new Date().getTime())).format('h:m A')}</span>
+            <span className="time-digit">{moment ((new Date().getTime())).format('h:mm A')}</span>
               {isHomeDisplayed ? homeSlider : ''}
               <CSSTransitionGroup
                 transitionName="flash"
