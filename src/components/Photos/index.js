@@ -70,7 +70,7 @@ export default class Photos extends Component {
 
     return (
       <div className="Photos">
-        <AppHeader name="photos" onHeaderClick={this.onPhotoHeaderClick} />
+	      <AppHeader name="albums" onHeaderClick={this.onPhotoHeaderClick}/>
         <div className="photos-container">
           {
             selectedMedia
