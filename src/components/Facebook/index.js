@@ -17,7 +17,7 @@ export default class Facebook extends Component {
   render() {
     return (
       <div className="Facebook-app">
-        <AppHeader name="facebook" onHeaderClick={() => this.onFacebookHeaderClick()} />
+	      <AppHeader title="facebook" onHeaderClick={() => this.onFacebookHeaderClick()}/>
         <iframe
           width="100%"
           height="620"

@@ -12,7 +12,7 @@ export default class Music extends Component {
   render() {
     return (
       <div className="Music">
-        <AppHeader name="music" onHeaderClick={() => this.onMusicHeaderClick()} />
+	      <AppHeader title="music" onHeaderClick={() => this.onMusicHeaderClick()}/>
         <iframe
           width="100%"
           height="620"
