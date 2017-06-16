@@ -281,8 +281,10 @@ a {
   font-size: 18px;
 }
 
+
 .large {
 
+  .arrow
   .message-list {
     margin-top: 90px;
   }
@@ -293,10 +295,6 @@ a {
 
   .tmpHeader {
     height: 90px;
-
-    .arrow {
-      top: 19px;
-    }
   }
 
   .header-cp {
@@ -341,7 +339,8 @@ a {
   margin-top: 50px;
   padding-top: 10px;
   background-color: $white;
-  height: 509px;
+  height: 527px;
+  width: 377px;
   overflow: scroll;
 
   span {
@@ -392,6 +391,7 @@ hr {
   text-transform: capitalize;
 }
 
+
 .header-cp {
   text-align: center;
   margin-top: 20px;
@@ -409,7 +409,7 @@ hr {
   }
 
   a {
-    float: left;
+    float:left;
     height: 100%;
     width: 100%;
   }
@@ -418,6 +418,7 @@ hr {
 .photos-container {
   background-color: $white;
   height: 565px;
+  width: 375px;
   margin-top: 50px;
   overflow: scroll;
 }
@@ -452,13 +453,13 @@ hr {
 
 }
 
-.Facebook-app, .Twitter {
+.Facebook-app, .Twitter{
   margin-top: 50px;
   background: $white;
   min-height: 563px;
 }
 
-.Music {
+.Music{
   background-color: $white;
   min-height: 550px;
   margin-top: 37px;
@@ -493,15 +494,15 @@ hr {
     height: 85px;
 
     img {
-      border-radius: 50%;
-      height: 65px;
-      width: 65px;
-      border-style: solid;
-      border-width: 1px;
-      border-color: $white-off;
-      text-align: left;
-      margin: 0 auto;
-      display: block;
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $white-off;
+    text-align: left;
+    margin: 0 auto;
+    display: block;
     }
 
     p {
@@ -532,8 +533,19 @@ hr {
 .instagram-wrapper {
   margin-top: 156px;
 
+  .image-crop {
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    float: left;
+
+    img {
+      height: 125px;
+      width: auto;
+    }
+  }
   .photos-container {
-    height: 465px;
+    height: 475px;
   }
 }
 
@@ -639,11 +651,11 @@ hr {
   margin-left: 10px;
 
   aside {
-    width: 265px;
-    margin-bottom: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 265px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   }
 }
 
@@ -665,10 +677,24 @@ hr {
   }
 }
 
-.photo-footer,
+
 .message-footer {
   position: absolute;
+  top: 573px;
+
+  img {
+    height: 42px;
+  }
+}
+
+.photo-footer {
+  position: absolute;
+  top: 568px;
   bottom: 0;
+
+  img {
+    height: 48px;
+  }
 }
 
 .Conversations {

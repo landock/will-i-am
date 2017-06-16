@@ -220,7 +220,8 @@ a {
   right: 15px;
   font-size: 18px; }
 
-.large .message-list {
+.large .arrow
+.message-list {
   margin-top: 90px; }
 
 .large .app-header-img {
@@ -228,8 +229,6 @@ a {
 
 .large .tmpHeader {
   height: 90px; }
-  .large .tmpHeader .arrow {
-    top: 19px; }
 
 .large .header-cp {
   margin-top: 25px; }
@@ -264,7 +263,8 @@ a {
   margin-top: 50px;
   padding-top: 10px;
   background-color: #ffffff;
-  height: 509px;
+  height: 527px;
+  width: 377px;
   overflow: scroll; }
   .message-list span {
     display: block;
@@ -320,6 +320,7 @@ hr {
 .photos-container {
   background-color: #ffffff;
   height: 565px;
+  width: 375px;
   margin-top: 50px;
   overflow: scroll; }
 
@@ -409,8 +410,16 @@ hr {
 
 .instagram-wrapper {
   margin-top: 156px; }
+  .instagram-wrapper .image-crop {
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    float: left; }
+    .instagram-wrapper .image-crop img {
+      height: 125px;
+      width: auto; }
   .instagram-wrapper .photos-container {
-    height: 465px; }
+    height: 475px; }
 
 .profile-info {
   float: left; }
@@ -504,21 +513,28 @@ hr {
   float: left;
   margin-bottom: 0; }
 
-.photo-footer,
 .message-footer {
   position: absolute;
+  top: 573px; }
+  .message-footer img {
+    height: 42px; }
+
+.photo-footer {
+  position: absolute;
+  top: 568px;
   bottom: 0; }
+  .photo-footer img {
+    height: 48px; }
 
 .Conversations {
   margin-top: 40px; }
 
 .home-btn {
-    position: absolute;
-    opacity: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    bottom: 25px;
-    left: 44%;
-    cursor: pointer;
-}
+  position: absolute;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 25px;
+  left: 44%;
+  cursor: pointer; }

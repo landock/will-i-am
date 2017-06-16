@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 
-import imgPhotoFooter from '../../images/photos-footer.png';
+import imgPhotoFooter from '../../images/photos-footer.svg';
 
 import AppHeader from '../AppHeader';
 

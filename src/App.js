@@ -26,8 +26,8 @@ import photosIcon from './images/photos-icon.png';
 import illIcon from './images/ill-icon.png';
 import iamIcon from './images/iam-icon.png';
 import angelIcon from './images/angel-icon.png';
-import timeView from './images/time.png';
-import timeViewDk from './images/time-dark.png';
+import timeView from './images/time.gif';
+import timeViewDk from './images/time-dark.gif';
 
 import './App.css';
 

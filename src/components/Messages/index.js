@@ -5,7 +5,7 @@ import Conversations from '../Conversations/';
 import AppHeader from '../AppHeader';
 
 import imgAvatarSrc from '../../images/avatar-default.svg';
-import imgMessageFooter from '../../images/message-footer.png';
+import imgMessageFooter from '../../images/message-footer.svg';
 import pencilIcon from '../../images/pencil-icon.svg';
 
 export default class Messages extends Component {
