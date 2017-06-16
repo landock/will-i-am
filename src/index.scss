@@ -80,14 +80,16 @@ a {
 
 .crop {
   position: absolute;
-  background-image: url("./images/bep-bg2.jpg");
+  background-image: url("./images/will-lite.jpg");
   background-repeat: no-repeat;
-  background-size: 360px 522px;
+  background-size: 500px 835px;
   width: 360px !important;
-  height: 522px;
+  height: 610px;
   top: 92px;
   margin-left: 20px;
   overflow: hidden;
+  background-position-x: -56px;
+  background-position-y: -52px;
 
   &.open {
     height:615px;
