@@ -181,7 +181,7 @@ a {
 
 .message-wrap {
   border-radius: 20px 20px 20px 20px;
-  margin: 0 15px 10px;
+  margin: 0 32px 10px;
   padding: 15px 20px;
   position: relative;
   background-color: #e5e6ea;
@@ -201,9 +201,9 @@ a {
     content: " ";
     height: 40px;
     position: absolute;
-    right: 208px;
+    right: 244px;
     width: 30px;
-    bottom: -15px;
+    bottom: 1px;
   }
 
   img {
@@ -214,7 +214,7 @@ a {
 .will, .keolo {
   .message-wrap {
     border-radius: 20px 20px 20px 20px;
-    margin: 0 15px 10px;
+    margin: 0 49px 10px;
     padding: 15px 20px;
     position: relative;
     background-color: #007aff;
@@ -225,8 +225,9 @@ a {
     &::before {
       border-color: #007aff;
       clip: rect(20px, 35px, 42px, 0px);
-      right: -15px;
       width: 30px;
+      right: -49px;
+      bottom: 0;
     }
   }
 }
