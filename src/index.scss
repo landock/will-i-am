@@ -74,22 +74,22 @@ a {
 }
 
 .icon {
-  width: 50px;
-  height: 67px;
+  width: 55px;
+  height: 74px;
 }
 
 .crop {
   position: absolute;
   background-image: url("./images/will-lite.jpg");
   background-repeat: no-repeat;
-  background-size: 500px 835px;
+  background-size: 599px 1000px;
   width: 360px !important;
   height: 610px;
   top: 92px;
   margin-left: 20px;
   overflow: hidden;
-  background-position-x: -56px;
-  background-position-y: -52px;
+  background-position-x: -85px;
+  background-position-y: -96px;
 
   &.open {
     height:615px;
@@ -156,7 +156,7 @@ a {
 
 .screen {
   padding-top: 30px;
-  padding-left: 35px;
+  padding-left: 25px;
   min-height: 600px;
 }
 
