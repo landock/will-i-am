@@ -59,16 +59,16 @@ a {
 
 .crop {
   position: absolute;
-  background-image: url("./images/will-lite.jpg");
+  background-image: url("./images/will-phone-bg.jpg");
   background-repeat: no-repeat;
-  background-size: 599px 1000px;
+  background-size: 360px 640px;
   width: 360px !important;
   height: 610px;
   top: 92px;
   margin-left: 20px;
   overflow: hidden;
-  background-position-x: -85px;
-  background-position-y: -96px; }
+  background-position-x: -5px;
+  background-position-y: -28px; }
   .crop.open {
     height: 615px; }
 
