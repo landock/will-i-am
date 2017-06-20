@@ -15,6 +15,7 @@ import Twitter from './components/Twitter';
 import { fetchImages } from './api/flickr';
 import { fetchMessages } from './api/messages';
 import { fetchInstagram } from './api/instagram';
+import { fetchTracks } from './api/soundcloud';
 
 // image imports
 import messagesIcon from './images/messages-icon.png';
@@ -49,6 +50,7 @@ class App extends Component {
 
     this.state = {
       media: [],
+	    tracks: [],
       instagramMedia: [],
       userProfile: null,
       conversations: [],
@@ -78,6 +80,10 @@ class App extends Component {
     fetchMessages()
       .then(conversations => this.setState({ conversations }))
       .catch(err => console.log(`Fetch Messages Error: ${err}`));
+
+	  fetchTracks()
+		  .then(tracks => this.setState({ tracks }))
+		  .catch(err => console.log(`Fetch Messages Error: ${err}`));
 
     fetchInstagram()
       .then((response) => {
@@ -156,6 +162,7 @@ class App extends Component {
       isTwitterDisplayed,
       instagramMedia,
       media,
+	    tracks,
       conversations,
       userProfile,
     } = this.state;
@@ -234,7 +241,7 @@ class App extends Component {
                   : ''
                 }
                 { isMusicDisplayed
-                  ? <Music key={2} closeApp={this.handleMusicClick} />
+	                ? <Music tracks={tracks} key={2} closeApp={this.handleMusicClick}/>
                   : ''
                 }
                 { arePhotosDisplayed

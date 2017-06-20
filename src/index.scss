@@ -6,7 +6,6 @@ $black: #000000;
 $white: #ffffff;
 $white-off: #f6f7f5;
 $blue: #007aff;
-
 body {
   font-family: "Helvetica Neue", sans-serif;
   background-color: $white-off;
@@ -17,6 +16,42 @@ a,
 h2,
 p {
   font-family: "Helvetica Neue", sans-serif;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button; /* for input */
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Make `a` like a button */
+[role="button"] {
+  color: inherit;
+  cursor: default;
+  text-align: center;
+  text-decoration: none;
+  white-space: pre;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .wrapper {
@@ -464,8 +499,8 @@ hr {
 
 .Music{
   background-color: $white;
-  min-height: 550px;
-  margin-top: 37px;
+  min-height: 563px;
+  margin-top: 50px;
 }
 
 .phone-wrapper {
@@ -714,3 +749,103 @@ hr {
   left: 44%;
   cursor: pointer;
 }
+
+.play-track-btn {
+  width: 100%;
+  cursor: pointer;
+  display: block;
+  text-align: left;
+  position: relative;
+  height: 50px;
+  background: none;
+  border: none;
+  margin-bottom: 5px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.track-wrapper {
+  width: 360px;
+  max-height: 563px;
+  overflow: scroll;
+  padding: 0 10px;
+
+  &.player-open {
+    max-height: 500px;
+  }
+}
+
+.track-art {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: auto;
+  border-radius: 3px;
+}
+
+.track-info {
+  display: inline-block;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 60px;
+  top: 20%;
+  width: 280px;
+  border-bottom: 1px solid #8c8c8c;
+
+  font-size: 80%;
+
+  p {
+    margin: 0 0 5px 0;
+  }
+
+  .track-title {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+  }
+}
+
+.current-track-player {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  height: 50px;
+  background-color: #e5e4e9;
+
+  img {
+    max-height: 50px;
+    display: inline-block;
+  }
+
+  p {
+    display: inline-block;
+  }
+
+  .current-track-title {
+    margin-left: 15px;
+    width: 215px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.play-icon, .fast-forward-icon {
+  height: 20px;
+}
+
+.controls {
+  float: right;
+  margin-right: 20px;
+  line-height: 75px;
+}
+
+
