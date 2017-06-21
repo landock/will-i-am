@@ -6,6 +6,7 @@ import AppHeader from '../AppHeader';
 import playIcon from '../../images/pause.svg';
 import pauseIcon from '../../images/play.svg';
 import fastForwardIcon from '../../images/forward.svg';
+import audio from '../../images/audio.svg';
 import missingArt from '../../images/missing-album-art-icon.png';
 
 export default class Music extends Component {
@@ -37,16 +38,30 @@ export default class Music extends Component {
 
 	render() {
 		const { closeApp, tracks } = this.props;
-		const player = tracks.map(track => (
-			<button className="play-track-btn" key={track.id} onClick={() => this.onTrackClick(track)}>
-				<img className="track-art" src={track.artworkUrl || missingArt}/>
-				<div className="track-info">
-					<p className="track-title">{track.title}</p>
-					<p className="track-artist">{track.artist}</p>
-				</div>
-			</button>
+		const player = tracks.map(track => {
+			const linearGradient = this.state.currentTrackTitle === track.title && this.state.isPlaying
+				? 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8))'
+				: 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))';
+			const artworkStyle = {
+				background: `${linearGradient}, url('${track.artworkUrl}')`,
+			};
 
-		));
+			return (
+				<button className="play-track-btn" key={track.id} onClick={() => this.onTrackClick(track)}>
+					<div style={artworkStyle} className="track-art">
+						{
+							this.state.currentTrackTitle === track.title && this.state.isPlaying
+								? <img src={audio} style={{ width: 'auto', height: '20px', display: 'block', margin: '33% auto 0' }}/>
+								: ''
+						}
+					</div>
+					<div className="track-info">
+						<p className="track-title">{track.title}</p>
+						<p className="track-artist">{track.artist}</p>
+					</div>
+				</button>
+			)
+		});
 
 		const currentlyPlayingOpenClass = this.state.isPlaying ? 'track-wrapper player-open' : 'track-wrapper';
     return (

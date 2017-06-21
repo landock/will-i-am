@@ -34,6 +34,10 @@ button {
   -webkit-user-select: none; /* for button */
   -moz-user-select: none;
   -ms-user-select: none;
+
+  &:focus, &:active {
+    outline: none;
+  }
 }
 
 input::-moz-focus-inner,
@@ -770,7 +774,8 @@ hr {
   width: 360px;
   max-height: 563px;
   overflow: scroll;
-  padding: 0 10px;
+  padding: 10px;
+
 
   &.player-open {
     max-height: 500px;
@@ -783,8 +788,13 @@ hr {
   left: 0;
   top: 0;
   height: 50px;
-  width: auto;
+  width: 50px;
   border-radius: 3px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .track-info {
@@ -823,6 +833,8 @@ hr {
   img {
     max-height: 50px;
     display: inline-block;
+
+    border-radius: 3px;
   }
 
   p {
@@ -835,6 +847,7 @@ hr {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 80%;
   }
 }
 
@@ -844,8 +857,10 @@ hr {
 
 .controls {
   float: right;
-  margin-right: 20px;
-  line-height: 75px;
+  line-height: 60px;
+  button {
+    margin-right: 20px;
+  }
 }
 
 
