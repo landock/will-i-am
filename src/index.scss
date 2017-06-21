@@ -3,6 +3,7 @@ $grey-xlight: #acacac;
 $grey-light: #c8c7cc;
 $grey-medium: #8c8c8c;
 $black: #000000;
+$grey-dark: #111111;
 $white: #ffffff;
 $white-off: #f6f7f5;
 $blue: #007aff;
@@ -125,7 +126,7 @@ a {
   width: 360px !important;
   height: 610px;
   top: 92px;
-  margin-left: 20px;
+  margin-left: 22px;
   overflow: hidden;
   background-position-x: -5px;
   background-position-y: -28px;
@@ -184,18 +185,18 @@ a {
   background-image: url("./images/bottom-nav-bg.png");
   background-repeat: no-repeat;
   height: 73px;
-  width: 325px;
+  width: 326px;
   bottom: 93px;
-  margin-left: 20px;
+  margin-left: 22px;
   padding-top: 15px;
   padding-bottom: 5px;
-  padding-left: 35px;
+  padding-left: 30px;
   text-align: center;
 }
 
 .screen {
-  padding-top: 30px;
-  padding-left: 25px;
+  padding-top: 33px;
+  padding-left: 28px;
   min-height: 600px;
 }
 
@@ -213,7 +214,7 @@ a {
 .icon-wrapper {
   a {
     float: left;
-    margin-right: 30px;
+    margin-right: 26px;
     margin-bottom: 10px;
   }
 }
@@ -505,6 +506,16 @@ hr {
   background-color: $white;
   min-height: 563px;
   margin-top: 50px;
+
+  .tmpHeader {
+    background: #fff;
+    border: 0;
+    .arrow {
+      i {
+        color: #FF2D55;
+      }
+    }
+  }
 }
 
 .phone-wrapper {
@@ -678,7 +689,7 @@ hr {
   font-family: "Helvetica Neue", sans-serif;
   font-size: .7em;
   z-index: 1000;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .avatar-icon {
@@ -698,6 +709,7 @@ hr {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
   }
 }
 
@@ -797,6 +809,10 @@ hr {
   }
 }
 
+.track-artist {
+  color: $grey-medium;
+}
+
 .track-info {
   display: inline-block;
   margin-bottom: 20px;
@@ -804,7 +820,7 @@ hr {
   left: 60px;
   top: 20%;
   width: 280px;
-  border-bottom: 1px solid #8c8c8c;
+  border-bottom: 1px solid $grey-light;
 
   font-size: 80%;
 
@@ -813,7 +829,7 @@ hr {
   }
 
   .track-title {
-    font-weight: bold;
+    // font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -828,7 +844,7 @@ hr {
   text-align: left;
   padding: 10px;
   height: 50px;
-  background-color: #e5e4e9;
+  background-color: $grey-xxlight;
 
   img {
     max-height: 50px;
@@ -839,6 +855,7 @@ hr {
 
   p {
     display: inline-block;
+    color: $grey-dark;
   }
 
   .current-track-title {
@@ -848,6 +865,7 @@ hr {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 80%;
+    line-height: 24px;
   }
 }
 
@@ -862,5 +880,3 @@ hr {
     margin-right: 20px;
   }
 }
-
-

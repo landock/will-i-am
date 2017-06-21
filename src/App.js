@@ -183,9 +183,6 @@ class App extends Component {
             <a role="button" tabIndex={0} onClick={this.handleTwitterClick} id="twitter">
               <img className="icon" alt="icon" src={twitterIcon} />
             </a>
-            <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer">
-              <img className="icon" alt="icon" src={iamIcon} />
-            </a>
             <a href="https://ill.i.am/" target="_blank" rel="noopener noreferrer">
               <img className="icon" alt="icon" src={illIcon} />
             </a>
@@ -211,6 +208,9 @@ class App extends Component {
           </a>
           <a role="button" tabIndex={0} onClick={this.handleMusicClick} id="music" >
             <img className="icon" alt="icon" src={musicIcon} />
+          </a>
+          <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer">
+            <img className="icon" alt="icon" src={iamIcon} />
           </a>
         </div>
       </div>
