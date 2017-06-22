@@ -15,7 +15,7 @@ import Twitter from './components/Twitter';
 import { fetchImages } from './api/flickr';
 import { fetchMessages } from './api/messages';
 import { fetchInstagram } from './api/instagram';
-import { fetchTracks } from './api/soundcloud';
+import { fetchTracksFromPlaylist } from './api/soundcloud';
 
 // image imports
 import messagesIcon from './images/messages-icon.png';
@@ -81,7 +81,7 @@ class App extends Component {
       .then(conversations => this.setState({ conversations }))
       .catch(err => console.log(`Fetch Messages Error: ${err}`));
 
-	  fetchTracks()
+	  fetchTracksFromPlaylist()
 		  .then(tracks => this.setState({ tracks }))
 		  .catch(err => console.log(`Fetch Messages Error: ${err}`));
 

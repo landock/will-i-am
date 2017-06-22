@@ -1,46 +1,88 @@
 import React, { Component } from 'react';
-import ReactPlayer from 'react-player';
 
 import AppHeader from '../AppHeader';
 
 import playIcon from '../../images/pause.svg';
 import pauseIcon from '../../images/play.svg';
 import fastForwardIcon from '../../images/forward.svg';
-import audio from '../../images/audio.svg';
+import audioIcon from '../../images/audio.svg';
 import missingArt from '../../images/missing-album-art-icon.png';
 
 export default class Music extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { audioUrl: '', isPlaying: false };
+		this.state = {
+			currentTrackIndex: 0,
+			isPlaying: false,
+		};
+
+		this.audioEl = null;
+
 		this.onTrackClick = this.onTrackClick.bind(this);
-		this.handlePlayClick = this.handlePlayClick.bind(this);
+		this.onPlayClick = this.onPlayClick.bind(this);
 		this.onMusicHeaderClick = this.onMusicHeaderClick.bind(this);
+		this.onFastForwardClick = this.onFastForwardClick.bind(this);
 	}
 
-  onMusicHeaderClick() {
-    this.props.closeApp();
-  }
+	componentDidUpdate() {
+		if (!this.audioEl) return;
 
-	handlePlayClick() {
+		let isReallyPlaying = this.audioEl.currentTime > 0 && !this.audioEl.paused && !this.audioEl.ended && this.audioEl.readyState > 2;
+
+		if (this.state.isPlaying && !isReallyPlaying) {
+			try {
+				this.audioEl.play();
+			}
+			catch (e) {
+				console.log(e)
+			}
+		} else {
+			try {
+				this.audioEl.pause();
+			}
+			catch (e) {
+				console.log(e)
+			}
+		}
+	}
+
+	onMusicHeaderClick() {
+		this.props.closeApp();
+	}
+
+	onPlayClick() {
 		this.setState({ isPlaying: !this.state.isPlaying });
+	}
+
+	onFastForwardClick() {
+		let nextIndex = (this.state.currentTrackIndex + 1) % this.props.tracks.length;
+
+		this.setState({
+			isPlaying: true,
+			currentTrack: this.props.tracks[nextIndex],
+			currentTrackIndex: nextIndex,
+		});
 	}
 
 	onTrackClick(track) {
 		this.setState({
-			audioUrl: track.streamUrl,
 			isPlaying: true,
-			currentTrackArtwork: track.artworkUrl || missingArt,
-			currentTrackTitle: track.title
-		})
+			currentTrack: track,
+			currentTrackIndex: this.props.tracks.findIndex(x => x.title === track.title),
+			}
+		)
 	}
 
 	render() {
 		const { closeApp, tracks } = this.props;
-		const player = tracks.map(track => {
-			const linearGradient = this.state.currentTrackTitle === track.title && this.state.isPlaying
-				? 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8))'
+		var trackIsPlaying = this.state.currentTrack && this.state.isPlaying;
+		var that = this;
+
+		const trackListing = tracks.map(track => {
+			const isCurrentlyPlayingTrack = that.state.currentTrack && that.state.currentTrack.title === track.title;
+			const linearGradient = trackIsPlaying && isCurrentlyPlayingTrack
+				? 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5))'
 				: 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0))';
 			const artworkStyle = {
 				background: `${linearGradient}, url('${track.artworkUrl}')`,
@@ -50,8 +92,10 @@ export default class Music extends Component {
 				<button className="play-track-btn" key={track.id} onClick={() => this.onTrackClick(track)}>
 					<div style={artworkStyle} className="track-art">
 						{
-							this.state.currentTrackTitle === track.title && this.state.isPlaying
-								? <img src={audio} style={{ width: 'auto', height: '20px', display: 'block', margin: '33% auto 0' }}/>
+							trackIsPlaying && isCurrentlyPlayingTrack
+								//TODO: make most of this styling a class
+								? <img src={audioIcon} alt={audioIcon}
+								       style={{ width: 'auto', height: '20px', display: 'block', margin: '33% auto 0' }}/>
 								: ''
 						}
 					</div>
@@ -63,43 +107,47 @@ export default class Music extends Component {
 			)
 		});
 
-		const currentlyPlayingOpenClass = this.state.isPlaying ? 'track-wrapper player-open' : 'track-wrapper';
-    return (
-      <div className="Music">
-	      <AppHeader title="music" onHeaderClick={() => closeApp()}/>
-	      <div className={currentlyPlayingOpenClass}>
-		      {player}
-		      {
-			      this.state.audioUrl
-				      ? <ReactPlayer
-					      onEnded={() => this.setState({ audioUrl: '' })}
-					      url={this.state.audioUrl}
-					      height="0"
-					      width="0"
-					      playing={this.state.isPlaying}
-				      />
-				      : ''
-		      }
-	      </div>
-	      {
-		      this.state.currentTrackArtwork
-			      ? (
-				      <div className="current-track-player">
-					      <img alt={this.state.currentTrackArtwork} src={this.state.currentTrackArtwork}/>
-					      <p className="current-track-title">{this.state.currentTrackTitle}</p>
-					      <div className="controls">
-						      <button onClick={this.handlePlayClick}>
-							      <img alt={playIcon} src={!this.state.isPlaying ? pauseIcon : playIcon} className="play-icon"/>
-						      </button>
-						      <button>
-							      <img alt={fastForwardIcon} src={fastForwardIcon} className="fast-forward-icon"/>
-						      </button>
-					      </div>
-				      </div>
-			      )
-			      : ''
-	      }
-      </div>
-    );
-  }
+		const currentlyPlayingOpenClass = this.state.isPlaying
+			? 'track-wrapper player-open'
+			: 'track-wrapper';
+
+		return (
+			<div className="Music">
+				<AppHeader title="music" onHeaderClick={() => closeApp()}/>
+				<div className={currentlyPlayingOpenClass}>
+					{trackListing}
+					<audio
+						ref=
+							{
+								(audio) => {
+									if (!audio) return;
+
+									this.audioEl = audio;
+									return this.audioEl.click();
+								}
+							}
+						src={this.state.currentTrack && (this.state.currentTrack.streamUrl || this.state.currentTrack.downloadUrl)}
+					/>
+				</div>
+				{
+					this.state.currentTrack
+						? (
+							<div className="current-track-player">
+								<img alt={this.state.currentTrack.artworkUrl} src={this.state.currentTrack.artworkUrl}/>
+								<div className="current-track-title"><span>{this.state.currentTrack.title}</span></div>
+								<div className="controls">
+									<button onClick={this.onPlayClick}>
+										<img alt={playIcon} src={!this.state.isPlaying ? pauseIcon : playIcon} className="play-icon"/>
+									</button>
+									<button onClick={this.onFastForwardClick}>
+										<img alt={fastForwardIcon} src={fastForwardIcon} className="fast-forward-icon"/>
+									</button>
+								</div>
+							</div>
+						)
+						: ''
+				}
+			</div>
+		);
+	}
 }
