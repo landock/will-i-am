@@ -604,7 +604,7 @@ hr {
     outline: none; }
 
 .track-wrapper {
-  width: 360px;
+    width: 340px;
   max-height: 563px;
   overflow: scroll;
   padding: 10px; }
@@ -646,12 +646,13 @@ hr {
 .current-track-player {
   position: absolute;
   bottom: 0;
-  width: 100%;
+    width: 340px;
   text-align: left;
   padding: 10px;
   height: 50px;
   background-color: #f9f9f9; }
-  .current-track-player img {
+
+.current-track-player > img:first-child {
     max-height: 50px;
     display: inline-block;
     border-radius: 3px; }
@@ -659,19 +660,29 @@ hr {
     display: inline-block;
     color: #111111; }
   .current-track-player .current-track-title {
-    margin-left: 15px;
-    width: 215px;
+      position: absolute;
+      left: 20%;
+      bottom: 23px;
+      width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 80%;
-    line-height: 24px; }
-
-.play-icon, .fast-forward-icon {
-  height: 20px; }
+      font-size: 80%;
+  }
 
 .controls {
-  float: right;
-  line-height: 60px; }
-  .controls button {
+    position: absolute;
+    right: 15px;
+    bottom: 17px;
+}
+
+.controls button:first-child {
     margin-right: 20px; }
+
+.controls button {
+    display: inline-block;
+}
+
+.play-icon, .fast-forward-icon {
+    height: 20px;
+}
