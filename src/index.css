@@ -681,6 +681,7 @@ hr {
 
 .controls button {
     display: inline-block;
+    cursor: pointer;
 }
 
 .play-icon, .fast-forward-icon {

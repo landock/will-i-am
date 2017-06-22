@@ -8,33 +8,25 @@ const playlistsApi = `${baseUrl}/playlists/${playlistId}/tracks?client_id=${clie
 export function fetchTracksFromUser() {
 	return fetch(usersApi)
 		.then(response => response.json())
-		.then(json => json.map(track => {
-			return {
-				id: track.id,
-				title: track.title,
-				artist: track.user.username,
-				artistId: track.user.id,
-				artworkUrl: track.artwork_url,
-				streamUrl: track.streamable ? `${track.stream_url}?client_id=${clientId}` : '',
-				downloadUrl: track.downloadable ? `${track.download_url}?client_id=${clientId}` : '',
-			}
-		}))
-		.catch(err => console.log('Error fetching user tracks from Soundclound: ', err));
+		.then(json => trackCollectionBuilder(json))
+		.catch(err => console.log('Error fetching User tracks from Soundcloud: ', err));
 }
-
 export function fetchTracksFromPlaylist() {
 	return fetch(playlistsApi)
 		.then(response => response.json())
-		.then(json => json.map(track => {
-			return {
-				id: track.id,
-				title: track.title,
-				artist: track.user.username,
-				artistId: track.user.id,
-				artworkUrl: track.artwork_url,
-				streamUrl: track.streamable ? `${track.stream_url}?client_id=${clientId}` : '',
-				downloadUrl: track.downloadable ? `${track.download_url}?client_id=${clientId}` : '',
-			}
-		}))
-		.catch(err => console.log('Error fetching playlist tracks from Soundclound: ', err));
+		.then(json => trackCollectionBuilder(json))
+		.catch(err => console.log('Error fetching Playlist tracks from Soundcloud: ', err));
 }
+
+function trackCollectionBuilder(tracks) {
+	return tracks.map(track => ({
+		id: track.id,
+		title: track.title,
+		artist: track.user.username,
+		artistId: track.user.id,
+		artworkUrl: track.artwork_url,
+		streamUrl: track.streamable ? `${track.stream_url}?client_id=${clientId}` : '',
+		downloadUrl: track.downloadable ? `${track.download_url}?client_id=${clientId}` : '',
+	}));
+}
+
