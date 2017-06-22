@@ -5,7 +5,7 @@ $grey-medium: #8c8c8c;
 $black: #000000;
 $grey-dark: #111111;
 $white: #ffffff;
-$white-off: #f6f7f5;
+$white-off: #f7f7f5;
 $blue: #007aff;
 body {
   font-family: "Helvetica Neue", sans-serif;
@@ -70,13 +70,13 @@ button::-moz-focus-inner {
   margin: 0 auto;
   padding-top: 206px;
   width: 1973px;
-  height: 1315px;
+  height: 831px;
 
   @media only screen  and (max-width : 1450px) {
    background-image: url("./images/bg-4-md.jpg");
    padding-top: 154px;
    width: 1454px;
-   height: 761px;
+   height: 803px;
   }
 
   @media only screen and (max-width: 500px) {

@@ -1,6 +1,6 @@
 body {
   font-family: "Helvetica Neue", sans-serif;
-  background-color: #f6f7f5;
+  background-color: #f7f7f5;
   margin: 0 !important; }
 
 a,
@@ -61,13 +61,13 @@ button::-moz-focus-inner {
   margin: 0 auto;
   padding-top: 206px;
   width: 1973px;
-  height: 1315px; }
+  height: 831px; }
   @media only screen and (max-width: 1450px) {
     .essential-bg {
       background-image: url("./images/bg-4-md.jpg");
       padding-top: 154px;
       width: 1454px;
-      height: 761px; } }
+      height: 803px; } }
   @media only screen and (max-width: 500px) {
     .essential-bg {
       background: none;
@@ -301,7 +301,7 @@ a {
       color: #007aff; }
   .tmpHeader h2 {
     font-weight: bold;
-    color: #f6f7f5;
+    color: #f7f7f5;
     line-height: 22px;
     font-size: 23px; }
 
@@ -436,7 +436,7 @@ hr {
     width: 65px;
     border-style: solid;
     border-width: 1px;
-    border-color: #f6f7f5;
+    border-color: #f7f7f5;
     text-align: left;
     margin: 0 auto;
     display: block; }
