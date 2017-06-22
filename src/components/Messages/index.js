@@ -34,7 +34,6 @@ export default class Messages extends Component {
     });
   }
 
-
   render() {
 		const momentConfig = {
 			sameDay: 'h:mm A',
@@ -46,17 +45,19 @@ export default class Messages extends Component {
     const listMessages = (
       conversations.map((conversation, index) => (
         <li className="conversation" key={index}>
-        <div className="avatar-icon"><img alt={imgAvatarSrc} src={imgAvatarSrc} /></div>
-          <div className="message-info" role="button" tabIndex={0} onClick={e => this.onConversationClick(e, index)}>
-            <div className="name-arrow-wrap">
-            <p><strong>{conversation.name}</strong></p>
-	            <p className="message-time">{moment(conversation.created_at).calendar(moment(), momentConfig)} <i
-								className="fa fa-angle-right" aria-hidden="true"></i></p>
-            </div>
-
-            <aside>{conversation.messages[conversation.messages.length - 1].body}</aside>
-
-          </div>
+	        <div className="avatar-icon">
+		        <img alt={imgAvatarSrc} src={imgAvatarSrc}/>
+	        </div>
+	        <div className="message-info" role="button" tabIndex={0} onClick={e => this.onConversationClick(e, index)}>
+		        <div className="name-arrow-wrap">
+			        <p><strong>{conversation.name}</strong></p>
+			        <p className="message-time">
+				        {moment(conversation.created_at).calendar(moment(), momentConfig)}
+				        <i className="fa fa-angle-right" aria-hidden="true"></i>
+			        </p>
+		        </div>
+		        <aside>{conversation.messages[conversation.messages.length - 1].body}</aside>
+	        </div>
           <hr />
         </li>
       ))

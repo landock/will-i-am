@@ -687,3 +687,10 @@ hr {
 .play-icon, .fast-forward-icon {
     height: 20px;
 }
+
+.message-image {
+    max-width: 80%;
+    height: auto;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
