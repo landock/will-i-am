@@ -29,6 +29,11 @@ export default class Conversations extends Component {
             <div key={index} className={`speech-bubble ${message.sender.toLowerCase()}`}>
               <p className="sender-name"><strong>{message.sender}</strong></p>
               <div className="message-wrap"><p>{message.body}</p></div>
+	            {
+		            message.message_image
+			            ? <img className="message-image" src={message.message_image.xs.url}/>
+			            : ''
+	            }
             </div>
           ))
         }
