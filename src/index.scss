@@ -2,9 +2,9 @@ $grey-xxlight: #f9f9f9;
 $grey-xlight: #acacac;
 $grey-light: #c8c7cc;
 $grey-medium: #8c8c8c;
-$black: #000000;
-$grey-dark: #111111;
-$white: #ffffff;
+$black: #000;
+$grey-dark: #111;
+$white: #fff;
 $white-off: #f7f7f5;
 $blue: #007aff;
 body {
@@ -70,13 +70,13 @@ button::-moz-focus-inner {
   margin: 0 auto;
   padding-top: 206px;
   width: 1973px;
-  height: 831px;
+  height: 1544px;
 
   @media only screen  and (max-width : 1450px) {
    background-image: url("./images/bg-4-md.jpg");
    padding-top: 154px;
    width: 1454px;
-   height: 803px;
+   height: 1544px;
   }
 
   @media only screen and (max-width: 500px) {
@@ -783,8 +783,8 @@ hr {
 }
 
 .track-wrapper {
-  width: 340px;
-  max-height: 563px;
+  width: 354px;
+  height: 563px;
   overflow: scroll;
   padding: 10px;
 
