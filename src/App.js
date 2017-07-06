@@ -10,6 +10,7 @@ import Photos from './components/Photos';
 import Facebook from './components/Facebook';
 import Instagram from './components/Instagram';
 import Twitter from './components/Twitter';
+import IframeWrapper from './components/IframeWrapper';
 
 // services
 import { fetchImages } from './api/flickr';
@@ -61,6 +62,8 @@ class App extends Component {
       isFacebookDisplayed: false,
       isInstagramDisplayed: false,
       isTwitterDisplayed: false,
+	    isIlliamDisplayed: false,
+	    isIamplusDisplayed: false,
     };
 
     this.handleMessagesClick = this.handleMessagesClick.bind(this);
@@ -70,6 +73,8 @@ class App extends Component {
     this.handleInstagramClick = this.handleInstagramClick.bind(this);
     this.handleTwitterClick = this.handleTwitterClick.bind(this);
 	  this.handleHomeClick = this.handleHomeClick.bind(this);
+	  this.handleIlliamClick = this.handleIlliamClick.bind(this);
+	  this.handleIamplusClick = this.handleIamplusClick.bind(this);
   }
 
   componentDidMount() {
@@ -106,6 +111,8 @@ class App extends Component {
 			isFacebookDisplayed: false,
 			isInstagramDisplayed: false,
 			isTwitterDisplayed: false,
+			isIlliamDisplayed: false,
+			isIamplusDisplayed: false,
 		});
 	}
 
@@ -151,6 +158,19 @@ class App extends Component {
     });
   }
 
+	handleIlliamClick() {
+		this.setState({
+			isHomeDisplayed: !this.state.isHomeDisplayed,
+			isIlliamDisplayed: !this.state.isIlliamDisplayed,
+		});
+	}
+
+	handleIamplusClick() {
+		this.setState({
+			isHomeDisplayed: !this.state.isHomeDisplayed,
+			isIamplusDisplayed: !this.state.isIamplusDisplayed,
+		});
+	}
   render() {
     const {
       isHomeDisplayed,
@@ -161,6 +181,8 @@ class App extends Component {
       isInstagramDisplayed,
       isTwitterDisplayed,
       instagramMedia,
+	    isIlliamDisplayed,
+	    isIamplusDisplayed,
       media,
 	    tracks,
       conversations,
@@ -183,7 +205,7 @@ class App extends Component {
             <a role="button" tabIndex={0} onClick={this.handleTwitterClick} id="twitter">
               <img className="icon" alt="icon" src={twitterIcon} />
             </a>
-            <a href="https://ill.i.am/" target="_blank" rel="noopener noreferrer">
+	          <a role="button" tabIndex={0} onClick={this.handleIlliamClick} id="ill">
               <img className="icon" alt="icon" src={illIcon} />
             </a>
             <a href="http://iamangelfoundation.org/" target="_blank" rel="noopener noreferrer">
@@ -209,7 +231,7 @@ class App extends Component {
           <a role="button" tabIndex={0} onClick={this.handleMusicClick} id="music" >
             <img className="icon" alt="icon" src={musicIcon} />
           </a>
-          <a href="https://iamplus.com" target="_blank" rel="noopener noreferrer">
+	        <a role="button" tabIndex={0} onClick={this.handleIamplusClick}>
             <img className="icon" alt="icon" src={iamIcon} />
           </a>
         </div>
@@ -265,6 +287,16 @@ class App extends Component {
                   ? <Twitter key={6} closeApp={this.handleTwitterClick} />
                   : ''
                 }
+	              {isIlliamDisplayed
+		              ? <IframeWrapper key={6} title="ill.i.am" iframeUrl="http://ill.i.am"
+		                               closeApp={this.handleIlliamClick}/>
+		              : ''
+	              }
+	              {isIamplusDisplayed
+		              ? <IframeWrapper key={6} title="i.am+" iframeUrl="https://iamplus.com"
+		                               closeApp={this.handleIamplusClick}/>
+		              : ''
+	              }
               </CSSTransitionGroup>
             </div>
             <div>
