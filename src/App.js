@@ -209,7 +209,7 @@ class App extends Component {
               <img className="icon" alt="icon" src={illIcon} />
             </a>
             <a href="http://iamangelfoundation.org/" target="_blank" rel="noopener noreferrer">
-              <img className="icon" alt="icon" src={angelIcon} />
+            <img className="icon" alt="icon" src={angelIcon} />
             </a>
           </div>
         </div>
