@@ -401,7 +401,7 @@ hr {
 .Music {
   background-color: #fff;
   min-height: 563px;
-  margin-top: 50px; }
+  margin-top: 51px; }
   .Music .tmpHeader {
     background: #fff;
     border: 0; }
@@ -686,3 +686,13 @@ hr {
   height: auto;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%); }
+
+.browser-view {
+  background-color: #fff;
+  padding: 17px 102px;
+  color: #000;
+  text-decoration: none;
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 39px; }
+  .browser-view:hover {
+    text-decoration: underline; }

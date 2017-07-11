@@ -38,8 +38,8 @@ export default class IframeWrapper extends Component {
 					title="facebook"
 					src={iframeUrl}
 				/>
-				<a style={aStyle} href={iframeUrl} target="_blank" rel="noopener noreferrer">
-					Open in browser window >
+				<a className="browser-view" href={iframeUrl} target="_blank" rel="noopener noreferrer">
+					View the full website <i className="fa fa-angle-right" aria-hidden="true"></i>
 				</a>
 			</div>
 		);

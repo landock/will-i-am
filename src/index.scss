@@ -893,3 +893,16 @@ hr {
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
 }
+
+.browser-view {
+   background-color: $white;
+   padding: 17px 102px;
+   color: $black;
+    text-decoration: none;
+    font-family: "Helvetica Neue", sans-serif;
+    line-height: 39px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+}
