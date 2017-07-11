@@ -10,7 +10,7 @@
     "react-addons-css-transition-group": "^15.5.2",
     "react-dom": "^15.5.4",
     "react-fontawesome": "^1.6.1",
-    "react-moment": "^0.2.4",
+	  "react-inlinesvg": "^0.6.0",
     "react-player": "^0.18.0",
     "react-slick": "^0.14.11",
     "react-toolbox": "^2.0.0-beta.12",
@@ -26,14 +26,15 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
     "node-sass-chokidar": "^0.0.2",
-	  "react-scripts": "1.0.7",
-	  "s3-upload": "^0.1.0"
+	  "s3-upload": "^0.1.0",
+	  "npm-run-all": "^4.0.2",
+    "react-scripts": "1.0.7"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "yarn run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "react-scripts start",
+	  "start": "run-p watch-css start-js",
     "build": "react-scripts build",
 	  "deploy": "react-scripts build && s3-deploy './build/**' --cwd './build/' --region=us-west-2 --bucket willtest12",
     "test": "react-scripts test --env=jsdom",

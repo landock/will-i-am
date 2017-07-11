@@ -7,6 +7,7 @@ $grey-dark: #111;
 $white: #fff;
 $white-off: #f7f7f5;
 $blue: #007aff;
+
 body {
   font-family: "Helvetica Neue", sans-serif;
   background-color: $white-off;
@@ -19,10 +20,10 @@ p {
   font-family: "Helvetica Neue", sans-serif;
 }
 
-input[type="submit"],
-input[type="reset"],
+button,
 input[type="button"],
-button {
+input[type="reset"],
+input[type="submit"] {
   background: none;
   border: 0;
   color: inherit;
@@ -31,22 +32,24 @@ button {
   line-height: normal;
   overflow: visible;
   padding: 0;
-  -webkit-appearance: button; /* for input */
-  -webkit-user-select: none; /* for button */
+  -webkit-appearance: button;
+  /* for input */
+  -webkit-user-select: none;
+  /* for button */
   -moz-user-select: none;
   -ms-user-select: none;
 
-  &:focus, &:active {
+  &:active,
+  &:focus {
     outline: none;
   }
 }
 
-input::-moz-focus-inner,
-button::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-
 /* Make `a` like a button */
 [role="button"] {
   color: inherit;
@@ -71,21 +74,18 @@ button::-moz-focus-inner {
   padding-top: 206px;
   width: 1973px;
   height: 1544px;
-
-  @media only screen  and (max-width : 1450px) {
-   background-image: url("./images/bg-4-md.jpg");
-   padding-top: 154px;
-   width: 1454px;
-   height: 1544px;
+  @media only screen and (max-width: 1450px) {
+    background-image: url("./images/bg-4-md.jpg");
+    padding-top: 154px;
+    width: 1454px;
+    height: 1544px;
   }
-
   @media only screen and (max-width: 500px) {
     background: none;
     padding-top: 0;
     width: 100%;
     height: 100%;
   }
-
 }
 
 .phone-wrapper {
@@ -132,7 +132,7 @@ a {
   background-position-y: -28px;
 
   &.open {
-    height:615px;
+    height: 615px;
   }
 }
 
@@ -178,6 +178,11 @@ a {
       border-bottom-color: $grey-light;
     }
   }
+}
+
+.message-image {
+  width: 70%;
+  margin-bottom: 8px;
 }
 
 .menu-bottom {
@@ -251,7 +256,8 @@ a {
   }
 }
 
-.will, .keolo {
+.keolo,
+.will {
   .message-wrap {
     border-radius: 20px 20px 20px 20px;
     margin: 0 49px 10px;
@@ -281,18 +287,17 @@ a {
     margin-left: 35px;
     margin-bottom: 5px;
   }
-
 }
 
 .speech-bubble.will {
-    .sender-name {
-      text-align: left;
-      color: #333;
-      font-size: 14px;
-      font-family: "Helvetica Neue", sans-serif;
-      margin-left: 95px;
-      margin-bottom: 5px;
-    }
+  .sender-name {
+    text-align: left;
+    color: #333;
+    font-size: 14px;
+    font-family: "Helvetica Neue", sans-serif;
+    margin-left: 95px;
+    margin-bottom: 5px;
+  }
 }
 
 .left {
@@ -324,11 +329,8 @@ a {
   font-size: 18px;
 }
 
-
 .large {
-
-  .arrow
-  .message-list {
+  .arrow .message-list {
     margin-top: 90px;
   }
 
@@ -434,7 +436,6 @@ hr {
   text-transform: capitalize;
 }
 
-
 .header-cp {
   text-align: center;
   margin-top: 20px;
@@ -452,7 +453,7 @@ hr {
   }
 
   a {
-    float:left;
+    float: left;
     height: 100%;
     width: 100%;
   }
@@ -493,23 +494,25 @@ hr {
     top: 0;
     width: 15px;
   }
-
 }
 
-.Facebook-app, .Twitter{
+.Facebook-app,
+.Twitter {
   margin-top: 50px;
   background: $white;
   min-height: 563px;
 }
 
-.Music{
+.Calendar,
+.Music {
   background-color: $white;
   min-height: 563px;
   margin-top: 51px;
 
   .tmpHeader {
     background: #fff;
-    border: 0;
+    border-color: $grey-light;
+
     .arrow {
       i {
         color: #FF2D55;
@@ -518,12 +521,12 @@ hr {
   }
 }
 
-.phone-wrapper {
+.Calendar .tmpHeader {
+}
 
+.phone-wrapper {
   .user-count {
-    margin: 0;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin: 10px 0 0 10px;
     padding: 0;
     text-align: left;
   }
@@ -539,14 +542,14 @@ hr {
 }
 
 .instagramHeader {
-    position: absolute;
-    width: 340px;
-    background-color: $white;
-    margin-top: -105px;
-    padding: 10px;
-    height: 85px;
+  position: absolute;
+  width: 340px;
+  background-color: $white;
+  margin-top: -105px;
+  padding: 10px;
+  height: 85px;
 
-    img {
+  img {
     border-radius: 50%;
     height: 65px;
     width: 65px;
@@ -556,30 +559,30 @@ hr {
     text-align: left;
     margin: 0 auto;
     display: block;
-    }
+  }
 
-    p {
-      text-align: left;
-      margin: 0;
-      margin-top: 3px;
-      padding: 0;
-      font-size: 13px;
-    }
+  p {
+    text-align: left;
+    margin: 3px 0 0;
+    padding: 0;
+    font-size: 13px;
+  }
 }
 
 .app-header-img {
-  max-height: 27px;
+  img {
+    max-height: 27px;
+  }
 }
 
-.app-header-right-img {
+.app-header-right {
   position: absolute;
-  right: 20px;
+  right: 10px;
   top: 33.333%;
   max-height: 19px;
-  max-width: 19px;
 
   img {
-    width: 100%;
+    max-height: 27px;
   }
 }
 
@@ -597,6 +600,7 @@ hr {
       width: auto;
     }
   }
+
   .photos-container {
     height: 475px;
   }
@@ -641,9 +645,8 @@ hr {
 }
 
 .time {
-
-  .t-light,
-  .t-dark {
+  .t-dark,
+  .t-light {
     position: absolute;
     top: 2px;
     left: 5px;
@@ -687,15 +690,14 @@ hr {
   right: 0;
   color: $white;
   font-family: "Helvetica Neue", sans-serif;
-  font-size: .7em;
+  font-size: 0.7em;
   z-index: 1000;
   // font-weight: bold;
 }
 
 .avatar-icon {
   display: inline-block;
-  padding: 5px;
-  padding-left: 0;
+  padding: 5px 5px 5px 0;
   width: 40px;
 }
 
@@ -704,12 +706,12 @@ hr {
   margin-left: 10px;
 
   aside {
-  width: 265px;
-  margin-bottom: 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
+    width: 265px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
   }
 }
 
@@ -730,7 +732,6 @@ hr {
     margin-bottom: 0;
   }
 }
-
 
 .message-footer {
   position: absolute;
@@ -753,25 +754,26 @@ hr {
 
 .Conversations {
   margin-top: 40px;
+  padding-bottom: 20px;
 }
 
 .home-btn {
   position: absolute;
+  bottom: 31px;
+  left: 175px;
   opacity: 0;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  bottom: 25px;
-  left: 44%;
   cursor: pointer;
 }
 
 .play-track-btn {
+  position: relative;
   width: 100%;
   cursor: pointer;
   display: block;
   text-align: left;
-  position: relative;
   height: 50px;
   background: none;
   border: none;
@@ -783,8 +785,8 @@ hr {
 }
 
 .track-wrapper {
-  width: 354px;
-  height: 563px;
+  width: 340px;
+  height: 463px;
   overflow: scroll;
   padding: 10px;
 
@@ -814,17 +816,16 @@ hr {
 
 .track-info {
   display: inline-block;
-  margin-bottom: 20px;
   position: absolute;
   left: 60px;
   top: 20%;
   width: 280px;
+  margin-bottom: 20px;
   border-bottom: 1px solid $grey-light;
-
   font-size: 80%;
 
   p {
-    margin: 0 0 5px 0;
+    margin: 0 0 5px;
   }
 
   .track-title {
@@ -836,9 +837,19 @@ hr {
   }
 }
 
-.current-track-player {
+.music-footer {
   position: absolute;
   bottom: 0;
+  border-top: 1px solid $grey-light;
+
+  img {
+    width: 100%;
+  }
+}
+
+.current-track-player {
+  position: absolute;
+  bottom: 45px;
   width: 340px;
   text-align: left;
   padding: 10px;
@@ -883,15 +894,128 @@ hr {
   }
 }
 
-.play-icon, .fast-forward-icon {
+.fast-forward-icon,
+.play-icon {
   height: 20px;
 }
 
-.message-image {
-  max-width: 80%;
-  height: auto;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+.Calendar {
+  height: 83px;
+  text-align: left;
+
+  h5 {
+    background: #eee;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .event-wrapper {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+  .all-day,
+  .event-summary,
+  .event-time {
+    align-items: baseline;
+    flex-flow: row wrap;
+    display: inline-block;
+    padding-right: 10px;
+  }
+
+  .all-day,
+  .event-time {
+    width: 20%;
+    font-size: 70%;
+    text-align: right;
+  }
+
+  .event-time {
+    border-right: 2px solid goldenrod;
+  }
+
+  .event-summary {
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+
+  }
+
+  .all-day {
+    border-right: 2px solid purple;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .calendar-header-month {
+    color: red;
+    font-size: 14px;
+    font-weight: lighter;
+    position: absolute;
+    left: 15px;
+    top: 11px;
+  }
+
+  .calendar-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ddd;
+    color: red;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+
+    p {
+      display: inline-block;
+      width: 33%;
+      text-align: center;
+    }
+  }
+
+  .fake-menu {
+    padding-top: 4px;
+    svg:first-child {
+      fill: red;
+      height: 18px;
+    }
+
+    svg.format-list {
+      background: red;
+      fill: white;
+      border-radius: 3px;
+      padding: 3px 0;
+      height: 15px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.today {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  color: red;
+}
+
+.CalendarIcon {
+  width: 55px;
+  height: 83px;
+  float: left;
+}
+
+.calendar-btn {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  width: 55px;
+  height: 55px;
+  background-color: #fff;
+  cursor: pointer;
 }
 
 .browser-view {

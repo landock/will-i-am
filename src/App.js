@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick';
 import { CSSTransitionGroup } from 'react-transition-group';
+import Slider from 'react-slick';
 import moment from 'moment';
 
 // components
@@ -11,12 +11,15 @@ import Facebook from './components/Facebook';
 import Instagram from './components/Instagram';
 import Twitter from './components/Twitter';
 import IframeWrapper from './components/IframeWrapper';
+import Calendar from './components/Calendar';
+import CalendarIcon from './components/Calendar/CalendarIcon';
 
 // services
 import { fetchImages } from './api/flickr';
 import { fetchMessages } from './api/messages';
 import { fetchInstagram } from './api/instagram';
 import { fetchTracksFromPlaylist } from './api/soundcloud';
+import { fetchEvents } from './api/calendar';
 
 // image imports
 import messagesIcon from './images/messages-icon.png';
@@ -53,8 +56,9 @@ class App extends Component {
       media: [],
 	    tracks: [],
       instagramMedia: [],
-      userProfile: null,
       conversations: [],
+      events: [],
+      userProfile: null,
       isHomeDisplayed: true,
       areMessagesDisplayed: false,
       isMusicDisplayed: false,
@@ -62,6 +66,7 @@ class App extends Component {
       isFacebookDisplayed: false,
       isInstagramDisplayed: false,
       isTwitterDisplayed: false,
+      isCalendarDisplayed: false,
 	    isIlliamDisplayed: false,
 	    isIamplusDisplayed: false,
     };
@@ -73,6 +78,7 @@ class App extends Component {
     this.handleInstagramClick = this.handleInstagramClick.bind(this);
     this.handleTwitterClick = this.handleTwitterClick.bind(this);
 	  this.handleHomeClick = this.handleHomeClick.bind(this);
+	  this.handleCalendarClick = this.handleCalendarClick.bind(this);
 	  this.handleIlliamClick = this.handleIlliamClick.bind(this);
 	  this.handleIamplusClick = this.handleIamplusClick.bind(this);
   }
@@ -100,6 +106,10 @@ class App extends Component {
         });
       })
       .catch(err => console.log(`Fetch Images Error: ${err}`));
+
+    fetchEvents()
+	    .then(events => this.setState({ events }))
+      .catch(err => console.log(`Fetch Messages Error: ${err}`));
   }
 
 	handleHomeClick() {
@@ -111,6 +121,7 @@ class App extends Component {
 			isFacebookDisplayed: false,
 			isInstagramDisplayed: false,
 			isTwitterDisplayed: false,
+			isCalendarDisplayed: false,
 			isIlliamDisplayed: false,
 			isIamplusDisplayed: false,
 		});
@@ -158,6 +169,13 @@ class App extends Component {
     });
   }
 
+  handleCalendarClick() {
+    this.setState({
+      isHomeDisplayed: !this.state.isHomeDisplayed,
+      isCalendarDisplayed: !this.state.isCalendarDisplayed,
+    });
+  }
+
 	handleIlliamClick() {
 		this.setState({
 			isHomeDisplayed: !this.state.isHomeDisplayed,
@@ -180,6 +198,7 @@ class App extends Component {
       isFacebookDisplayed,
       isInstagramDisplayed,
       isTwitterDisplayed,
+      isCalendarDisplayed,
       instagramMedia,
 	    isIlliamDisplayed,
 	    isIamplusDisplayed,
@@ -187,6 +206,7 @@ class App extends Component {
 	    tracks,
       conversations,
       userProfile,
+	    events,
     } = this.state;
 
     const openClass = isHomeDisplayed ? '' : ' open';
@@ -205,6 +225,9 @@ class App extends Component {
             <a role="button" tabIndex={0} onClick={this.handleTwitterClick} id="twitter">
               <img className="icon" alt="icon" src={twitterIcon} />
             </a>
+	          <a role="button" tabIndex={0} onClick={this.handleIamplusClick}>
+		          <img className="icon" alt="icon" src={iamIcon} />
+	          </a>
 	          <a role="button" tabIndex={0} onClick={this.handleIlliamClick} id="ill">
               <img className="icon" alt="icon" src={illIcon} />
             </a>
@@ -231,80 +254,85 @@ class App extends Component {
           <a role="button" tabIndex={0} onClick={this.handleMusicClick} id="music" >
             <img className="icon" alt="icon" src={musicIcon} />
           </a>
-	        <a role="button" tabIndex={0} onClick={this.handleIamplusClick}>
-            <img className="icon" alt="icon" src={iamIcon} />
-          </a>
+	        <CalendarIcon handleClick={this.handleCalendarClick}/>
         </div>
       </div>
     );
-
 
     return (
       <div className="App">
         <div className="nav" />
         <div className="wrapper">
           <div className="essential-bg">
-          <div className="phone-wrapper">
-            <div className={`crop ${openClass} ${themeClass}`}>
-            <div className="time">
-              <img className="t-light" alt="icon" src={timeView} />
-              <img className="t-dark" alt="icon" src={timeViewDk} />
-            </div>
-            <span className="time-digit">{moment ((new Date().getTime())).format('h:mm A')}</span>
-              {isHomeDisplayed ? homeSlider : ''}
-              <CSSTransitionGroup
-                transitionName="flash"
-                transitionEnterTimeout={200}
-                transitionLeaveTimeout={200}
-              >
-                {/* Home Screen */}
-                { areMessagesDisplayed
-                  ? <Messages key={1} conversations={conversations} closeApp={this.handleMessagesClick} />
+            <div className="phone-wrapper">
+              <div className={`crop ${openClass} ${themeClass}`}>
+	              <div className="time">
+		              <img className="t-light" alt="icon" src={timeView}/>
+		              <img className="t-dark" alt="icon" src={timeViewDk}/>
+	              </div>
+	              <span className="time-digit">{moment().format('h:mm A')}</span>
+                {isHomeDisplayed ? homeSlider : ''}
+                <CSSTransitionGroup transitionName="flash" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+                  {/* Home Screen */}
+	                {/* eslint-disable no-tabs */}
+	                {
+                    areMessagesDisplayed
+	                    ? <Messages key={1} conversations={conversations} closeApp={this.handleMessagesClick}/>
+	                    : ''
+	                }
+                  {
+                    isMusicDisplayed
+                  ? <Music tracks={tracks}key={2} closeApp={this.handleMusicClick} />
                   : ''
                 }
-                { isMusicDisplayed
-	                ? <Music tracks={tracks} key={2} closeApp={this.handleMusicClick}/>
-                  : ''
-                }
-                { arePhotosDisplayed
-                  ? <Photos key={3} media={media} closeApp={this.handlePhotosClick} />
-                  : ''
-                }
-                { isFacebookDisplayed
-                  ? <Facebook key={4} closeApp={this.handleFacebookClick} />
-                  : ''
-                }
-                { isInstagramDisplayed
-                  ? <Instagram
-                    media={instagramMedia}
-                    userProfile={userProfile}
-                    closeApp={this.handleInstagramClick}
-                    key={5}
-                  />
-                  : ''
-                }
-                { isTwitterDisplayed
-                  ? <Twitter key={6} closeApp={this.handleTwitterClick} />
-                  : ''
-                }
-	              {isIlliamDisplayed
-		              ? <IframeWrapper key={6} title="ill.i.am" iframeUrl="http://ill.i.am"
-		                               closeApp={this.handleIlliamClick}/>
-		              : ''
-	              }
-	              {isIamplusDisplayed
-		              ? <IframeWrapper key={6} title="i.am+" iframeUrl="https://iamplus.com"
-		                               closeApp={this.handleIamplusClick}/>
-		              : ''
-	              }
-              </CSSTransitionGroup>
-            </div>
-            <div>
-            </div>
+                  {
+                    arePhotosDisplayed
+	                    ? <Photos key={3} media={media} closeApp={this.handlePhotosClick}/>
+	                    : ''
+                  }
+                  {
+	                  isFacebookDisplayed
+		                  ? <Facebook key={4} closeApp={this.handleFacebookClick}/>
+		                  : ''
+                  }
+                  {
+	                  isInstagramDisplayed
+		                  ? <Instagram
+			                  media={instagramMedia}
+			                  userProfile={userProfile}
+			                  closeApp={this.handleInstagramClick}
+			                  key={5}
+		                  />
+		                  : ''
+                  }
+                  {
+	                  isTwitterDisplayed
+		                  ? <Twitter key={6} closeApp={this.handleTwitterClick}/>
+		                  : ''
+                  }
+                  {
+	                  isCalendarDisplayed
+		                  ? <Calendar key={7} events={events} closeApp={this.handleCalendarClick}/>
+		                  : ''
+                  }
+	                {
+	                	isIlliamDisplayed
+		                ? <IframeWrapper key={6} title="ill.i.am" iframeUrl="http://ill.i.am"
+		                                 closeApp={this.handleIlliamClick}/>
+		                : ''
+	                }
+	                {isIamplusDisplayed
+		                ? <IframeWrapper key={6} title="i.am+" iframeUrl="https://iamplus.com"
+		                                 closeApp={this.handleIamplusClick}/>
+		                : ''
+	                }
+                </CSSTransitionGroup>
+              </div>
+	            <div/>
               {/* Footer */}
-	          {this.state.isHomeDisplayed ? homeFooter : ''}
-	          <button className="home-btn" onClick={this.handleHomeClick}>Close</button>
-          </div>
+	            {this.state.isHomeDisplayed ? homeFooter : ''}
+	            <button className="home-btn" onClick={this.handleHomeClick}>Close</button>
+            </div>
           </div>
         </div>
       </div>

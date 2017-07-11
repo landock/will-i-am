@@ -526,7 +526,7 @@ Then we can change `start` and `build` scripts to include the CSS preprocessor c
 -    "start": "react-scripts start",
 -    "build": "react-scripts build",
 +    "start-js": "react-scripts start",
-+    "start": "yarn-run-all -p watch-css start-js",
++    "start": "npm-run-all -p watch-css start-js",
 +    "build": "yarn run build-css && react-scripts build",
      "test": "react-scripts test --env=jsdom",
      "eject": "react-scripts eject"

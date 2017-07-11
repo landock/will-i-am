@@ -66,7 +66,7 @@ export default class Instagram extends Component {
 
     return (
       <div className="Photos">
-	      <AppHeader centerImageSrc={instagramLogo} onHeaderClick={() => this.onPhotoHeaderClick()}/>
+	      <AppHeader centerContent={<img src={instagramLogo}/>} onHeaderClick={() => this.onPhotoHeaderClick()}/>
         <div className="instagramHeader">
           <div className="profile-info">
             <img src={userProfile.profile_picture} alt={userProfile.profile_picture} />

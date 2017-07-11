@@ -81,7 +81,7 @@ export default class Messages extends Component {
 	      <AppHeader
 		      title="messages"
 		      onHeaderClick={this.onMessagesHeaderClick}
-		      rightImageSrc={pencilIcon}
+		      rightContent={<img src={pencilIcon}/>}
 	      />
         <ul>{ listMessages }</ul>
       </div>
