@@ -276,55 +276,60 @@ class App extends Component {
                   {/* Home Screen */}
 	                {/* eslint-disable no-tabs */}
 	                {
-                    areMessagesDisplayed
-	                    ? <Messages key={1} conversations={conversations} closeApp={this.handleMessagesClick}/>
-	                    : ''
+		                areMessagesDisplayed && (
+			                <Messages key={1} conversations={conversations} closeApp={this.handleMessagesClick}/>
+		                )
 	                }
                   {
-                    isMusicDisplayed
-                  ? <Music tracks={tracks}key={2} closeApp={this.handleMusicClick} />
-                  : ''
-                }
-                  {
-                    arePhotosDisplayed
-	                    ? <Photos key={3} media={media} closeApp={this.handlePhotosClick}/>
-	                    : ''
+	                  isMusicDisplayed && (
+		                  <Music tracks={tracks} key={2} closeApp={this.handleMusicClick}/>
+	                  )
                   }
                   {
-	                  isFacebookDisplayed
-		                  ? <Facebook key={4} closeApp={this.handleFacebookClick}/>
-		                  : ''
+	                  arePhotosDisplayed && (
+		                  <Photos key={3} media={media} closeApp={this.handlePhotosClick}/>
+	                  )
                   }
                   {
-	                  isInstagramDisplayed
-		                  ? <Instagram
+	                  isFacebookDisplayed && (
+		                  <Facebook key={4} closeApp={this.handleFacebookClick}/>
+	                  )
+                  }
+                  {
+	                  isInstagramDisplayed && (
+		                  <Instagram
 			                  media={instagramMedia}
 			                  userProfile={userProfile}
 			                  closeApp={this.handleInstagramClick}
 			                  key={5}
 		                  />
-		                  : ''
+	                  )
                   }
                   {
-	                  isTwitterDisplayed
-		                  ? <Twitter key={6} closeApp={this.handleTwitterClick}/>
-		                  : ''
+	                  isTwitterDisplayed && (
+		                  <Twitter key={6} closeApp={this.handleTwitterClick}/>
+	                  )
                   }
                   {
-	                  isCalendarDisplayed
-		                  ? <Calendar key={7} events={events} closeApp={this.handleCalendarClick}/>
-		                  : ''
+	                  isCalendarDisplayed && (
+		                  <Calendar key={7} events={events} closeApp={this.handleCalendarClick}/>
+	                  )
                   }
 	                {
-	                	isIlliamDisplayed
-		                ? <IframeWrapper key={6} title="ill.i.am" iframeUrl="http://ill.i.am"
-		                                 closeApp={this.handleIlliamClick}/>
-		                : ''
+		                isIlliamDisplayed && (
+			                <IframeWrapper
+				                key={6}
+				                title="ill.i.am"
+				                iframeUrl="http://ill.i.am"
+				                closeApp={this.handleIlliamClick}
+			                />
+		                )
 	                }
-	                {isIamplusDisplayed
-		                ? <IframeWrapper key={6} title="i.am+" iframeUrl="https://iamplus.com"
-		                                 closeApp={this.handleIamplusClick}/>
-		                : ''
+	                {
+		                isIamplusDisplayed && (
+			                <IframeWrapper key={6} title="i.am+" iframeUrl="https://iamplus.com"
+			                               closeApp={this.handleIamplusClick}/>
+		                )
 	                }
                 </CSSTransitionGroup>
               </div>

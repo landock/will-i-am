@@ -418,6 +418,10 @@ hr {
     .Music .tmpHeader .arrow i {
       color: #FF2D55; }
 
+.Calendar .app-header-right {
+    width: 80px;
+}
+
 .phone-wrapper .user-count {
   margin: 10px 0 0 10px;
   padding: 0;
@@ -461,8 +465,9 @@ hr {
   position: absolute;
   right: 10px;
   top: 33.333%;
-  max-height: 19px;
-  width: 20px; }
+    max-height: 20px;
+    width: 20px;
+}
   .app-header-right img {
     max-height: 27px; }
 
@@ -767,19 +772,41 @@ hr {
       margin-right: 5px; }
 
 .today {
-  border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   color: red; }
 
 .CalendarIcon {
-  width: 55px;
+    width: 50px;
   height: 83px;
-  float: left; }
+    float: left;
+    line-height: 0;
+}
+
+.CalendarIcon .day-word {
+    color: red;
+    font-size: 60%;
+    margin: 0;
+}
+
+.CalendarIcon .day-digits {
+    font-size: 200%;
+    font-weight: 100;
+    margin: 0;
+    letter-spacing: -5px;
+    padding-right: 5px;
+}
+
+.CalendarIcon p {
+    color: #ddd;
+    font-size: 70%;
+    margin: 10px 0 0 0;
+    text-align: center;
+}
 
 .calendar-btn {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
   width: 55px;
   height: 55px;
   background-color: #fff;
