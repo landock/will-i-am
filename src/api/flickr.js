@@ -1,4 +1,4 @@
-const API_KEY = 'cf074b37903b6dcd889ac7d18549e361';
+const API_KEY = process.env.REACT_APP_FLICKR_API_KEY;
 const FLICKR_USER_ID = '82970222@N03';
 const API_ENDPOINT = `https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=${API_KEY}&user_id=${FLICKR_USER_ID}&extras=media&format=json&nojsoncallback=1`;
 

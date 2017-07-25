@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import AppHeader from '../AppHeader';
+import AppFrame from '../AppFrame';
 
 import playIcon from '../../images/pause.svg';
 import pauseIcon from '../../images/play.svg';
 import fastForwardIcon from '../../images/forward.svg';
 import audioIcon from '../../images/audio.svg';
-import missingArt from '../../images/missing-album-art-icon.png';
 import musicFooter from '../../images/music-footer.png';
+
 
 export default class Music extends Component {
 	constructor(props) {
@@ -74,14 +74,15 @@ export default class Music extends Component {
 			currentTrack: track,
 			currentTrackIndex: this.props.tracks.findIndex(x => x.title === track.title),
 		});
-	}
+			}
 
 	render() {
-		const { closeApp, tracks } = this.props;
+		const { tracks } = this.props;
 		const trackIsPlaying = this.state.currentTrack && this.state.isPlaying;
 		const that = this;
 
-		const trackListing = tracks.map((track) => {
+		const defaultContent = (<h4 className="unavailable">Sorry, music currently available.</h4>);
+		const trackListing = tracks.length === 0 ? defaultContent : tracks.map((track) => {
 			const isCurrentlyPlayingTrack = that.state.currentTrack && that.state.currentTrack.title === track.title;
 			const linearGradient = trackIsPlaying && isCurrentlyPlayingTrack
 				? 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5))'
@@ -90,20 +91,20 @@ export default class Music extends Component {
 				background: `${linearGradient}, url('${track.artworkUrl}')`,
 			};
 
+			const imgStyle = {
+				width: 'auto',
+				height: '20px',
+				display: 'block',
+				margin: '33% auto 0',
+			}
+
 			return (
 				<button className="play-track-btn" key={track.id} onClick={() => this.onTrackClick(track)}>
 					<div style={artworkStyle} className="track-art">
-						{trackIsPlaying && isCurrentlyPlayingTrack
-							// TODO: make most of this styling a class
-							? <img
-								src={audioIcon} alt={audioIcon} style={{
-								width: 'auto',
-								height: '20px',
-								display: 'block',
-								margin: '33% auto 0',
-							}}
-							/>
-							: ''
+						{
+							trackIsPlaying && isCurrentlyPlayingTrack
+							? <img src={audioIcon} alt={audioIcon} style={imgStyle} />
+								: null
 						}
 					</div>
 					<div className="track-info">
@@ -119,49 +120,59 @@ export default class Music extends Component {
 			: 'track-wrapper';
 
 		return (
-			<div className="Music">
-				<AppHeader title="music" onHeaderClick={() => closeApp()}/>
+			<AppFrame
+				title="Music"
+				appClassName="Music"
+				onHeaderClick={this.props.onHeaderClick}
+			>
 				<div className={currentlyPlayingOpenClass}>
-					{trackListing}
-					<audio ref={(audio) => {
-						if (!audio) return;
-						this.audioEl = audio;
-						return this.audioEl.click();
-					}}
-					       src={this.state.currentTrack && (this.state.currentTrack.streamUrl || this.state.currentTrack.downloadUrl)}/>
+					{tracks ? trackListing : defaultContent}
+					<audio
+						ref={
+							(audio) => {
+								if (!audio) return;
+								this.audioEl = audio;
+								return this.audioEl.click();
+							}
+						}
+						src={
+						 this.state.currentTrack && (
+							 this.state.currentTrack.streamUrl || this.state.currentTrack.downloadUrl
+						 )
+						}
+					/>
 				</div>
-				{this.state.currentTrack
-					? (
-						<div className="current-track-player">
-							<img alt={this.state.currentTrack.artworkUrl} src={this.state.currentTrack.artworkUrl}/>
+				{
+					this.state.currentTrack && (
+							<div className="current-track-player">
+								<img alt={this.state.currentTrack.artworkUrl} src={this.state.currentTrack.artworkUrl}/>
 							<div className="current-track-title">
 								<span>{this.state.currentTrack.title}</span>
 							</div>
-							<div className="controls">
-								<button onClick={this.onPlayClick}>
-									<img
-										alt={playIcon}
-										src={
-											!this.state.isPlaying
-												? pauseIcon
-												: playIcon
-										}
-										className="play-icon"
-									/>
-								</button>
+								<div className="controls">
+									<button onClick={this.onPlayClick}>
+										<img
+											alt={playIcon}
+											src={
+												!this.state.isPlaying
+													? pauseIcon
+													: playIcon
+											}
+											className="play-icon"
+										/>
+										</button>
 
-								<button onClick={this.onFastForwardClick}>
-									<img alt={fastForwardIcon} src={fastForwardIcon} className="fast-forward-icon"/>
-								</button>
+									<button onClick={this.onFastForwardClick}>
+										<img alt={fastForwardIcon} src={fastForwardIcon} className="fast-forward-icon"/>
+									</button>
+								</div>
 							</div>
-						</div>
 					)
-					: ''
 				}
 				<div className="music-footer">
-					<img src={musicFooter}/>
+					<img alt={musicFooter} src={musicFooter} />
 				</div>
-			</div>
+			</AppFrame>
 		);
 	}
 }

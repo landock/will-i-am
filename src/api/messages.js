@@ -1,4 +1,6 @@
-const API_ENDPOINT = 'https://william-messages-herokuapp-com.global.ssl.fastly.net/api/v1/conversations';
+import { MESSAGE_STATUS } from '../constants';
+
+const API_ENDPOINT = `https://william-messages-staging.herokuapp.com/api/v1/conversations?status=${MESSAGE_STATUS}`;
 
 export function fetchMessages() {
   return fetch(API_ENDPOINT)

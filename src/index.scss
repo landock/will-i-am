@@ -21,18 +21,18 @@ p {
 }
 
 button,
+a[role="button"],
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   background: none;
   border: 0;
   color: inherit;
-  /* cursor: default; */
+  cursor: pointer;
   font: inherit;
   line-height: normal;
   overflow: visible;
   padding: 0;
-  -webkit-appearance: button;
   /* for input */
   -webkit-user-select: none;
   /* for button */
@@ -53,13 +53,16 @@ input::-moz-focus-inner {
 /* Make `a` like a button */
 [role="button"] {
   color: inherit;
-  cursor: default;
+  cursor: pointer;
   text-align: center;
   text-decoration: none;
-  white-space: pre;
+  white-space: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .wrapper {
@@ -95,6 +98,7 @@ input::-moz-focus-inner {
 
 .slick-list {
   padding-left: 0 !important;
+  height: 530px !important;
 }
 
 .phone-wrapper {
@@ -104,6 +108,11 @@ input::-moz-focus-inner {
   background-size: 400px 800px;
   width: 400px;
   height: 800px;
+  a[role="button"] {
+    img {
+      background:none;
+    }
+  }
 }
 
 a {
@@ -124,7 +133,7 @@ a {
   background-repeat: no-repeat;
   background-size: 360px 640px;
   width: 360px !important;
-  height: 610px;
+  height: 625px;
   top: 92px;
   margin-left: 22px;
   overflow: hidden;
@@ -134,28 +143,36 @@ a {
   &.open {
     height: 615px;
   }
+
+  .crop-container {
+    position: relative;
+  }
 }
 
-.flash-enter {
-  opacity: 0.1;
-  transform: scale(0.01);
+.slick-list {
+}
+
+.flash-enter, .flash-appear {
+  transform: scale(0.001);
+  min-height: 560px;
+  opacity: 0;
 }
 
 .flash-enter.flash-enter-active {
-  opacity: 1;
+  transition: all 300ms linear;
   transform: scale(1);
-  transition: all 200ms linear;
+  opacity: 1;
 }
 
 .flash-leave {
-  opacity: 1;
-  transform: scale3d(1, 1, 1);
+  transition: all 300ms linear;
 }
 
 .flash-leave.flash-leave-active {
-  opacity: 0.01;
-  transform: scale3d(0.1, 0.1, 0.1);
-  transition: all 200ms ease-in;
+  transform: scale(0.001);
+  opacity: 0;
+  color: white;
+  background-color: white;
 }
 
 .message {
@@ -187,17 +204,12 @@ a {
 }
 
 .menu-bottom {
-  position: absolute;
   background-image: url("./images/bottom-nav-bg.png");
   background-repeat: no-repeat;
-  height: 73px;
+  height: 75px;
   width: 326px;
-  bottom: 93px;
-  margin-left: 22px;
-  padding-top: 15px;
-  padding-bottom: 5px;
+  padding-top: 10px;
   padding-left: 30px;
-  text-align: center;
 }
 
 .screen {
@@ -222,6 +234,7 @@ a {
     float: left;
     margin-right: 26px;
     margin-bottom: 10px;
+    background:none;
   }
 }
 
@@ -247,7 +260,7 @@ a {
     content: " ";
     height: 40px;
     position: absolute;
-    right: 244px;
+    right: 228px;
     width: 30px;
     bottom: 1px;
   }
@@ -260,21 +273,15 @@ a {
 .keolo,
 .will {
   .message-wrap {
-    border-radius: 20px 20px 20px 20px;
     margin: 0 49px 10px;
-    padding: 15px 20px;
-    position: relative;
     background-color: #007aff;
     color: #fff;
     margin-left: 80px;
-    margin-bottom: 20px;
 
     &::before {
       border-color: #007aff;
       clip: rect(20px, 35px, 42px, 0px);
-      width: 30px;
       right: -49px;
-      bottom: 0;
     }
   }
 }
@@ -332,7 +339,6 @@ a {
 
 .large {
   .arrow .message-list {
-    margin-top: 90px;
   }
 
   .app-header-img {
@@ -382,11 +388,10 @@ a {
 }
 
 .message-list {
-  margin-top: 50px;
   padding-top: 10px;
   background-color: $white;
   height: 527px;
-  width: 377px;
+  width: 360px;
   overflow: scroll;
 
   span {
@@ -463,8 +468,7 @@ hr {
 .photos-container {
   background-color: $white;
   height: 565px;
-  width: 375px;
-  margin-top: 50px;
+  width: 360px;
   overflow: scroll;
 }
 
@@ -486,6 +490,7 @@ hr {
     background: $black;
     border-radius: 50%;
     color: white;
+    width: 15px;
     height: 20px;
     margin: 10px;
     opacity: 0.8;
@@ -493,22 +498,58 @@ hr {
     position: absolute;
     right: 0;
     top: 0;
-    width: 15px;
   }
 }
 
-.Facebook-app,
-.Twitter {
-  margin-top: 50px;
+
+.PrivacyPolicy, .TermsAndConditions, .Calendar,.Messages,.News, .Photos, .Music, .Twitter, .Instagram, .Facebook {
+  h4.unavailable {
+    text-align: center;
+  }
   background: $white;
   min-height: 563px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  padding-top: 50px;
+  z-index: 2;
+}
+
+.TermsAndConditions, .PrivacyPolicy {
+  height: 630px;
+  overflow-y: scroll;
+  text-align: left;
+  padding: 50px 10px;
+
+  width: 340px;
+
+  a {
+    color: $grey-dark;
+    text-decoration:underline;
+  }
+}
+
+.legal-links {
+  a {
+    margin-left: 7px;
+  }
+}
+.Twitter {
+  iframe {
+    margin-top: -45px !important;
+  }
+}
+
+.Facebook {
+  padding-top: 0;
 }
 
 .Calendar,
+.News,
 .Music {
   background-color: $white;
   min-height: 563px;
-  margin-top: 51px;
 
   .tmpHeader {
     background: #fff;
@@ -524,6 +565,9 @@ hr {
 
 .Calendar .app-header-right {
   width: 80px;
+}
+.Conversations {
+  margin-top: 40px;
 }
 
 .phone-wrapper {
@@ -543,11 +587,13 @@ hr {
   }
 }
 
+
 .instagramHeader {
   position: absolute;
+  top: 0;
+  margin-top: 20px;
   width: 340px;
   background-color: $white;
-  margin-top: -105px;
   padding: 10px;
   height: 85px;
 
@@ -591,7 +637,8 @@ hr {
 }
 
 .instagram-wrapper {
-  margin-top: 156px;
+  padding-top: 156px;
+  position: relative;
 
   .image-crop {
     height: 120px;
@@ -606,7 +653,7 @@ hr {
   }
 
   .photos-container {
-    height: 475px;
+    height: 410px;
   }
 }
 
@@ -723,6 +770,7 @@ hr {
   .message-time {
     float: right;
     color: $grey-medium;
+    width: 95px;
 
     .fa-angle-right {
       font-size: 20px;
@@ -732,8 +780,10 @@ hr {
   }
 
   p {
+    text-align:left;
     float: left;
     margin-bottom: 0;
+    width: 185px;
   }
 }
 
@@ -1005,9 +1055,30 @@ hr {
   color: red;
 }
 
-.CalendarIcon {
-  width: 50px;
+.NewsIcon, .CalendarIcon {
+  width: 55px;
   height: 83px;
+}
+
+.NewsIcon {
+  img {
+    width: 100%;
+    height: 55px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  p {
+    font-size: 70%;
+    color: $grey-light;
+    font-weight: 100;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.CalendarIcon {
   float: left;
   line-height: 0;
 
@@ -1021,19 +1092,18 @@ hr {
     font-size: 200%;
     font-weight: 100;
     margin: 0;
-    letter-spacing: -5px;
-    padding-right: 5px;
+    letter-spacing: -3px;
   }
 
   p {
-    color: #ddd;
     font-size: 70%;
-    margin: 10px 0 0 0;
-    text-align: center
+    color: #c8c7cc;
+    padding: 0;
+    margin: 10px 0 0;
   }
 }
 
-.calendar-btn {
+.calendar-btn{
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -1044,14 +1114,101 @@ hr {
 }
 
 .browser-view {
-   background-color: $white;
-   padding: 17px 102px;
-   color: $black;
-    text-decoration: none;
-    font-family: "Helvetica Neue", sans-serif;
-    line-height: 39px;
+  background-color: $white;
+  padding: 17px 102px;
+  color: $black;
+  text-decoration: none;
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 39px;
 
-    &:hover {
-      text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.News {
+
+  .selected-news-wrapper {
+    height: 555px;
+    overflow-y: scroll;
+    text-align: left;
+
+    h3,
+    aside,
+    p {
+      margin: 10px 15px;
     }
+
+    h3 {
+      font-weight: 300;
+      font-size: 150%;
+      text-transform: capitalize;
+    }
+
+    img {
+      margin: 15px 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    p {
+      white-space: pre-line;
+      text-align: left;
+      font-family: serif;
+      line-height: 1.314;
+    }
+  }
+
+  hr {
+    margin: 30px auto;
+    width: 50%;
+
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+    height: 565px;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  [role="button"] {
+    text-align: left;
+    p {
+      padding: 0px 10px;
+    }
+  }
+}
+
+.legal-container {
+  margin-top: 75px;
+  a {
+    text-decoration:underline;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0.1;
+    transform: scale(0.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn{
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

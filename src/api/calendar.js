@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const GOOGLE_API_KEY = 'AIzaSyAthXrwr4IqBusBkzTv4Se4y7uvtkPNmgU';
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_CALENDAR_API_KEY;
 const CALENDAR_ID = 'ck4h6bgu515hrq4kja38rnluic@group.calendar.google.com';
 const getApiUrl = (calendarId, apiKey) => `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events/?key=${apiKey}&singleEvents=true&orderBy=startTime`;
 
@@ -21,8 +21,6 @@ export function fetchEvents() {
 
 				return event
 			});
-
-			eventsWithGoodDateObjects.forEach(event => console.log(event));
 
 			return eventsWithGoodDateObjects.filter(event => {
 				let date = event.start.date || event.start.dateTime;

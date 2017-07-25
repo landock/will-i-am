@@ -9,24 +9,26 @@ p {
   font-family: "Helvetica Neue", sans-serif; }
 
 button,
+a[role="button"],
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   background: none;
   border: 0;
   color: inherit;
-  /* cursor: default; */
+  cursor: pointer;
   font: inherit;
   line-height: normal;
   overflow: visible;
   padding: 0;
-  -webkit-appearance: button;
   /* for input */
   -webkit-user-select: none;
   /* for button */
   -moz-user-select: none;
   -ms-user-select: none; }
   button:active, button:focus,
+  a[role="button"]:active,
+  a[role="button"]:focus,
   input[type="button"]:active,
   input[type="button"]:focus,
   input[type="reset"]:active,
@@ -43,13 +45,15 @@ input::-moz-focus-inner {
 /* Make `a` like a button */
 [role="button"] {
   color: inherit;
-  cursor: default;
+  cursor: pointer;
   text-align: center;
   text-decoration: none;
-  white-space: pre;
+  white-space: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none; }
+  [role="button"]:focus {
+    outline: none; }
 
 .wrapper {
   margin: 0 auto;
@@ -80,7 +84,8 @@ input::-moz-focus-inner {
   max-width: 600px; }
 
 .slick-list {
-  padding-left: 0 !important; }
+  padding-left: 0 !important;
+  height: 530px !important; }
 
 .phone-wrapper {
   position: relative;
@@ -89,6 +94,8 @@ input::-moz-focus-inner {
   background-size: 400px 800px;
   width: 400px;
   height: 800px; }
+  .phone-wrapper a[role="button"] img {
+    background: none; }
 
 a {
   color: #fff;
@@ -106,7 +113,7 @@ a {
   background-repeat: no-repeat;
   background-size: 360px 640px;
   width: 360px !important;
-  height: 610px;
+  height: 625px;
   top: 92px;
   margin-left: 22px;
   overflow: hidden;
@@ -114,24 +121,27 @@ a {
   background-position-y: -28px; }
   .crop.open {
     height: 615px; }
+  .crop .crop-container {
+    position: relative; }
 
-.flash-enter {
-  opacity: 0.1;
-  transform: scale(0.01); }
+.flash-enter, .flash-appear {
+  transform: scale(0.001);
+  min-height: 560px;
+  opacity: 0; }
 
 .flash-enter.flash-enter-active {
-  opacity: 1;
+  transition: all 300ms linear;
   transform: scale(1);
-  transition: all 200ms linear; }
+  opacity: 1; }
 
 .flash-leave {
-  opacity: 1;
-  transform: scale3d(1, 1, 1); }
+  transition: all 300ms linear; }
 
 .flash-leave.flash-leave-active {
-  opacity: 0.01;
-  transform: scale3d(0.1, 0.1, 0.1);
-  transition: all 200ms ease-in; }
+  transform: scale(0.001);
+  opacity: 0;
+  color: white;
+  background-color: white; }
 
 .message {
   display: none;
@@ -155,17 +165,12 @@ a {
   border-radius: 20px; }
 
 .menu-bottom {
-  position: absolute;
   background-image: url("./images/bottom-nav-bg.png");
   background-repeat: no-repeat;
-  height: 73px;
+  height: 75px;
   width: 326px;
-  bottom: 93px;
-  margin-left: 22px;
-  padding-top: 15px;
-  padding-bottom: 5px;
-  padding-left: 30px;
-  text-align: center; }
+  padding-top: 10px;
+  padding-left: 30px; }
 
 .screen {
   padding-top: 33px;
@@ -184,7 +189,8 @@ a {
 .icon-wrapper a {
   float: left;
   margin-right: 26px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  background: none; }
 
 .message-wrap {
   border-radius: 20px 20px 20px 20px;
@@ -207,7 +213,7 @@ a {
     content: " ";
     height: 40px;
     position: absolute;
-    right: 244px;
+    right: 228px;
     width: 30px;
     bottom: 1px; }
   .message-wrap img {
@@ -215,21 +221,15 @@ a {
 
 .keolo .message-wrap,
 .will .message-wrap {
-  border-radius: 20px 20px 20px 20px;
   margin: 0 49px 10px;
-  padding: 15px 20px;
-  position: relative;
   background-color: #007aff;
   color: #fff;
-  margin-left: 80px;
-  margin-bottom: 20px; }
+  margin-left: 80px; }
   .keolo .message-wrap::before,
   .will .message-wrap::before {
     border-color: #007aff;
     clip: rect(20px, 35px, 42px, 0px);
-    width: 30px;
-    right: -49px;
-    bottom: 0; }
+    right: -49px; }
 
 .speech-bubble .sender-name {
   text-align: left;
@@ -273,9 +273,6 @@ a {
   right: 15px;
   font-size: 18px; }
 
-.large .arrow .message-list {
-  margin-top: 90px; }
-
 .large .app-header-img {
   max-height: 35px; }
 
@@ -312,11 +309,10 @@ a {
     font-size: 23px; }
 
 .message-list {
-  margin-top: 50px;
   padding-top: 10px;
   background-color: #fff;
   height: 527px;
-  width: 377px;
+  width: 360px;
   overflow: scroll; }
   .message-list span {
     display: block;
@@ -372,8 +368,7 @@ hr {
 .photos-container {
   background-color: #fff;
   height: 565px;
-  width: 375px;
-  margin-top: 50px;
+  width: 360px;
   overflow: scroll; }
 
 .conversation {
@@ -390,36 +385,66 @@ hr {
     background: #000;
     border-radius: 50%;
     color: white;
+    width: 15px;
     height: 20px;
     margin: 10px;
     opacity: 0.8;
     padding: 3px 6px;
     position: absolute;
     right: 0;
-    top: 0;
-    width: 15px; }
+    top: 0; }
 
-.Facebook-app,
-.Twitter {
-  margin-top: 50px;
+.PrivacyPolicy, .TermsAndConditions, .Calendar, .Messages, .News, .Photos, .Music, .Twitter, .Instagram, .Facebook {
   background: #fff;
-  min-height: 563px; }
+  min-height: 563px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  padding-top: 50px;
+  z-index: 2; }
+  .PrivacyPolicy h4.unavailable, .TermsAndConditions h4.unavailable, .Calendar h4.unavailable, .Messages h4.unavailable, .News h4.unavailable, .Photos h4.unavailable, .Music h4.unavailable, .Twitter h4.unavailable, .Instagram h4.unavailable, .Facebook h4.unavailable {
+    text-align: center; }
+
+.TermsAndConditions, .PrivacyPolicy {
+  height: 630px;
+  overflow-y: scroll;
+  text-align: left;
+  padding: 50px 10px;
+  width: 340px; }
+  .TermsAndConditions a, .PrivacyPolicy a {
+    color: #111;
+    text-decoration: underline; }
+
+.legal-links a {
+  margin-left: 7px; }
+
+.Twitter iframe {
+  margin-top: -45px !important; }
+
+.Facebook {
+  padding-top: 0; }
 
 .Calendar,
+.News,
 .Music {
   background-color: #fff;
-  min-height: 563px;
-  margin-top: 51px; }
+  min-height: 563px; }
   .Calendar .tmpHeader,
+  .News .tmpHeader,
   .Music .tmpHeader {
     background: #fff;
     border-color: #c8c7cc; }
     .Calendar .tmpHeader .arrow i,
+    .News .tmpHeader .arrow i,
     .Music .tmpHeader .arrow i {
       color: #FF2D55; }
 
 .Calendar .app-header-right {
   width: 80px; }
+
+.Conversations {
+  margin-top: 40px; }
 
 .phone-wrapper .user-count {
   margin: 10px 0 0 10px;
@@ -436,9 +461,10 @@ hr {
 
 .instagramHeader {
   position: absolute;
+  top: 0;
+  margin-top: 20px;
   width: 340px;
   background-color: #fff;
-  margin-top: -105px;
   padding: 10px;
   height: 85px; }
   .instagramHeader img {
@@ -471,7 +497,8 @@ hr {
     max-height: 27px; }
 
 .instagram-wrapper {
-  margin-top: 156px; }
+  padding-top: 156px;
+  position: relative; }
   .instagram-wrapper .image-crop {
     height: 120px;
     width: 120px;
@@ -481,7 +508,7 @@ hr {
       height: 125px;
       width: auto; }
   .instagram-wrapper .photos-container {
-    height: 475px; }
+    height: 410px; }
 
 .profile-info {
   float: left; }
@@ -564,15 +591,18 @@ hr {
 
 .name-arrow-wrap .message-time {
   float: right;
-  color: #8c8c8c; }
+  color: #8c8c8c;
+  width: 95px; }
   .name-arrow-wrap .message-time .fa-angle-right {
     font-size: 20px;
     color: #acacac;
     margin-left: 5px; }
 
 .name-arrow-wrap p {
+  text-align: left;
   float: left;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  width: 185px; }
 
 .message-footer {
   position: absolute;
@@ -774,9 +804,26 @@ hr {
   border-bottom: 1px solid #ccc;
   color: red; }
 
+.NewsIcon, .CalendarIcon {
+  width: 55px;
+  height: 83px; }
+
+.NewsIcon img {
+  width: 100%;
+  height: 55px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  cursor: pointer; }
+
+.NewsIcon p {
+  font-size: 70%;
+  color: #c8c7cc;
+  font-weight: 100;
+  padding: 0;
+  margin: 0; }
+
 .CalendarIcon {
-  width: 50px;
-  height: 83px;
   float: left;
   line-height: 0; }
   .CalendarIcon .day-word {
@@ -787,13 +834,12 @@ hr {
     font-size: 200%;
     font-weight: 100;
     margin: 0;
-    letter-spacing: -5px;
-    padding-right: 5px; }
+    letter-spacing: -3px; }
   .CalendarIcon p {
-    color: #ddd;
     font-size: 70%;
-    margin: 10px 0 0 0;
-    text-align: center; }
+    color: #c8c7cc;
+    padding: 0;
+    margin: 10px 0 0; }
 
 .calendar-btn {
   -webkit-border-radius: 10px;
@@ -813,3 +859,62 @@ hr {
   line-height: 39px; }
   .browser-view:hover {
     text-decoration: underline; }
+
+.News .selected-news-wrapper {
+  height: 555px;
+  overflow-y: scroll;
+  text-align: left; }
+  .News .selected-news-wrapper h3,
+  .News .selected-news-wrapper aside,
+  .News .selected-news-wrapper p {
+    margin: 10px 15px; }
+  .News .selected-news-wrapper h3 {
+    font-weight: 300;
+    font-size: 150%;
+    text-transform: capitalize; }
+  .News .selected-news-wrapper img {
+    margin: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee; }
+  .News .selected-news-wrapper p {
+    white-space: pre-line;
+    text-align: left;
+    font-family: serif;
+    line-height: 1.314; }
+
+.News hr {
+  margin: 30px auto;
+  width: 50%; }
+
+.News ul {
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  height: 565px; }
+
+.News li {
+  list-style: none; }
+
+.News [role="button"] {
+  text-align: left; }
+  .News [role="button"] p {
+    padding: 0px 10px; }
+
+.legal-container {
+  margin-top: 75px; }
+  .legal-container a {
+    text-decoration: underline; }
+
+@keyframes scaleIn {
+  from {
+    opacity: 0.1;
+    transform: scale(0.3); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.1; }
+  to {
+    opacity: 1; } }

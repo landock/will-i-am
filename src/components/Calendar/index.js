@@ -2,13 +2,13 @@ import React from 'react';
 import moment from 'moment';
 import Isvg from 'react-inlinesvg';
 
-import AppHeader from '../AppHeader';
+import AppFrame from '../AppFrame';
 
 import addIcon from '../../images/add.svg';
 import listIcon from '../../images/format_list_bulleted.svg';
 import searchIcon from '../../images/search.svg';
 
-export default function Calendar({ events, closeApp }) {
+export default function Calendar({ events }) {
   const markUp = events.map(event => (
     <div key={event.id}>
 	    <h5>
@@ -49,22 +49,26 @@ export default function Calendar({ events, closeApp }) {
 	);
 
   return (
-	  <div className="Calendar">
-		  <AppHeader
-			  title="Will's calendar"
-			  leftContent={leftContent}
-			  rightContent={rightContent}
-			  onHeaderClick={() => closeApp()}
-		  />
+    <AppFrame
+      title="Calendar"
+      appClassName="Calendar"
+      leftContent={leftContent}
+      rightContent={rightContent}
+    >
 		  <h5 style={{ color: 'red' }} className="today">
 			  <span>{moment().format('ddd MMM DD')}</span>
 		  </h5>
-		  <div> {events ? markUp : ''} </div>
+		  {
+        events.length > 0
+          ? markUp
+          : <h4 className="unavailable">Sorry, calendar currently unavailable.</h4>
+      }
 		  <div className="calendar-footer">
 			  <p>Today</p>
 			  <p>Calendars</p>
 			  <p>Inbox</p>
 		  </div>
-	  </div>
+    </AppFrame>
   );
 }
+
