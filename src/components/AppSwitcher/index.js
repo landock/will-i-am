@@ -36,7 +36,9 @@ export default class AppSwitcher extends Component {
 
 		this.illIAmUrl = 'https://ill.i.am/';
 		this.facebookUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwilliam%2F&tabs=timeline&width=360&height=560&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=263980326955302';
-		this.iamplusUrl = 'https://iamplus.com';
+		this.iamPlusUrl = 'https://iamplus.com';
+		this.iamAngelUrl = 'http://iamangelfoundation.org/';
+
 	}
 
 	componentDidMount() {
@@ -151,11 +153,22 @@ export default class AppSwitcher extends Component {
 							appClassName="plus"
 							key={8}
 							showFooter={true}
-							iframeUrl={this.iamplusUrl}
+							iframeUrl={this.iamPlusUrl}
 						/>
 					);
 					break;
 
+				case 'angel':
+					return (
+						<IframeWrapper
+							title="I.AM.ANGEL Foundation"
+							appClassName="angel"
+							key={8}
+							showFooter={true}
+							iframeUrl={this.iamAngelUrl}
+						/>
+					);
+					break;
 				case 'news':
 					return (
 						<News

@@ -52,7 +52,7 @@ export default class App extends Component {
             <AppTile title="photos" imgSrc={photosIcon} />
             <AppTile title="plus" imgSrc={iamIcon} />
 						<AppTile title="ill" imgSrc={illIcon} />
-						<AppTile title="angel" imgSrc={angelIcon} linkUrl="http://iamangelfoundation.org/" />
+						<AppTile title="angel" imgSrc={angelIcon} />
 					</div>
 				</div>
 				<div className="screen">
