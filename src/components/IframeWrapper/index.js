@@ -7,7 +7,7 @@ export default function IframeWrapper({ appClassName, title, iframeUrl, showFoot
 		const iframeStyle = {
 			marginTop: '50px',
 			width: "100%",
-			height: "560px",
+			height: "575px",
 			backgroundColor: 'white',
 		};
 

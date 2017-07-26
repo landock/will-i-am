@@ -12,7 +12,7 @@ export default class Twitter extends Component {
 
 		const options = {
 			chrome: 'nofooter',
-			height: 695,
+			height: 610,
 		};
 
 		return (

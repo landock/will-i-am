@@ -35,7 +35,7 @@ export default class AppSwitcher extends Component {
 		};
 
 		this.illIAmUrl = 'https://ill.i.am/';
-		this.facebookUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwilliam%2F&tabs=timeline&width=360&height=620&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=263980326955302';
+		this.facebookUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwilliam%2F&tabs=timeline&width=360&height=560&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=263980326955302';
 		this.iamplusUrl = 'https://iamplus.com';
 	}
 
@@ -186,6 +186,7 @@ export default class AppSwitcher extends Component {
 					transitionName="flash"
 					transitionEnterTimeout={300}
 					transitionLeaveTimeout={300}
+					component="div"
 				>
 					{renderApp(this.props.currentApp)}
 				</CSSTransitionGroup>

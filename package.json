@@ -41,7 +41,6 @@
     "s3-deploy": "^0.7.5"
   },
   "scripts": {
-    "init": "node ./init.js",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "yarn run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",

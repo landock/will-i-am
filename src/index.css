@@ -109,14 +109,14 @@ a {
 
 .crop {
   position: absolute;
+  top: 92px;
+  width: 360px !important;
+  height: 625px;
+  margin-left: 22px;
+  overflow: hidden;
   background-image: url("./images/will-phone-bg.jpg");
   background-repeat: no-repeat;
   background-size: 360px 640px;
-  width: 360px !important;
-  height: 625px;
-  top: 92px;
-  margin-left: 22px;
-  overflow: hidden;
   background-position-x: -5px;
   background-position-y: -28px; }
   .crop.open {
@@ -394,24 +394,57 @@ hr {
     right: 0;
     top: 0; }
 
-.PrivacyPolicy, .TermsAndConditions, .Calendar, .Messages, .News, .Photos, .Music, .Twitter, .Instagram, .Facebook {
+.Calendar,
+.News,
+.Music {
   background: #fff;
-  min-height: 563px;
+  min-height: 565px; }
+  .Calendar .tmpHeader,
+  .News .tmpHeader,
+  .Music .tmpHeader {
+    background: #fff;
+    border-color: #c8c7cc; }
+    .Calendar .tmpHeader .arrow i,
+    .News .tmpHeader .arrow i,
+    .Music .tmpHeader .arrow i {
+      color: #FF2D55; }
+
+.PrivacyPolicy,
+.TermsAndConditions,
+.Calendar,
+.Messages,
+.News,
+.Photos,
+.Music,
+.Twitter,
+.Instagram,
+.Facebook {
   position: absolute;
   top: 0;
   left: 0;
+  max-height: 575px;
   width: 360px;
   padding-top: 50px;
-  z-index: 2; }
-  .PrivacyPolicy h4.unavailable, .TermsAndConditions h4.unavailable, .Calendar h4.unavailable, .Messages h4.unavailable, .News h4.unavailable, .Photos h4.unavailable, .Music h4.unavailable, .Twitter h4.unavailable, .Instagram h4.unavailable, .Facebook h4.unavailable {
+  z-index: 2;
+  background: #fff; }
+  .PrivacyPolicy h4.unavailable,
+  .TermsAndConditions h4.unavailable,
+  .Calendar h4.unavailable,
+  .Messages h4.unavailable,
+  .News h4.unavailable,
+  .Photos h4.unavailable,
+  .Music h4.unavailable,
+  .Twitter h4.unavailable,
+  .Instagram h4.unavailable,
+  .Facebook h4.unavailable {
     text-align: center; }
 
 .TermsAndConditions, .PrivacyPolicy {
   height: 630px;
-  overflow-y: scroll;
-  text-align: left;
+  width: 340px;
   padding: 50px 10px;
-  width: 340px; }
+  overflow-y: scroll;
+  text-align: left; }
   .TermsAndConditions a, .PrivacyPolicy a {
     color: #111;
     text-decoration: underline; }
@@ -425,21 +458,6 @@ hr {
 .Facebook {
   padding-top: 0; }
 
-.Calendar,
-.News,
-.Music {
-  background-color: #fff;
-  min-height: 563px; }
-  .Calendar .tmpHeader,
-  .News .tmpHeader,
-  .Music .tmpHeader {
-    background: #fff;
-    border-color: #c8c7cc; }
-    .Calendar .tmpHeader .arrow i,
-    .News .tmpHeader .arrow i,
-    .Music .tmpHeader .arrow i {
-      color: #FF2D55; }
-
 .Calendar .app-header-right {
   width: 80px; }
 
@@ -452,28 +470,26 @@ hr {
   text-align: left; }
 
 .phone-wrapper .sub {
-  font-size: 14px;
+  width: 322px;
   margin-bottom: 25px;
   margin-left: 10px;
   margin-top: 5px;
-  text-align: left;
-  width: 322px; }
+  font-size: 14px;
+  text-align: left; }
 
 .instagramHeader {
+  width: 340px;
+  height: 85px;
   position: absolute;
   top: 0;
   margin-top: 20px;
-  width: 340px;
   background-color: #fff;
-  padding: 10px;
-  height: 85px; }
+  padding: 10px; }
   .instagramHeader img {
-    border-radius: 50%;
     height: 65px;
     width: 65px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #f7f7f5;
+    border: 1px solid #f7f7f5;
+    border-radius: 50%;
     text-align: left;
     margin: 0 auto;
     display: block; }
@@ -491,7 +507,6 @@ hr {
   right: 10px;
   top: 33.333%;
   max-height: 20px;
-  width: 20px;
   width: 20px; }
   .app-header-right img {
     max-height: 27px; }

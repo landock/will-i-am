@@ -129,14 +129,14 @@ a {
 
 .crop {
   position: absolute;
+  top: 92px;
+  width: 360px !important;
+  height: 625px;
+  margin-left: 22px;
+  overflow: hidden;
   background-image: url("./images/will-phone-bg.jpg");
   background-repeat: no-repeat;
   background-size: 360px 640px;
-  width: 360px !important;
-  height: 625px;
-  top: 92px;
-  margin-left: 22px;
-  overflow: hidden;
   background-position-x: -5px;
   background-position-y: -28px;
 
@@ -147,9 +147,6 @@ a {
   .crop-container {
     position: relative;
   }
-}
-
-.slick-list {
 }
 
 .flash-enter, .flash-appear {
@@ -502,27 +499,54 @@ hr {
 }
 
 
-.PrivacyPolicy, .TermsAndConditions, .Calendar,.Messages,.News, .Photos, .Music, .Twitter, .Instagram, .Facebook {
+.Calendar,
+.News,
+.Music {
+  background: $white;
+  min-height: 565px;
+  .tmpHeader {
+    background: #fff;
+    border-color: $grey-light;
+
+    .arrow {
+      i {
+        color: #FF2D55;
+      }
+    }
+  }
+}
+
+.PrivacyPolicy,
+.TermsAndConditions,
+.Calendar,
+.Messages,
+.News,
+.Photos,
+.Music,
+.Twitter,
+.Instagram,
+.Facebook {
+
   h4.unavailable {
     text-align: center;
   }
-  background: $white;
-  min-height: 563px;
+
   position: absolute;
   top: 0;
   left: 0;
+  max-height: 575px;
   width: 360px;
   padding-top: 50px;
   z-index: 2;
+  background: $white;
 }
 
 .TermsAndConditions, .PrivacyPolicy {
   height: 630px;
+  width: 340px;
+  padding: 50px 10px;
   overflow-y: scroll;
   text-align: left;
-  padding: 50px 10px;
-
-  width: 340px;
 
   a {
     color: $grey-dark;
@@ -545,24 +569,6 @@ hr {
   padding-top: 0;
 }
 
-.Calendar,
-.News,
-.Music {
-  background-color: $white;
-  min-height: 563px;
-
-  .tmpHeader {
-    background: #fff;
-    border-color: $grey-light;
-
-    .arrow {
-      i {
-        color: #FF2D55;
-      }
-    }
-  }
-}
-
 .Calendar .app-header-right {
   width: 80px;
 }
@@ -578,32 +584,30 @@ hr {
   }
 
   .sub {
-    font-size: 14px;
+    width: 322px;
     margin-bottom: 25px;
     margin-left: 10px;
     margin-top: 5px;
+    font-size: 14px;
     text-align: left;
-    width: 322px;
   }
 }
 
 
 .instagramHeader {
+  width: 340px;
+  height: 85px;
   position: absolute;
   top: 0;
   margin-top: 20px;
-  width: 340px;
   background-color: $white;
   padding: 10px;
-  height: 85px;
 
   img {
-    border-radius: 50%;
     height: 65px;
     width: 65px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: $white-off;
+    border:1px solid $white-off;
+    border-radius: 50%;
     text-align: left;
     margin: 0 auto;
     display: block;
@@ -628,7 +632,6 @@ hr {
   right: 10px;
   top: 33.333%;
   max-height: 20px;
-  width: 20px;
   width: 20px;
 
   img {
