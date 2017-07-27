@@ -20,7 +20,7 @@ export default function IframeWrapper({ appClassName, title, iframeUrl, showFoot
 						style={iframeStyle}
 						scrolling="yes"
 						frameBorder="no"
-						sandbox="allow-same-origin allow-scripts"
+						sandbox="allow-popups allow-forms allow-same-origin allow-scripts"
 						title={title}
 						src={iframeUrl}
 					/>

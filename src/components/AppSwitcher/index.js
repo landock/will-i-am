@@ -138,7 +138,7 @@ export default class AppSwitcher extends Component {
 					return (
 						<IframeWrapper
 							title="ill.i.am"
-							appClassName={appName}
+							appClassName="Ill"
 							key={7}
 							showFooter={true}
 							iframeUrl={this.illIAmUrl}
@@ -150,7 +150,7 @@ export default class AppSwitcher extends Component {
 					return (
 						<IframeWrapper
 							title="Iam+"
-							appClassName="plus"
+							appClassName="Plus"
 							key={8}
 							showFooter={true}
 							iframeUrl={this.iamPlusUrl}
@@ -162,7 +162,7 @@ export default class AppSwitcher extends Component {
 					return (
 						<IframeWrapper
 							title="I.AM.ANGEL Foundation"
-							appClassName="angel"
+							appClassName="Angel"
 							key={8}
 							showFooter={true}
 							iframeUrl={this.iamAngelUrl}

@@ -418,6 +418,9 @@ hr {
 
 .PrivacyPolicy,
 .TermsAndConditions,
+.Plus,
+.Angel,
+.Ill,
 .Calendar,
 .Messages,
 .News,
@@ -437,6 +440,9 @@ hr {
   background: #fff; }
   .PrivacyPolicy h4.unavailable,
   .TermsAndConditions h4.unavailable,
+  .Plus h4.unavailable,
+  .Angel h4.unavailable,
+  .Ill h4.unavailable,
   .Calendar h4.unavailable,
   .Messages h4.unavailable,
   .News h4.unavailable,
@@ -709,7 +715,7 @@ hr {
 
 .music-footer {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   border-top: 1px solid #c8c7cc; }
   .music-footer img {
     width: 100%; }
@@ -880,7 +886,10 @@ hr {
   color: #000;
   text-decoration: none;
   font-family: "Helvetica Neue", sans-serif;
-  line-height: 39px; }
+  line-height: 39px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
   .browser-view:hover {
     text-decoration: underline; }
 
@@ -929,6 +938,18 @@ hr {
   padding-bottom: 75px; }
   .legal-container a {
     text-decoration: underline; }
+  @media screen and (max-width: 500px) {
+    .legal-container {
+      margin: 25px auto;
+      padding-bottom: 25px;
+      padding-bottom: 0;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.5; }
+      .legal-container a {
+        line-height: 1.5;
+        text-decoration: underline;
+        display: block; } }
 
 @keyframes scaleIn {
   from {

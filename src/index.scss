@@ -80,17 +80,20 @@ input::-moz-focus-inner {
   padding-top: 206px;
   width: 1973px;
   height: 1544px;
+
   @media screen and (min-width: 501px) and (max-width: 1064px) {
     background-position:-300px 0;
     width: auto !important;
     height: auto !important;
   }
+
   @media screen and (max-width: 1450px) {
     background-image: url("./images/bg-4-md.jpg");
     padding-top: 154px;
     width: 1454px;
     height: 1544px;
   }
+
   @media screen and (max-width: 500px) {
     background: none;
     background-position:0 0;
@@ -114,6 +117,7 @@ input::-moz-focus-inner {
   background-size: 400px 800px;
   width: 400px;
   height: 800px;
+
   a[role="button"] {
     img {
       background:none;
@@ -524,6 +528,9 @@ hr {
 
 .PrivacyPolicy,
 .TermsAndConditions,
+.Plus,
+.Angel,
+.Ill,
 .Calendar,
 .Messages,
 .News,
@@ -903,7 +910,7 @@ hr {
 
 .music-footer {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   border-top: 1px solid $grey-light;
 
   img {
@@ -1131,7 +1138,9 @@ hr {
   text-decoration: none;
   font-family: "Helvetica Neue", sans-serif;
   line-height: 39px;
-
+  position: absolute;
+  bottom: 0;
+  left: 0;
   &:hover {
     text-decoration: underline;
   }
@@ -1198,8 +1207,21 @@ hr {
 .legal-container {
   margin: 75px auto;
   padding-bottom: 75px;
-  a {
-    text-decoration:underline;
+
+  a { text-decoration:underline; }
+
+  @media screen and (max-width: 500px) {
+    margin: 25px auto;
+    padding-bottom: 25px;
+    padding-bottom: 0;
+    color: #fff;
+    font-size:14px;
+    line-height:1.5;
+    a {
+      line-height:1.5;
+      text-decoration:underline;
+      display:block;
+    }
   }
 }
 
