@@ -5,7 +5,7 @@
   "private": true,
   "homepage": ".",
   "config": {
-    "bucketName": "staging.will.i.am"
+    "bucketName": "will.i.am"
   },
   "dependencies": {
     "eventemitter": "^0.3.3",
@@ -46,10 +46,11 @@
     "start-js": "react-scripts start",
     "start": "run-p watch-css start-js",
     "build": "react-scripts build",
-    "upload": "s3-deploy './build/**' --cwd './build/' --bucket \"$npm_package_config_bucketName\" --gzip --cache 31536000 --immutable --etag",
+    "upload:production": "s3-deploy './build/**' --cwd './build/' --bucket \"$npm_package_config_bucketName\" --gzip --cache 31536000 --immutable --etag",
+    "upload:staging": "s3-deploy './build/**' --cwd './build/' --bucket \"staging.$npm_package_config_bucketName\" --gzip --cache 31536000 --immutable --etag",
     "deploy": "yarn run deploy:staging",
-    "deploy:staging": "yarn run build && yarn run upload",
-    "deploy:production": "NODE_ENV=production yarn run deploy",
+    "deploy:staging": "yarn run build && yarn run upload:staging",
+    "deploy:production": "NODE_ENV=production yarn run build && yarn run deploy:production",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
