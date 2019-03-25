@@ -1,5 +1,6 @@
 
 [Demo Here](https://landock.github.io/will-i-am/)
+
 I blocked out the basic components for each of the "apps" on the phone . The messsages component is pretty rough but it get's across the basics I hope. right now all the messages are expanded but I've set up a click handler on the users name where you can add behaviour to show/hide the messages. There are a few ways to start cleaning things up but they amount to just componentizing the shit out of every thing.
 
 I included a google calendar id and a flickr api key in the constants.js file to use. You're going to have to figure out how to use the key's but google is oauth2 and flickr is just sending the key in some header. That should cover it?
